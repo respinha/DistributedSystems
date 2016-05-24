@@ -1,5 +1,5 @@
 pt.ua.sd.ropegame
-pt.ua.sd.ropegame.entities
-pt.ua.sd.ropegame.enums
-pt.ua.sd.ropegame.interfaces
-pt.ua.sd.ropegame.memregions
+pt.ua.sd.ropegame.clients
+pt.ua.sd.ropegame.common.enums
+pt.ua.sd.ropegame.common.interfaces
+pt.ua.sd.ropegame.servers
