@@ -47,6 +47,9 @@ public class MessageToGenRep extends Message {
             case MessageType.UPDATE_ROPE_POSITION:
                 this.ropePos = intVal;
                 break;
+            case MessageType.UPDATE_GAME:
+                this.game = intVal;
+                break;
         }
     }
 

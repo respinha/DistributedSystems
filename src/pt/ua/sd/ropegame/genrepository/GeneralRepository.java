@@ -16,8 +16,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * General repository: generates the log file.
  */
-public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
-        ICoachGenRep, IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep {
+public class GeneralRepository implements
+        IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep {
 
 
     private Lock mutex;

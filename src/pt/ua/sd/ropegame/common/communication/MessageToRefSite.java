@@ -26,6 +26,7 @@ public class MessageToRefSite extends Message {
      */
     public MessageToRefSite(int msgType, int senderID, int teamID) {
         super(msgType, senderID);
+
         this.team = teamID;
     }
 
@@ -72,4 +73,6 @@ public class MessageToRefSite extends Message {
     public int getTeamID() {
         return team;
     }
+
+    public int getGameNumber() { return team; }
 }
