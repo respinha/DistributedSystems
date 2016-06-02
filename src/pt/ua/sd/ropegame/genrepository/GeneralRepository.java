@@ -46,6 +46,7 @@ public class GeneralRepository implements
     // variables needed to create and write to a text file
     private Path file;
     ArrayList<String> lines;
+    boolean write = false;
 
     /**
      * Constructor for the general repository.
@@ -211,6 +212,8 @@ public class GeneralRepository implements
     public void updateRefState(String state) {
         mutex.lock();
 
+        if(!write) // && currentStatus[STATUSID.PS.id] != "-")
+            write = true;
         currentStatus[STATUSID.REFSTAT.id] = state;
         printStatus();
 
@@ -235,6 +238,9 @@ public class GeneralRepository implements
      * Print current status.
      */
     private void printStatus() {
+
+        if(!write) return;
+
         ArrayList<String> row = new ArrayList<>();
 
         int[] size = new int[] {
