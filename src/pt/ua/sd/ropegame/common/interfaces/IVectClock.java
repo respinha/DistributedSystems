@@ -5,6 +5,5 @@ package pt.ua.sd.ropegame.common.interfaces;
  */
 public interface IVectClock {
 
-    void updateCurrentTime(int[] vectClocks);
-    void sendCurrentTime();
+    void updateCurrentTime(int[] vectClocks, boolean self, int entityID);
 }

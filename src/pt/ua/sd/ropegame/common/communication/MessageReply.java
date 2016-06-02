@@ -8,6 +8,7 @@ public class MessageReply extends Message {
     private boolean booleanResponse;
     private int intResponse;
     private String stringResponse;
+    private int[] time;
 
     /**
      * Constructor for a generic message
@@ -55,4 +56,8 @@ public class MessageReply extends Message {
     }
 
     public String getStringResponse() { return stringResponse; }
+
+    public int[] getTime() {
+        return time;
+    }
 }

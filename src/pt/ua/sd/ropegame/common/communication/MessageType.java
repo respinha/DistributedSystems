@@ -100,6 +100,10 @@ public class MessageType {
     public static final int LOG_GENERATED = 705;
     public static final int REF_HAS_MORE_OPER = 706;
     public static final int REPLY_REF_HAS_MORE_OPER = 707;
+    public static final int UPDATE_GAME = 708;
+    public static final int REPLY_UPDATE_GAME = 708;
 
     public static final int DIE = 999;
+    public static final int SEND_TIME = 998;
+    public static final int REPLY_TIME = 997;
 }

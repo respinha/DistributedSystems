@@ -8,13 +8,16 @@ import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.communication.*;
 import pt.ua.sd.ropegame.common.interfaces.*;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * A team is composed by a {@link Coach} and multiple {@link Contestant} instances.
  * TeamClient is the client that establishes connection between this machine and the remote hosts.
  */
 public class TeamClient
         implements ICoachRefSite, ICoachPlay, ICoachBench,
-            IContestantsBench, IContestantsPlay
+            IContestantsBench, IContestantsPlay, IVectClock
 {
 
     // team contestants and coach
@@ -22,6 +25,10 @@ public class TeamClient
     private Coach coach;
     private GameOfTheRopeConfigs configs;
 
+    // Vectorial clock variables
+    private int[] vectClocks;
+    private final int TEAM_CLOCK_INDEX;
+    private Lock mutex;
     /**
      * Constructor for team Client.
      * @param team This team ID.
@@ -31,11 +38,9 @@ public class TeamClient
 
         this.configs = configs;
 
-        /**
-         * 0 - bench
-         * 1 - playground
-         * 2 - referee site
-         */
+        if(team == 0) TEAM_CLOCK_INDEX = 1;
+        else TEAM_CLOCK_INDEX = 7;
+        mutex = new ReentrantLock();
 
         coach = new Coach(this, this, this, team, new CoachStrategies());
         contestants = new Contestant[configs.getNContestants()];
@@ -78,6 +83,7 @@ public class TeamClient
 
         Message outMessage;
 
+        // updateCurrentTime(vectClocks, true, this.TEAM_CLOCK_INDEX);
         outMessage = new MessageToBench(MessageType.REVIEW_NOTES_BENCH, MessageParticipant.COACH, trial, teamID, knockout);
 
         MessageReply inMessage;
@@ -533,5 +539,19 @@ public class TeamClient
         }
         return com;
     }
+
+    @Override
+    public void updateCurrentTime(int[] vectClocks, boolean self, int entityID) {
+        mutex.lock();
+
+        if(self) {
+            this.vectClocks[entityID]++;
+        } else {
+            for (int i = 0; i < this.vectClocks.length; i++) this.vectClocks[i] = vectClocks[i];
+        }
+
+        mutex.lock();
+    }
+
 
 }

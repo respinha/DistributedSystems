@@ -140,6 +140,18 @@ public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
 
     }
 
+    @Override
+    public void updateGame(int game) {
+
+        mutex.lock();
+
+        String s1 = "Game " + game;
+        lines.add(s1);
+        GenericIO.writelnString(s1);
+
+        mutex.unlock();
+    }
+
     /**
      * Displays "Match was won by team # (#-#). / was a draw." message.
      * @param winner team which won the match.

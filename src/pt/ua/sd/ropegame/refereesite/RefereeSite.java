@@ -98,8 +98,9 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
 
         RefereeState state = RefereeState.START_OF_A_GAME;
         // referee.changeState(state);
-        repository.updateRefState(state.shortName());
         currentGame++;
+        repository.updateRefState(state.shortName());
+        repository.updateGame(currentGame);
 
         mutex.unlock();
     }

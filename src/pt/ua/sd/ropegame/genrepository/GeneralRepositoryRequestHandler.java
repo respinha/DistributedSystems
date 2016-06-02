@@ -181,6 +181,12 @@ public class GeneralRepositoryRequestHandler implements IRequestHandler {
                     outMessage = new MessageReply(MessageType.STRENGTHS_UPDATED, MessageParticipant.GENREP);
                     break;
 
+                case MessageType.UPDATE_GAME:
+                    game = inMessage.getGame();
+                    generalRepository.updateGame(game);
+                    outMessage = new MessageReply(MessageType.UPDATE_GAME, MessageParticipant.GENREP);
+                    break;
+
                 case MessageType.DIE:
                     boolean dead = generalRepository.requestToDie();
                     if(dead) throw new MessageException("A ligação terminou.", message);

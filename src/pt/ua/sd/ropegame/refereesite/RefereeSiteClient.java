@@ -20,6 +20,22 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         super(serverHostName, serverPortNumber);
     }
 
+    @Override
+    public void updateGame(int game) {
+
+        ClientCom com = initCom();
+        Message inMessage, outMessage;
+        outMessage = new MessageToGenRep(MessageType.UPDATE_GAME, MessageParticipant.REFSITE, game);
+        com.writeObject(outMessage);
+        inMessage = (Message) com.readObject();
+        com.close();
+
+        if(inMessage.getMsgType() != MessageType.REPLY_UPDATE_GAME)  {
+            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.exit(1);
+        }
+    }
+
     /**
      * Message sent from {@link RefereeSite} to a remote GeneralRepository Server requesting to update the match winner in the logging file.
      * @param winner
