@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.refereesite;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.interfaces.IRequestHandler;
 import pt.ua.sd.ropegame.common.communication.*;
@@ -131,7 +131,7 @@ public class RefereeSiteRequestHandler implements IRequestHandler {
             }
         } catch(MessageException e) {
             if(e.getMessageVal().getMsgType() == MessageType.DIE) {
-                GenericIO.writelnString("O servidor foi desligado.");
+                System.out.println("O servidor foi desligado.");
                 System.exit(0);
             }
             outMessage = e.getMessageVal();

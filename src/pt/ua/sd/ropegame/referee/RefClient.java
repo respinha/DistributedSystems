@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.referee;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IRefSite;
 import pt.ua.sd.ropegame.common.communication.*;
@@ -57,7 +57,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.ROPE_POS)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -80,7 +80,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_CALLED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -102,7 +102,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.MATCH_OVER_CONTESTANTS)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -122,7 +122,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_STARTED_REFSITE)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -147,7 +147,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_DECIDED_REFSITE)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -171,7 +171,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.MATCH_STARTED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -193,7 +193,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REPLY_REF_HAS_MORE_OPER)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -227,7 +227,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_STARTED_PLAYGROUND)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -252,7 +252,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_DECIDED_PLAYGROUND)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -273,7 +273,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GAME_ANNOUNCED_PLAY)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -293,7 +293,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GAME_ANNOUNCED_REFSITE)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -320,7 +320,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GAME_WINNER_DECLARED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -342,7 +342,7 @@ public class RefClient implements IRefBench, IRefPlay, IRefSite, IRefClient {
         com.close();
 
         if(inMessage.getMsgType() != MessageType.MATCH_WINNER_DECLARED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 

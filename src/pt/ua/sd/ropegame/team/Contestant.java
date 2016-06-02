@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.team;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.interfaces.IContestantsPlay;
 import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsBench;
@@ -104,7 +104,7 @@ public class Contestant extends TeamMember {
 
         }
 
-        GenericIO.writelnString("O jogador "+ number + " da equipa "+ team + " terminou.");
+        System.out.println("O jogador "+ number + " da equipa "+ team + " terminou.");
         bench.closeBenchConnection();
     }
 

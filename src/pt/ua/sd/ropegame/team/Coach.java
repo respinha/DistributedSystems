@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.team;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.CoachStrategies;
 import pt.ua.sd.ropegame.common.interfaces.*;
@@ -114,7 +114,7 @@ public class Coach extends TeamMember {
 
         }
 
-        GenericIO.writelnString("O treinador da equipa "+ team + " terminou.");
+        System.out.println("O treinador da equipa "+ team + " terminou.");
         playground.closePlaygroundConnection();
     }
 

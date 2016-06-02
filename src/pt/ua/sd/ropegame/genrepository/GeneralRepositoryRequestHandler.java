@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.genrepository;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.bench.Bench;
 import pt.ua.sd.ropegame.bench.BenchServer;
 import pt.ua.sd.ropegame.common.communication.*;
@@ -195,7 +195,7 @@ public class GeneralRepositoryRequestHandler implements IRequestHandler {
             }
         } catch (MessageException e) {
             if(e.getMessageVal().getMsgType() == MessageType.DIE) {
-                GenericIO.writelnString("O servidor foi desligado.");
+                System.out.println("O servidor foi desligado.");
                 System.exit(0);
             }
 

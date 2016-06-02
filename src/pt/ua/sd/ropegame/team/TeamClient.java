@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.team;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.CoachStrategies;
@@ -92,7 +92,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REVIEW_DONE_BENCH)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -118,7 +118,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CONTESTANTS_CALLED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -141,7 +141,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.COACH_CALLED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -165,7 +165,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REPLY_COACH_HAS_MORE_OPER)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -190,7 +190,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GOT_CURRENT_TRIAL)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -215,7 +215,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REVIEW_DONE_PLAY)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -240,7 +240,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.COACH_MOVED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -265,7 +265,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GOT_IS_KNOCKOUT)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -291,7 +291,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REF_INFORMED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -317,7 +317,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CALLED_TO_GAME)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -345,7 +345,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.SEATED_DONE)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -372,7 +372,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REPLY_CONT_HAS_MORE_OPER)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -427,7 +427,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.IN_PLAYGROUND)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -456,7 +456,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.READY)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -479,7 +479,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.PULLED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -500,7 +500,7 @@ public class TeamClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.DONE)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 

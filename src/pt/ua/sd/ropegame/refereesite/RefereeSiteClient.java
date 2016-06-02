@@ -1,7 +1,6 @@
 package pt.ua.sd.ropegame.refereesite;
 
-import genclass.GenericIO;
-import pt.ua.sd.ropegame.common.interfaces.IClient;
+
 import pt.ua.sd.ropegame.common.interfaces.IRefSiteGenRep;
 import pt.ua.sd.ropegame.common.communication.*;
 import pt.ua.sd.ropegame.playground.Playground;
@@ -9,7 +8,7 @@ import pt.ua.sd.ropegame.playground.Playground;
 /**
  * RefereeSiteClient is the client that establishes connection between this machine and the {@Link GeneralRepositoryServer}.
  */
-public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep, IClient {
+public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep {
 
     /**
      * Constructor.
@@ -31,7 +30,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REPLY_UPDATE_GAME)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -52,7 +51,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.MATCH_WINNER_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -75,7 +74,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.GAME_WINNER_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -94,7 +93,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.LOG_GENERATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -116,7 +115,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.COACH_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -138,7 +137,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CONT_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -159,7 +158,7 @@ public class RefereeSiteClient extends ClientAbstract implements IRefSiteGenRep,
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REF_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }

@@ -1,15 +1,13 @@
 package pt.ua.sd.ropegame.bench;
 
-import genclass.GenericIO;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
 import pt.ua.sd.ropegame.common.communication.*;
-import pt.ua.sd.ropegame.common.interfaces.IClient;
 import pt.ua.sd.ropegame.team.Coach;
 
 /**
  * BenchClient is the client that establishes connection between this machine and the {@Link GeneralRepositoryServer}.
  */
-public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient {
+public class BenchClient extends ClientAbstract implements IBenchGenRep {
 
     /**
      * Constructor.
@@ -38,7 +36,7 @@ public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CONTESTANTS_REMOVED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -60,7 +58,7 @@ public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.STRENGTHS_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -99,7 +97,7 @@ public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.COACH_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -123,7 +121,7 @@ public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CONT_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -144,7 +142,7 @@ public class BenchClient extends ClientAbstract implements IBenchGenRep, IClient
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REF_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }

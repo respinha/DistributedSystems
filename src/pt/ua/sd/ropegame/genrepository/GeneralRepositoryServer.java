@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.genrepository;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.communication.ServerCom;
@@ -35,7 +35,7 @@ public class GeneralRepositoryServer {
         GeneralRepositoryRequestHandler generalRepositoryInterface = new GeneralRepositoryRequestHandler(generalRepository);
 
         ClientProxy proxy;
-        GenericIO.writelnString("Servidor em escuta!");
+        System.out.println("Servidor em escuta!");
         while(true) {
 
             serverComInterface = serverCom.accept();

@@ -1,15 +1,14 @@
 package pt.ua.sd.ropegame.playground;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.bench.Bench;
 import pt.ua.sd.ropegame.common.communication.*;
-import pt.ua.sd.ropegame.common.interfaces.IClient;
 import pt.ua.sd.ropegame.common.interfaces.IPlaygroundGenRep;
 
 /**
  * PlaygroundClient is the client that establishes connection between this machine and the {@Link GeneralRepositoryServer}.
  */
-public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygroundGenRep {
+public class PlaygroundClient extends ClientAbstract implements IPlaygroundGenRep {
 
     /**
      * Constructor.
@@ -54,7 +53,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.POSITION_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -75,7 +74,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.TRIAL_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -96,7 +95,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.ROPE_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
 
@@ -120,7 +119,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.COACH_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -144,7 +143,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.CONT_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }
@@ -165,7 +164,7 @@ public class PlaygroundClient extends ClientAbstract implements IClient, IPlaygr
         com.close();
 
         if(inMessage.getMsgType() != MessageType.REF_UPDATED)  {
-            GenericIO.writelnString("Mensagem inesperada! " + inMessage.getMsgType());
+            System.out.println("Mensagem inesperada! " + inMessage.getMsgType());
             System.exit(1);
         }
     }

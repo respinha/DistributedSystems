@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.genrepository;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.interfaces.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -147,7 +147,7 @@ public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
 
         String s1 = "Game " + game;
         lines.add(s1);
-        GenericIO.writelnString(s1);
+        System.out.println(s1);
 
         mutex.unlock();
     }
@@ -172,7 +172,7 @@ public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
         }
 
         lines.add(s1);
-        GenericIO.writelnString(s1);
+        System.out.println(s1);
         mutex.unlock();
     }
 
@@ -200,7 +200,7 @@ public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
         }
 
         lines.add(s1);
-        GenericIO.writelnString(s1);
+        System.out.println(s1);
         mutex.unlock();
     }
 
@@ -251,7 +251,7 @@ public class GeneralRepository implements IRefereeGenRep, IContestantGenRep,
 
         String line = Logger.log(row.toArray(new String[0]), size);
         lines.add(line);
-        GenericIO.writelnString(line);
+        System.out.println(line);
     }
 
 

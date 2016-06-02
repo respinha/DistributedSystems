@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.common.communication;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.interfaces.*;
 
 
@@ -83,7 +83,7 @@ public class ClientProxy extends Thread{
         { cl = (Class<ClientProxy>) Class.forName ("pt.ua.sd.ropegame.common.communication.ClientProxy");
         }
         catch (ClassNotFoundException e)
-        { GenericIO.writelnString ("O tipo de dados ClientProxy não foi encontrado!");
+        { System.out.println ("O tipo de dados ClientProxy não foi encontrado!");
             e.printStackTrace ();
             System.exit (1);
         }

@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.referee;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.interfaces.IRefSite;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.IRefBench;
@@ -125,7 +125,7 @@ public class Referee extends Thread {
             }
         }
 
-        GenericIO.writelnString("O árbitro terminou.");
+        System.out.println("O árbitro terminou.");
         refereeSite.closeRefSite();
 
     }

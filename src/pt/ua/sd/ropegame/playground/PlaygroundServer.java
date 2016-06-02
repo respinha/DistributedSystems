@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.playground;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IPlaygroundGenRep;
@@ -39,7 +39,7 @@ public class PlaygroundServer {
 
         ServerCom serverComInterface;
         ClientProxy proxy;
-        GenericIO.writelnString("Servidor em escuta!");
+        System.out.println("Servidor em escuta!");
         while(true) {
 
             serverComInterface = serverCom.accept();

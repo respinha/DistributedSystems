@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.referee;
 
-import genclass.GenericIO;
+
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 
@@ -28,7 +28,7 @@ public class RefereeMain {
             refClient.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
-            GenericIO.writelnString("O cliente árbitro terminou.");
+            System.out.println("O cliente árbitro terminou.");
         }
     }
 }
