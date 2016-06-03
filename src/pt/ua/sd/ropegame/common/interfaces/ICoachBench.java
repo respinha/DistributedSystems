@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface ICoachBench {
+public interface ICoachBench extends ITeamBench {
 
     void reviewNotes(int teamID, int trial, boolean knockout);
 

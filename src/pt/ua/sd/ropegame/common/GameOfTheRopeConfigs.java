@@ -20,6 +20,9 @@ public class GameOfTheRopeConfigs {
     private String refsitehost;
     private int refsiteport;
 
+    private int rmiPort;
+    private String rmiHost;
+
 
     public GameOfTheRopeConfigs(DOMParser parser) {
         maxtrials = parser.getMaxTrials();
@@ -37,6 +40,9 @@ public class GameOfTheRopeConfigs {
         playgroundport = parser.getPlaygroundPort();
         refsitehost = parser.getRefSiteHostName();
         refsiteport = parser.getRefSitePort();
+
+        rmiHost = parser.getRMIHost();
+        rmiPort = parser.getRMIPort();
 
     }
 
@@ -145,5 +151,13 @@ public class GameOfTheRopeConfigs {
      */
     public int getRefSitePort() {
         return refsiteport;
+    }
+
+    public int getRmiPort() {
+        return rmiPort;
+    }
+
+    public String getRmiHost() {
+        return rmiHost;
     }
 }

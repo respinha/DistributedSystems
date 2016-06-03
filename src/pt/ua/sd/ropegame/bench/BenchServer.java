@@ -7,6 +7,8 @@ import pt.ua.sd.ropegame.common.communication.ServerCom;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
 import pt.ua.sd.ropegame.common.communication.ClientProxy;
 
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  * Server that accepts to establish communication with clients in order to access {@link Bench}
  * Also instantiates a client to send messages to {@link pt.ua.sd.ropegame.genrepository.GeneralRepositoryServer}
@@ -26,16 +28,35 @@ public class BenchServer {
             throw new IllegalArgumentException("Ocorreu um erro ao carregar o ficheiro de configuração.");
         }
 
+        String rmiRegHostName = configs.getRmiHost();
+        int rmiRegPortNumb = configs.getRmiPort();
+
         int localPortNumber = configs.getBenchPort();
+
+        String genRepHostname = configs.getGenRepHostname();
+        int genRepPort = configs.getGenRepPort();
+
+        if(System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+            System.out.println("Security Manager was installed.");
+        }
+
+        Bench bench = new Bench(genRep, configs);
+        BenchRequestHandler benchRequestHandler = null;
+
+        try {
+            benchRequestHandler = (BenchRequestHandler) UnicastRemoteObject.exportObject(bench, localPortNumber);
+        }
+
+
         ServerCom serverCom = new ServerCom(localPortNumber);
         serverCom.startCom();
 
         // assigning referee site to general repository
-        String serverHostName = configs.getGenRepHostname();
-        int remotePortNumber = configs.getGenRepPort();
-        IBenchGenRep genRep = new BenchClient(serverHostName, remotePortNumber);
 
-        Bench bench = new Bench(genRep, configs);
+        IBenchGenRep genRep = new BenchClient(genRepHostname, genRepPort);
+
+        Bench bench =
         BenchRequestHandler benchRequestHandler = new BenchRequestHandler(bench);
 
         ServerCom serverComInterface;

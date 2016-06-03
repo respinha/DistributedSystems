@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IContestantsBench {
+public interface IContestantsBench extends ITeamBench {
 
     int waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException;
 

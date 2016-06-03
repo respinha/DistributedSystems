@@ -1,7 +1,7 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
 
-public interface ICoachPlay {
+public interface ICoachPlay extends ITeamPlayground {
 
     int getCurrentTrial();
 

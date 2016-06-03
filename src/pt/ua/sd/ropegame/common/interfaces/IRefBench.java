@@ -1,7 +1,9 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
 
-public interface IRefBench {
+import java.rmi.Remote;
+
+public interface IRefBench extends Remote {
 
     void callTrial();
 

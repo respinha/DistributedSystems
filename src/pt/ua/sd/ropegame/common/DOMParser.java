@@ -42,6 +42,26 @@ public class DOMParser {
     }
 
     /**
+     * @return RMI registry host
+     */
+    public String getRMIHost() {
+        NodeList nList = doc.getElementsByTagName("rmiRegistryHost");
+        Node node = nList.item(0);
+
+        return node.getTextContent();
+    }
+
+    /**
+     * @return RMI registry port
+     */
+    public int getRMIPort() {
+        NodeList nList = doc.getElementsByTagName("rmiRegistryPort");
+        Node node = nList.item(0);
+
+        return Integer.parseInt(node.getTextContent());
+    }
+
+    /**
      * @return Max trials.
      */
     public int getMaxTrials() {
@@ -192,5 +212,6 @@ public class DOMParser {
 
         return Integer.parseInt(node.getTextContent());
     }
+
 
 }

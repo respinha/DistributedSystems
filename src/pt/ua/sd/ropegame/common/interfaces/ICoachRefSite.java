@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface ICoachRefSite {
+import java.rmi.Remote;
+
+public interface ICoachRefSite extends Remote {
 
     void informReferee(int teamID);
 

@@ -9,7 +9,7 @@ import pt.ua.sd.ropegame.common.interfaces.IRequestHandler;
 /**
  * This module handles all message requests from any client to {@link GeneralRepositoryServer} to access {@link GeneralRepository}
  */
-public class GeneralRepositoryRequestHandler implements IRequestHandler {
+public class GeneralRepositoryInterface implements IRequestHandler {
 
     GeneralRepository generalRepository;
 
@@ -17,7 +17,7 @@ public class GeneralRepositoryRequestHandler implements IRequestHandler {
      * Constructor
      * @param generalRepository A {@link GeneralRepository} monitor.
      */
-    public GeneralRepositoryRequestHandler(GeneralRepository generalRepository) {
+    public GeneralRepositoryInterface(GeneralRepository generalRepository) {
         this.generalRepository = generalRepository;
     }
 

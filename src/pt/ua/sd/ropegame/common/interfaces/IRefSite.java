@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IRefSite {
+import java.rmi.Remote;
+
+public interface IRefSite extends Remote {
 
     void announceNewGameRefSite();
 

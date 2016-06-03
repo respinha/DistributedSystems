@@ -1,6 +1,6 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IStatesGenRep {
+public interface IStatesGenRep extends IGeneralRepository {
 
     void updateCoachState(String state, int teamID);
 

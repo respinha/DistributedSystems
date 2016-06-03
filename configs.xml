@@ -8,6 +8,9 @@
 
     <log>log.txt</log>
 
+    <rmiRegistryHost>localhost</rmiRegistryHost>
+    <rmiRegistryPort>22479</rmiRegistryPort>
+
     <genRepHostname>localhost</genRepHostname>
     <genRepPort>22473</genRepPort>
 

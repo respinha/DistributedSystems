@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IRefPlay {
+import java.rmi.Remote;
+
+public interface IRefPlay extends Remote {
 
     int getRopePos();
     int startTrialPlayground();
