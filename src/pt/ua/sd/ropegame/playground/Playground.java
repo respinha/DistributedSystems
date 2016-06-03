@@ -6,6 +6,7 @@ import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.*;
 
+import java.rmi.RemoteException;
 import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -14,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Memory region where 3 players of each team will try to win the Game of the Rope.
  */
-public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
+class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
     private int currentTrial;
 
@@ -87,7 +88,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted
      */
     @Override
-     public int standInLine(int gameMemberID, int teamID, int strength)  {
+     public int standInLine(int gameMemberID, int teamID, int strength) throws RemoteException {
 
          mutex.lock();
         try {
@@ -125,7 +126,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public int moveCoachToPlayground(int teamID) throws InterruptedException {
+    public int moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -167,7 +168,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public void getReady(int gameMemberID, int teamID, int strength) throws InterruptedException {
+    public void getReady(int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -193,7 +194,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @return current trial.
      */
     @Override
-    public int startTrialPlayground() {
+    public int startTrialPlayground() throws RemoteException {
         mutex.lock();
 
         try {
@@ -277,7 +278,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public boolean assertTrialDecisionPlayground() throws InterruptedException {
+    public boolean assertTrialDecisionPlayground() throws InterruptedException, RemoteException {
         mutex.lock();
 
        try {
@@ -317,7 +318,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * Called by referee to reset rope position.
      */
     @Override
-    public void announceNewGamePlayground() {
+    public void announceNewGamePlayground() throws RemoteException {
         mutex.lock();
 
         this.ropePos = 0;
@@ -410,7 +411,7 @@ public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     private int nrequestsToDie = 0;
 
     @Override
-    public boolean closePlaygroundConnection() {
+    public boolean closePlaygroundConnection() throws RemoteException {
         mutex.lock();
 
         try {

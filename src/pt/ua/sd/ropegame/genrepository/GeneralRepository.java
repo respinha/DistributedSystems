@@ -16,7 +16,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * General repository: generates the log file.
  */
-public class GeneralRepository implements
+class GeneralRepository implements
         IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep {
 
 
@@ -45,8 +45,8 @@ public class GeneralRepository implements
 
     // variables needed to create and write to a text file
     private Path file;
-    ArrayList<String> lines;
-    boolean write = false;
+    private ArrayList<String> lines;
+    private boolean write = false;
 
     /**
      * Constructor for the general repository.

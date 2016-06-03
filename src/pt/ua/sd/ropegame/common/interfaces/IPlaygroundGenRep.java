@@ -1,9 +1,11 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IPlaygroundGenRep extends IStatesGenRep {
+import java.rmi.RemoteException;
+
+public interface IPlaygroundGenRep extends IGeneralRepository {
 
 
-    void updateContestantPosition(int contestantID, int teamID, int position);
-    void updateTrial(int trial);
-    void updateRopePosition(int ropePos);
+    void updateContestantPosition(int contestantID, int teamID, int position) throws RemoteException;
+    void updateTrial(int trial) throws RemoteException;
+    void updateRopePosition(int ropePos) throws RemoteException;
 }

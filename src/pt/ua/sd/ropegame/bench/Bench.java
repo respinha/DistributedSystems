@@ -1,7 +1,7 @@
 package pt.ua.sd.ropegame.bench;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
-import pt.ua.sd.ropegame.common.enums.CoachStrategies;
+import pt.ua.sd.ropegame.common.enums.CoachStrategy;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsBench;
 import pt.ua.sd.ropegame.common.interfaces.IRefBench;
@@ -10,6 +10,7 @@ import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.ICoachBench;
 
+import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
@@ -21,7 +22,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Memory region which stores information on both teams.
  */
-public class Bench implements ICoachBench, IContestantsBench, IRefBench {
+class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     private static final Random RANDOMGEN = new Random();
 
@@ -104,7 +105,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * Called by referee to signal a new trial call.
      */
     @Override
-    public void callTrial() {
+    public void callTrial() throws RemoteException {
         mutex.lock();
 
         if(nCoachesBeingCalled == 3) nCoachesBeingCalled = 0;
@@ -159,7 +160,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @param knockout True if knockout, false otherwise.
      */
     @Override
-    public void reviewNotes(int teamID, int trial, boolean knockout) {
+    public void reviewNotes(int teamID, int trial, boolean knockout) throws RemoteException {
         mutex.lock();
 
         try {
@@ -226,13 +227,13 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public void callContestants(int teamID, String strategy) {
+    public void callContestants(int teamID, String strategy) throws RemoteException {
 
         mutex.lock();
 
 
         int j = 0;
-        if(strategy.equals(String.valueOf(CoachStrategies.Strategy.RANDOM.shortName()))) {
+        if(strategy.equals(String.valueOf(CoachStrategy.Strategy.RANDOM.shortName()))) {
             Set<Integer> generated = new HashSet<>();
             while (generated.size() < 3)
             {
@@ -250,7 +251,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
                 }
             }
         }
-        else if(strategy.equals(CoachStrategies.Strategy.PICK_FIRST_THREE_CONTESTANTS.shortName())) {
+        else if(strategy.equals(CoachStrategy.Strategy.PICK_FIRST_THREE_CONTESTANTS.shortName())) {
             for(int i = 0; i < configs.getNContestants(); i++) {
                 if(i <= 2) {
                     wasPicked[teamID][i] = true;
@@ -321,7 +322,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * Transition.
      */
     @Override
-    public void seatDown(int gameMemberID, int teamID, int strength, int position, boolean matchOver) {
+    public void seatDown(int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
         mutex.lock();
 
         try {
@@ -360,7 +361,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     }
 
-    private void assignStrength(int teamID, int gameMemberID, int strength) {
+    private void assignStrength(int teamID, int gameMemberID, int strength) throws RemoteException {
         strengths[teamID][gameMemberID] = strength;
         if(nContestants[teamID] == configs.getNContestants())
             repository.updateStrengths(teamID, strengths[teamID]);
@@ -380,7 +381,7 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     private int nrequestsToDie = 0;
     @Override
-    public boolean closeBenchConnection() {
+    public boolean closeBenchConnection() throws RemoteException {
         mutex.lock();
 
         try {

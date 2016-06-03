@@ -55,57 +55,59 @@ public class Contestant extends TeamMember {
     @Override
     public void run() {
 
-        bench.seatDown(number, team, strength, playgroundPos, false);
+        try {
+            bench.seatDown(number, team, strength, playgroundPos, false);
 
 
-        while(bench.contestantsHaveMoreOperations()) {
-            switch(currentState) {
+            while (bench.contestantsHaveMoreOperations()) {
+                switch (currentState) {
 
-                case SEAT_AT_THE_BENCH:
+                    case SEAT_AT_THE_BENCH:
 
-                    try {
-                        // wait until the team's coach calls this contestant
-                        strength = bench.waitForContestantCall(this.number, this.team);
+                        try {
+                            // wait until the team's coach calls this contestant
+                            strength = bench.waitForContestantCall(this.number, this.team);
 
 
-                        if(!bench.contestantsHaveMoreOperations())
-                            break;
+                            if (!bench.contestantsHaveMoreOperations())
+                                break;
 
-                        // move to playground
-                        playgroundPos = playground.standInLine(this.number, this.team, this.strength);
-                    } catch (InterruptedException e) {
-                         e.printStackTrace();
-                    }
-                    break;
+                            // move to playground
+                            playgroundPos = playground.standInLine(this.number, this.team, this.strength);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
 
-                case STAND_IN_POSITION:
-                    try {
-                        playground.getReady(number, team, strength);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+                    case STAND_IN_POSITION:
+                        try {
+                            playground.getReady(number, team, strength);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
 
-                case DO_YOUR_BEST:
-                    try {
+                    case DO_YOUR_BEST:
+                        try {
 
-                        playground.pullTheRope();
-                        boolean matchOver = playground.amDone();
+                            playground.pullTheRope();
+                            boolean matchOver = playground.amDone();
 
-                        // seat down after the trial ended
-                        bench.seatDown(number, team, strength, playgroundPos, matchOver);
-                        playgroundPos = 0;
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+                            // seat down after the trial ended
+                            bench.seatDown(number, team, strength, playgroundPos, matchOver);
+                            playgroundPos = 0;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+
+
             }
 
-
-        }
-
-        System.out.println("O jogador "+ number + " da equipa "+ team + " terminou.");
-        bench.closeBenchConnection();
+            System.out.println("O jogador " + number + " da equipa " + team + " terminou.");
+            bench.closeBenchConnection();
+        } catch (Exception e) {}
     }
 
 

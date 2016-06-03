@@ -1,11 +1,10 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
+import java.rmi.RemoteException;
 
-import java.rmi.Remote;
+public interface IRefBench extends IBench {
 
-public interface IRefBench extends Remote {
+    void callTrial() throws RemoteException;
 
-    void callTrial();
-
-    void notifyContestantsMatchIsOver();
+    void notifyContestantsMatchIsOver() throws RemoteException;
 }

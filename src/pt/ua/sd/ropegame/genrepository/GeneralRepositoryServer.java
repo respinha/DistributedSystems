@@ -3,11 +3,8 @@ package pt.ua.sd.ropegame.genrepository;
 
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
-import pt.ua.sd.ropegame.common.communication.ServerCom;
-import pt.ua.sd.ropegame.common.communication.ClientProxy;
 import pt.ua.sd.ropegame.common.interfaces.IGeneralRepository;
 
-import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

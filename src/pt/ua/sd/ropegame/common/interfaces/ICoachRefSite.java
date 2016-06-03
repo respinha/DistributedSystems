@@ -1,9 +1,9 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public interface ICoachRefSite extends Remote {
+public interface ICoachRefSite extends IRefSite {
 
-    void informReferee(int teamID);
+    void informReferee(int teamID) throws RemoteException;
 
 }

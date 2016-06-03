@@ -1,12 +1,14 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
+import java.rmi.RemoteException;
+
 public interface ICoachBench extends ITeamBench {
 
-    void reviewNotes(int teamID, int trial, boolean knockout);
+    void reviewNotes(int teamID, int trial, boolean knockout) throws RemoteException;
 
-    void callContestants(int teamID, String strategy);
+    void callContestants(int teamID, String strategy) throws RemoteException;
 
-    void waitForCoachCall() throws InterruptedException;
+    void waitForCoachCall() throws InterruptedException, RemoteException;
 
-    boolean coachesHaveMoreOperations();
+    boolean coachesHaveMoreOperations() throws RemoteException;
 }

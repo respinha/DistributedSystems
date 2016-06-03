@@ -1,7 +1,7 @@
 package pt.ua.sd.ropegame.referee;
 
 
-import pt.ua.sd.ropegame.common.interfaces.IRefSite;
+import pt.ua.sd.ropegame.common.interfaces.IRefRefSite;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.IRefBench;
 import pt.ua.sd.ropegame.common.interfaces.IRefPlay;
@@ -15,14 +15,14 @@ import pt.ua.sd.ropegame.common.interfaces.IRefPlay;
  *  The referee is responsible for announcing which team won each trial, game and match.<p>
  *  This process is repeated until MAX_GAMES is reached.
  */
-public class Referee extends Thread {
+class Referee extends Thread {
 
     private RefereeState currentState;
 
     // memory regions
     private IRefBench bench;
     private IRefPlay playground;
-    private IRefSite refereeSite;
+    private IRefRefSite refereeSite;
 
 
     private int currentTrial;
@@ -35,7 +35,7 @@ public class Referee extends Thread {
     /**
      * Constructor for a referee.
      */
-    public Referee(IRefBench bench, IRefPlay playground, IRefSite refSite) {
+    public Referee(IRefBench bench, IRefPlay playground, IRefRefSite refSite) {
 
         // assign memory regions
         this.refereeSite = refSite;
@@ -56,77 +56,80 @@ public class Referee extends Thread {
     @Override
     public void run() {
 
-        refereeSite.startTheMatch();
+        try {
+            refereeSite.startTheMatch();
 
-        while(refereeSite.refHasMoreOperations()) {
-            switch (currentState) {
+            while (refereeSite.refHasMoreOperations()) {
+                switch (currentState) {
 
-                case START_OF_THE_MATCH:                    // transition
+                    case START_OF_THE_MATCH:                    // transition
 
-                    this.playground.announceNewGamePlayground();
-                    this.refereeSite.announceNewGameRefSite();
+                        this.playground.announceNewGamePlayground();
+                        this.refereeSite.announceNewGameRefSite();
 
-                    break;
+                        break;
 
-                case START_OF_A_GAME:
-                    // call trial
-                    bench.callTrial();
+                    case START_OF_A_GAME:
+                        // call trial
+                        bench.callTrial();
 
-                    break;
+                        break;
 
-                case TEAMS_READY:
-                    try {
-                        // start trial when both teams are ready
-                        refereeSite.startTrialRefSite();
-                        currentTrial = playground.startTrialPlayground();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    break;
-
-                case WAIT_FOR_TRIAL_CONCLUSION:
-                    try {
-
-                        // wait for trial conclusion and update game stats
-                        knockout = this.playground.assertTrialDecisionPlayground();
-                        ropePos = this.playground.getRopePos();
-
-                        boolean endOfGame = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
-
-                        if(!endOfGame) {
-                            bench.callTrial();
+                    case TEAMS_READY:
+                        try {
+                            // start trial when both teams are ready
+                            refereeSite.startTrialRefSite();
+                            currentTrial = playground.startTrialPlayground();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    break;
+                        break;
 
-                case END_OF_A_GAME:
+                    case WAIT_FOR_TRIAL_CONCLUSION:
+                        try {
+
+                            // wait for trial conclusion and update game stats
+                            knockout = this.playground.assertTrialDecisionPlayground();
+                            ropePos = this.playground.getRopePos();
+
+                            boolean endOfGame = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
+
+                            if (!endOfGame) {
+                                bench.callTrial();
+                            }
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+
+                    case END_OF_A_GAME:
 
 
-                    boolean endOfMatch = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
+                        boolean endOfMatch = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
 
-                    if(endOfMatch)
-                        bench.notifyContestantsMatchIsOver();
+                        if (endOfMatch)
+                            bench.notifyContestantsMatchIsOver();
 
-                    else {
-                        playground.announceNewGamePlayground();
-                        refereeSite.announceNewGameRefSite();
-                    }
-                    break;
+                        else {
+                            playground.announceNewGamePlayground();
+                            refereeSite.announceNewGameRefSite();
+                        }
+                        break;
 
-                case END_OF_THE_MATCH:
-                    // declare match winner
+                    case END_OF_THE_MATCH:
+                        // declare match winner
 
-                    refereeSite.declareMatchWinner();
-                    break;
+                        refereeSite.declareMatchWinner();
+                        break;
+                }
             }
-        }
 
-        System.out.println("O árbitro terminou.");
-        refereeSite.closeRefSite();
+            System.out.println("O árbitro terminou.");
+            refereeSite.closeRefSite();
+
+        } catch (Exception e) {}
 
     }
 

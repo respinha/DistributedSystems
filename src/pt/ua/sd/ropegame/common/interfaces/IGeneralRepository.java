@@ -1,9 +1,15 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-/**
- * Created by davidsilva on 03/06/16.
- */
 public interface IGeneralRepository extends Remote {
+
+    void updateCoachState(String state, int teamID) throws RemoteException;
+
+    void updateContestantState(String state, int gameMemberID, int teamID) throws RemoteException;
+
+    void updateRefState(String state) throws RemoteException;
+    boolean requestToDie() throws RemoteException;
+
 }

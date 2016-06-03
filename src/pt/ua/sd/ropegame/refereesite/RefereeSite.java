@@ -5,6 +5,7 @@ import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.*;
 
+import java.rmi.RemoteException;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Monitor that allows for communication between the referee and the coach.
  */
-public class RefereeSite implements IRefSite, ICoachRefSite {
+class RefereeSite implements IRefRefSite, ICoachRefSite {
 
     private int currentGame;
     private Lock mutex;
@@ -58,7 +59,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * Method used make the first refereee state update.
      */
     @Override
-    public void startTheMatch() {
+    public void startTheMatch() throws RemoteException {
 
         mutex.lock();
 
@@ -79,7 +80,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
     }
 
     @Override
-    public void closeRefSite() {
+    public void closeRefSite() throws RemoteException {
         mutex.lock();
 
         repository.requestToDie();
@@ -91,7 +92,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * Transition.
      */
     @Override
-    public void announceNewGameRefSite() {
+    public void announceNewGameRefSite() throws RemoteException {
 
         mutex.lock();
 
@@ -129,7 +130,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * @return
      */
     @Override
-    public boolean assertTrialDecisionRefSite(int currentTrial, boolean knockout) {
+    public boolean assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException {
 
         mutex.lock();
 
@@ -157,7 +158,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * @param coachTeamID
      */
     @Override
-    public void informReferee(int coachTeamID) {
+    public void informReferee(int coachTeamID) throws RemoteException {
 
         mutex.lock();
 
@@ -179,7 +180,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * @param knockout true if the victory was achieved by knockout.
      */
     @Override
-    public boolean declareGameWinner(int ntrials, int ropePos, boolean knockout) {
+    public boolean declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException {
 
         mutex.lock();
 
@@ -224,7 +225,7 @@ public class RefereeSite implements IRefSite, ICoachRefSite {
      * Update repository with match stats.
      */
     @Override
-    public void declareMatchWinner() {
+    public void declareMatchWinner() throws RemoteException {
 
         mutex.lock();
 

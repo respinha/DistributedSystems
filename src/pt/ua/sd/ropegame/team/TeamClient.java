@@ -1,17 +1,14 @@
 package pt.ua.sd.ropegame.team;
 
-import org.xml.sax.SAXException;
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
-import pt.ua.sd.ropegame.common.enums.CoachStrategies;
+import pt.ua.sd.ropegame.common.enums.CoachStrategy;
 import pt.ua.sd.ropegame.common.interfaces.*;
 
-import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 
 /**
  * Main class. Starts a team (Coach + contestants).
@@ -63,7 +60,7 @@ public class TeamClient {
             System.exit(1);
         }
 
-        Coach coach = new Coach((ICoachBench) bench, (ICoachPlay) playground, refereeSite, team, new CoachStrategies());
+        Coach coach = new Coach((ICoachBench) bench, (ICoachPlay) playground, refereeSite, team, new CoachStrategy());
         Contestant[] contestants = new Contestant[configs.getNContestants()];
 
         for (int j = 0; j < configs.getNContestants(); j++)

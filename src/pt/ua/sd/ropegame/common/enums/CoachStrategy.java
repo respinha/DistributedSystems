@@ -1,11 +1,13 @@
-package pt.ua.sd.ropegame.entities;
+package pt.ua.sd.ropegame.common.enums;
+
+import pt.ua.sd.ropegame.team.Coach;
 
 import java.util.Random;
 
 /**
- * Every {@link Coach} has a {@link CoachStrategies} object which contains three {@link Strategy} attributes related to different game situations.
+ * Every {@link Coach} has a {@link CoachStrategy} object which contains three {@link Strategy} attributes related to different game situations.
  */
-public class CoachStrategies {
+public class CoachStrategy {
 
     /**
      * The different strategies a Coach can have during the game.
@@ -30,9 +32,9 @@ public class CoachStrategies {
     private Strategy ifDrawStrategy;
 
     /**
-     * Constructor for a {@link CoachStrategies} object with three random Strategies for the game.
+     * Constructor for a {@link CoachStrategy} object with three random Strategies for the game.
      */
-    public CoachStrategies() {
+    public CoachStrategy() {
         this.currentStrategy = generateCoachStrategy();
 
         /*// we have to assure that the first strategy is not KEEP_SAME_TEAM
@@ -43,27 +45,6 @@ public class CoachStrategies {
         this.ifWinsStrategy = generateCoachStrategy();
         this.ifLosesStrategy = generateCoachStrategy();
         this.ifDrawStrategy = generateCoachStrategy();
-    }
-
-    /**
-     * Constructor for a {@link CoachStrategies} object with predefined strategies
-     *
-     * @param initialStrategy The first strategy the Coach follows
-     * @param ifWinsStrategy Strategy the Coach follows if his team wins the game
-     * @param ifLosesStrategy Strategy the Coach follows if his team loses the game
-     * @param ifDrawStrategy Strategy the Coach follows if trial ends in a draw
-     * @throws IllegalArgumentException Initial can not be KEEP_SAME_TEAM
-     */
-    public CoachStrategies(Strategy initialStrategy, Strategy ifWinsStrategy, Strategy ifLosesStrategy, Strategy ifDrawStrategy) throws IllegalArgumentException{
-
-        // we have to assure that initial strategy is not KEEP_SAME_TEAM
-        //if(initialStrategy == Strategy.KEEP_SAME_TEAM)
-        //    throw new IllegalArgumentException("Initial strategy can not be KEPP_SAME_TEAM.");
-
-        this.currentStrategy = initialStrategy;
-        this.ifLosesStrategy = ifLosesStrategy;
-        this.ifWinsStrategy = ifWinsStrategy;
-        this.ifDrawStrategy = ifDrawStrategy;
     }
 
     /**

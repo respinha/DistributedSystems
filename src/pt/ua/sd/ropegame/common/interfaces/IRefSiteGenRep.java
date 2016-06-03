@@ -1,10 +1,12 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
-public interface IRefSiteGenRep extends IStatesGenRep {
+import java.rmi.RemoteException;
 
-    void updateGame(int game);
-    void updateMatchWinner(int winner, int[] results);
-    void updateGameWinner(int currentGame, int gameWinner, int ntrials, boolean knockout);
-    void generateLogFile();
+public interface IRefSiteGenRep extends IGeneralRepository {
+
+    void updateGame(int game) throws RemoteException;
+    void updateMatchWinner(int winner, int[] results) throws RemoteException;
+    void updateGameWinner(int currentGame, int gameWinner, int ntrials, boolean knockout) throws RemoteException;
+    void generateLogFile() throws RemoteException;
 
 }
