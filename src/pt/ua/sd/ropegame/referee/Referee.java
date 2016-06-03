@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.referee;
 
 
+import pt.ua.sd.ropegame.common.communication.Response;
+import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.interfaces.IRefRefSite;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.IRefBench;
@@ -58,6 +60,7 @@ class Referee extends Thread {
 
         try {
             refereeSite.startTheMatch();
+            Response response = null;
 
             while (refereeSite.refHasMoreOperations()) {
                 switch (currentState) {
@@ -71,7 +74,8 @@ class Referee extends Thread {
 
                     case START_OF_A_GAME:
                         // call trial
-                        bench.callTrial();
+                        response = bench.callTrial();
+                        currentState = RefereeState.valueOf(response.getState());
 
                         break;
 
@@ -96,7 +100,8 @@ class Referee extends Thread {
                             boolean endOfGame = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
 
                             if (!endOfGame) {
-                                bench.callTrial();
+                                response = bench.callTrial();
+                                currentState = RefereeState.valueOf(response.getState());
                             }
 
                         } catch (InterruptedException e) {

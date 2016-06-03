@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.bench;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachStrategy;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsBench;
@@ -57,6 +58,8 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     private GameOfTheRopeConfigs configs;
 
+    private int[] clocks = null;
+
 
 
     /**
@@ -105,16 +108,20 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * Called by referee to signal a new trial call.
      */
     @Override
-    public void callTrial() throws RemoteException {
+    public Response callTrial() throws RemoteException {
         mutex.lock();
 
-        if(nCoachesBeingCalled == 3) nCoachesBeingCalled = 0;
+        try {
+            if (nCoachesBeingCalled == 3) nCoachesBeingCalled = 0;
 
-        nCoachesBeingCalled++;
-        waitingForTrialToStart.signalAll();
-        repository.updateRefState(RefereeState.TEAMS_READY.shortName());
+            nCoachesBeingCalled++;
+            waitingForTrialToStart.signalAll();
+            repository.updateRefState(RefereeState.TEAMS_READY.shortName());
 
-        mutex.unlock();
+            return new Response(clocks, RefereeState.TEAMS_READY.shortName());
+        } finally {
+            mutex.unlock();
+        }
 
     }
 
@@ -125,16 +132,20 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      */
 
     @Override
-    public void waitForCoachCall() throws InterruptedException {
-
+    public Response waitForCoachCall() throws InterruptedException {
         mutex.lock();
+        try {
+            nCoachesBeingCalled++;
+            while (nCoachesBeingCalled < configs.getNCoaches() + 1)
+                waitingForTrialToStart.await();
+            waitingForTrialToStart.signalAll();
 
-        nCoachesBeingCalled++;
-        while(nCoachesBeingCalled < configs.getNCoaches()+1)
-            waitingForTrialToStart.await();
-        waitingForTrialToStart.signalAll();
+            return new Response(clocks);
+        } finally {
+            mutex.unlock();
+        }
 
-        mutex.unlock();
+
 
     }
 
@@ -142,12 +153,11 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @return True if Coaches have more operations, False otherwise.
      */
     @Override
-    public boolean coachesHaveMoreOperations() {
-
+    public Response coachesHaveMoreOperations() {
         mutex.lock();
-        try {
 
-            return coachesHaveMoreOperations;
+        try {
+            return new Response(clocks, coachesHaveMoreOperations);
         } finally {
             mutex.unlock();
         }

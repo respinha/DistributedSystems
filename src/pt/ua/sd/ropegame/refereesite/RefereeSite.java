@@ -212,7 +212,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
             }
 
             repository.updateGameWinner(currentGame, gameWinner, ntrials, knockout);
-            // referee.changeState(state);
+            // referee.(state);
             repository.updateRefState(state.shortName());
 
             return endOfMatch;

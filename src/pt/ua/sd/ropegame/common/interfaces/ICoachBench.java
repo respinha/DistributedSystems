@@ -1,5 +1,7 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
+import pt.ua.sd.ropegame.common.communication.Response;
+
 import java.rmi.RemoteException;
 
 public interface ICoachBench extends ITeamBench {
@@ -8,7 +10,8 @@ public interface ICoachBench extends ITeamBench {
 
     void callContestants(int teamID, String strategy) throws RemoteException;
 
-    void waitForCoachCall() throws InterruptedException, RemoteException;
+    Response waitForCoachCall() throws InterruptedException, RemoteException;
 
     boolean coachesHaveMoreOperations() throws RemoteException;
+
 }

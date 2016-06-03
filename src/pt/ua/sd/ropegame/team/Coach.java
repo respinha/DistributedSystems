@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.team;
 
 
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.CoachStrategy;
 import pt.ua.sd.ropegame.common.interfaces.*;
@@ -29,6 +30,8 @@ public class Coach extends TeamMember {
     // this variable is set to true if a game ended due to a knockout
     private boolean knockout;
 
+    private int[] clocks;
+
 
     /**
      * Constructor for Coach
@@ -55,19 +58,29 @@ public class Coach extends TeamMember {
     public void run() {
 
         try {
+            Response response = null;
+
             int currentTrial = 1;
 
+            System.out.println("Now reviewing notes");
             // the coach is waiting for referee command
             bench.reviewNotes(this.team, currentTrial, knockout);
 
             while(bench.coachesHaveMoreOperations()) {
 
+                System.out.println(currentState);
+
                 switch (currentState) {
 
                     case WAIT_FOR_REFEREE_COMMAND:
                         try {
+                            System.out.println("Waiting for coach call");
                             // wait for referee to call this coach
-                            bench.waitForCoachCall();
+
+                            response = bench.waitForCoachCall();
+                            clocks = response.getClocks();
+
+                            System.out.println("Waiting for coach call2");
                             // call contestants
                             bench.callContestants(this.team, this.getStrategy().shortName());
 
