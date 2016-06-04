@@ -1,21 +1,23 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
+import pt.ua.sd.ropegame.common.communication.Response;
+
 import java.rmi.RemoteException;
 
 public interface IRefRefSite extends IRefSite {
 
-    void announceNewGameRefSite() throws RemoteException;
+    Response announceNewGameRefSite() throws RemoteException;
 
-    boolean declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException;
-    void declareMatchWinner() throws RemoteException;
+    Response declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException;
+    Response declareMatchWinner() throws RemoteException;
 
-    void startTrialRefSite() throws InterruptedException, RemoteException;
+    Response startTrialRefSite() throws InterruptedException, RemoteException;
 
-    boolean assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException;
+    Response assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException;
 
-    void startTheMatch() throws RemoteException;
+    Response startTheMatch() throws RemoteException;
 
-    boolean refHasMoreOperations() throws RemoteException;
+    Response refHasMoreOperations() throws RemoteException;
 
     void closeRefSite() throws RemoteException;
 }

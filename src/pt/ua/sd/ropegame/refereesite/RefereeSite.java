@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.refereesite;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.*;
@@ -59,21 +60,26 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Method used make the first refereee state update.
      */
     @Override
-    public void startTheMatch() throws RemoteException {
+    public Response startTheMatch() throws RemoteException {
 
         mutex.lock();
 
-        repository.updateRefState(RefereeState.START_OF_THE_MATCH.shortName());
+        try {
+            String state = RefereeState.START_OF_THE_MATCH.shortName();
+            repository.updateRefState(state);
+            return new Response(null, state);
+        } finally {
+            mutex.unlock();
+        }
 
-        mutex.unlock();
     }
 
     @Override
-    public boolean refHasMoreOperations() {
+    public Response refHasMoreOperations() {
 
         mutex.lock();
         try {
-            return this.refHasMoreOperations;
+            return new Response(null, this.refHasMoreOperations);
         } finally {
             mutex.unlock();
         }
@@ -92,18 +98,22 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Transition.
      */
     @Override
-    public void announceNewGameRefSite() throws RemoteException {
+    public Response announceNewGameRefSite() throws RemoteException {
 
         mutex.lock();
 
+        try {
+            RefereeState state = RefereeState.START_OF_A_GAME;
+            // referee.changeState(state);
+            currentGame++;
+            repository.updateRefState(state.shortName());
+            repository.updateGame(currentGame);
 
-        RefereeState state = RefereeState.START_OF_A_GAME;
-        // referee.changeState(state);
-        currentGame++;
-        repository.updateRefState(state.shortName());
-        repository.updateGame(currentGame);
+            return new Response(null, state.shortName());
+        } finally {
 
-        mutex.unlock();
+            mutex.unlock();
+        }
     }
 
     /**
@@ -111,16 +121,21 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @throws InterruptedException Thread was interrupted.
      */
     @Override
-    public void startTrialRefSite() throws InterruptedException {
+    public Response startTrialRefSite() throws InterruptedException {
 
         mutex.lock();
 
-        while(!coachAndContestantsReady)
-            waitingForCoachAndPlayers.await();
+        try {
+            while (!coachAndContestantsReady)
+                waitingForCoachAndPlayers.await();
 
-        coachAndContestantsReady = false;
 
-        mutex.unlock();
+            coachAndContestantsReady = false;
+            return new Response(null);
+        } finally {
+
+            mutex.unlock();
+        }
     }
 
     /**
@@ -130,7 +145,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @return
      */
     @Override
-    public boolean assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException {
+    public Response assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException {
 
         mutex.lock();
 
@@ -141,11 +156,11 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
                 // referee.changeState(state);
                 repository.updateRefState(state.shortName());
 
-                return false;
+                return new Response(null, state.shortName(), false);
             }
 
 
-            return true;
+            return new Response(null, true);
         } finally {
             mutex.unlock();
         }
@@ -158,18 +173,24 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @param coachTeamID
      */
     @Override
-    public void informReferee(int coachTeamID) throws RemoteException {
+    public Response informReferee(int coachTeamID) throws RemoteException {
 
         mutex.lock();
 
-        coachAndContestantsReady = true;
-        waitingForCoachAndPlayers.signal();
+        try {
+            coachAndContestantsReady = true;
+            waitingForCoachAndPlayers.signal();
 
-        CoachState state = CoachState.WATCH_TRIAL;
-        // coach.changeState(state);
-        repository.updateCoachState(state.shortName(), coachTeamID);
+            CoachState state = CoachState.WATCH_TRIAL;
+            // coach.changeState(state);
 
-        mutex.unlock();
+            repository.updateCoachState(state.shortName(), coachTeamID);
+            return new Response(null, state.shortName());
+        } finally {
+
+            mutex.unlock();
+        }
+
     }
 
 
@@ -180,7 +201,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @param knockout true if the victory was achieved by knockout.
      */
     @Override
-    public boolean declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException {
+    public Response declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException {
 
         mutex.lock();
 
@@ -215,7 +236,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
             // referee.(state);
             repository.updateRefState(state.shortName());
 
-            return endOfMatch;
+            return new Response(null, state.shortName(), endOfMatch);
         } finally {
             mutex.unlock();
         }
@@ -225,19 +246,25 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Update repository with match stats.
      */
     @Override
-    public void declareMatchWinner() throws RemoteException {
+    public Response declareMatchWinner() throws RemoteException {
 
         mutex.lock();
 
-        int matchWinner = (teamGameScores[0] != teamGameScores[1]) ? ((teamGameScores[0] > teamGameScores[1]) ? 1 : 2) : 0;
-        // referee.hasNoMoreOperations();
-        refHasMoreOperations = false;
-        repository.updateRefState(RefereeState.END_OF_THE_MATCH.shortName());
+        try {
+            int matchWinner = (teamGameScores[0] != teamGameScores[1]) ? ((teamGameScores[0] > teamGameScores[1]) ? 1 : 2) : 0;
 
-        repository.updateMatchWinner(matchWinner, teamGameScores);
-        repository.generateLogFile();
+            // referee.hasNoMoreOperations();
+            refHasMoreOperations = false;
+            String state = RefereeState.END_OF_THE_MATCH.shortName();
+            repository.updateRefState(state);
 
-        mutex.unlock();
+            repository.updateMatchWinner(matchWinner, teamGameScores);
+            repository.generateLogFile();
+
+            return new Response(null, state);
+        } finally {
+            mutex.unlock();
+        }
 
     }
 
