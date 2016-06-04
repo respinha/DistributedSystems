@@ -55,7 +55,7 @@ class GeneralRepository implements
      * Constructor for the general repository.
      * @param configs
      */
-    public GeneralRepository(GameOfTheRopeConfigs configs) {
+    GeneralRepository(GameOfTheRopeConfigs configs) {
         mutex = new ReentrantLock();
 
         currentStatus = new String[32];
