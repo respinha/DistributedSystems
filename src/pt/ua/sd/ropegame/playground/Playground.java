@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.playground;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
@@ -88,12 +89,10 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted
      */
     @Override
-     public int standInLine(int gameMemberID, int teamID, int strength) throws RemoteException {
+     public Response standInLine(int gameMemberID, int teamID, int strength) throws RemoteException {
 
-         mutex.lock();
+        mutex.lock();
         try {
-
-
             nContInPlayground++;
 
             teamStrength[teamID] += strength;
@@ -113,7 +112,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             // contestant.changeState(ContestantState.STAND_IN_POSITION);
             repository.updateContestantState(ContestantState.STAND_IN_POSITION.shortName(), gameMemberID, teamID);
             repository.updateContestantPosition(gameMemberID, teamID, pos);
-            return pos;
+            return new Response(null, pos);
         } finally {
             mutex.unlock();
         }
@@ -126,7 +125,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public int moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException {
+    public Response moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -138,23 +137,23 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             nCoachesInPlayground++;
 
             // if all coaches and contestants are in the playground, we can inform referee.
-        /* if coach doesn't inform referee, its state can be updated now. else, it is updated on @RefereeSite */
+            /* if coach doesn't inform referee, its state can be updated now. else, it is updated on @RefereeSite */
 
             int coachToInform = (nCoachesInPlayground == configs.getNCoaches()) ? teamID : -1;
+            String state = "";
 
             if (nCoachesInPlayground == 1) {
-                CoachState state = CoachState.WATCH_TRIAL;
+                state = CoachState.WATCH_TRIAL.shortName();
                 // teamID.changeState(state);
-                repository.updateCoachState(state.shortName(), teamID);
+                repository.updateCoachState(state, teamID);
             }
             if (nCoachesInPlayground == configs.getNCoaches()) {
                 nCoachesInPlayground = 0;
                 nContInPlayground = 0;
             }
 
-            return coachToInform;
+            return new Response(null, state, coachToInform);
         } finally {
-
             mutex.unlock();
         }
 
@@ -168,24 +167,28 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public void getReady(int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
+    public Response getReady(int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
+        try {
+            while (!trialStarted)
+                waitingForTrialToStart.await();
 
-        while (!trialStarted)
-            waitingForTrialToStart.await();
+            nContestantsReady++;
+            if (nContestantsReady == configs.getMaxContsPlayground()) {
+                trialStarted = false;
+                nContestantsReady = 0;
+            }
 
-        nContestantsReady++;
-        if(nContestantsReady == configs.getMaxContsPlayground()) {
-            trialStarted = false;
-            nContestantsReady = 0;
+            ContestantState st = ContestantState.DO_YOUR_BEST;
+            // contestant.changeState(st);
+            repository.updateContestantState(st.shortName(), gameMemberID, teamID);
+
+            return new Response(null, st.shortName());
+        } finally {
+            mutex.unlock();
         }
-
-        ContestantState st = ContestantState.DO_YOUR_BEST;
-        // contestant.changeState(st);
-        repository.updateContestantState(st.shortName(), gameMemberID, teamID);
-        mutex.unlock();
 
     }
 
@@ -194,7 +197,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @return current trial.
      */
     @Override
-    public int startTrialPlayground() throws RemoteException {
+    public Response startTrialPlayground() throws RemoteException {
         mutex.lock();
 
         try {
@@ -215,7 +218,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             // referee.changeState(state);
             repository.updateRefState(state.shortName());
 
-            return currentTrial;
+            return new Response(null, state.shortName(), currentTrial);
 
         } finally {
 
@@ -230,14 +233,18 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public void pullTheRope() throws InterruptedException {
+    public Response pullTheRope() throws InterruptedException {
 
         mutex.lock();
-        int r = RANDOMGEN.nextInt(100)+1;
-        // TODO: rever
-        Thread.sleep(r);
 
-        mutex.unlock();
+        try {
+            int r = RANDOMGEN.nextInt(100) + 1;
+            Thread.sleep(r);
+
+            return new Response(null);
+        } finally {
+            mutex.unlock();
+        }
     }
 
     /**
@@ -247,7 +254,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public boolean amDone() throws InterruptedException {
+    public Response amDone() throws InterruptedException {
 
         mutex.lock();
 
@@ -265,7 +272,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             while (!decided)
                 waitingForTrialDecision.await();
 
-            return (gameOver && game == configs.getMaxGames());
+            return new Response(null, (gameOver && game == configs.getMaxGames()));
         } finally {
 
             mutex.unlock();
@@ -278,13 +285,12 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public boolean assertTrialDecisionPlayground() throws InterruptedException, RemoteException {
+    public Response assertTrialDecisionPlayground() throws InterruptedException, RemoteException {
         mutex.lock();
 
        try {
            while (contestantsDone < configs.getMaxContsPlayground())
                issuingTrial.await();
-
 
            if(teamStrength[1] > teamStrength[0])
                ropePos++;
@@ -295,18 +301,22 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
            knockout = (Math.abs(ropePos) >= 4);
            teamStrength[1] = teamStrength[0] = 0;
 
+           String refState;
+
            if(currentTrial == configs.getMaxTrials() || knockout) {
-               repository.updateRefState(RefereeState.END_OF_A_GAME.shortName());
+               refState = RefereeState.END_OF_A_GAME.shortName();
                gameOver = true;
            }
-           else repository.updateRefState(RefereeState.TEAMS_READY.shortName());
+           else refState = RefereeState.TEAMS_READY.shortName();
+
+           repository.updateRefState(refState);
 
            decided = true;
            waitingForTrialDecision.signalAll();
            if(contestantsDone == 6) contestantsDone = 0;
 
 
-           return knockout;
+           return new Response(null, refState, knockout);
        } finally {
 
            mutex.unlock();
@@ -318,25 +328,29 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * Called by referee to reset rope position.
      */
     @Override
-    public void announceNewGamePlayground() throws RemoteException {
+    public Response announceNewGamePlayground() throws RemoteException {
         mutex.lock();
 
-        this.ropePos = 0;
-        gameOver = false;
-        game++;
-        repository.updateRopePosition(ropePos);
+        try {
+            this.ropePos = 0;
+            gameOver = false;
+            game++;
+            repository.updateRopePosition(ropePos);
 
-        mutex.unlock();
+            return new Response(null);
+        } finally {
+            mutex.unlock();
+        }
     }
 
     /**
      * @return current trial.
      */
     @Override
-    public int getCurrentTrial() {
+    public Response getCurrentTrial() {
         mutex.lock();
         try {
-            return currentTrial;
+            return new Response(null, currentTrial);
         } finally {
             mutex.unlock();
         }
@@ -363,7 +377,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @param teamID
      */
     @Override
-    public int reviewNotes(int teamID) throws InterruptedException {
+    public Response reviewNotes(int teamID) throws InterruptedException {
         mutex.lock();
 
         try {
@@ -389,7 +403,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
                     strategy = 1;
             }
 
-            return strategy;
+            return new Response(null, strategy);
         } finally {
             mutex.unlock();
         }
@@ -398,7 +412,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     @Override
-    public boolean isKnockout() {
+    public Response isKnockout() {
         mutex.lock();
         try {
             return knockout;
@@ -408,21 +422,18 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
     }
 
-    private int nrequestsToDie = 0;
+    private int ncloseRequests = 0;
 
     @Override
-    public boolean closePlaygroundConnection() throws RemoteException {
+    public void closePlaygroundConnection() throws RemoteException {
         mutex.lock();
 
         try {
-            nrequestsToDie++;
+            ncloseRequests++;
 
-            if (nrequestsToDie == configs.getNCoaches()) {
+            if (ncloseRequests == configs.getNCoaches())
                 repository.requestToDie();
-                return true;
-            }
 
-            return false;
         } finally {
             mutex.unlock();
         }

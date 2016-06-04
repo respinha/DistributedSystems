@@ -6,10 +6,10 @@ package pt.ua.sd.ropegame.team;
 public class TeamMember extends Thread{
 
     protected int team;
+
     public TeamMember(int team) {
         this.team = team;
     }
-
     public int getTeam() {
         return this.team;
     }

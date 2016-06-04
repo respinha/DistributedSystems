@@ -11,6 +11,8 @@ public class Response implements Serializable {
     private String state;
     private boolean boolVal;
     private int intVal;
+    private int int2Val;
+
     public Response(int[] clocks) {
         this.clocks = clocks;
     }
@@ -23,6 +25,13 @@ public class Response implements Serializable {
     public Response(int[] clocks, int intVal, boolean boolVal) {
         this.clocks = clocks;
         this.intVal = intVal;
+        this.boolVal = boolVal;
+    }
+
+    public Response(int[] clocks, int intVal, int int2Val, boolean boolVal) {
+        this.clocks = clocks;
+        this.intVal = intVal;
+        this.int2Val = int2Val;
         this.boolVal = boolVal;
     }
 
@@ -61,5 +70,9 @@ public class Response implements Serializable {
 
     public int getIntVal() {
         return intVal;
+    }
+
+    public int getInt2Val() {
+        return int2Val;
     }
 }

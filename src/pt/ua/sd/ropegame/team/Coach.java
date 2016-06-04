@@ -111,10 +111,12 @@ public class Coach extends TeamMember {
                     case WATCH_TRIAL:
                         try {
 
-                            // wait until the trial has not finished
-                            this.changeStrategy(playground.reviewNotes(this.team));
-                            knockout = playground.isKnockout();
-                            currentTrial = playground.getCurrentTrial();
+                            response = playground.reviewNotes(this.team);
+                            int result = response.getIntVal();
+                            knockout = response.isBoolVal();
+                            currentTrial = response.getInt2Val();
+
+                            changeStrategy(result);
 
                             // update this team's contestants' strength
                             bench.reviewNotes(this.team, currentTrial+1, knockout);

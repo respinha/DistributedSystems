@@ -1,17 +1,19 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
 
+import pt.ua.sd.ropegame.common.communication.Response;
+
 import java.rmi.RemoteException;
 
 public interface ICoachPlay extends ITeamPlayground {
 
-    int getCurrentTrial() throws RemoteException;
+    Response getCurrentTrial() throws RemoteException;
 
-    int reviewNotes(int teamID) throws InterruptedException, RemoteException;
+    Response reviewNotes(int teamID) throws InterruptedException, RemoteException;
 
-    int moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException;
+    Response moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException;
 
-    boolean isKnockout() throws RemoteException;
+    Response isKnockout() throws RemoteException;
 
-    boolean closePlaygroundConnection() throws RemoteException;
+    void closePlaygroundConnection() throws RemoteException;
 }
