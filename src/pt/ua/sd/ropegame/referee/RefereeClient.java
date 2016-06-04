@@ -54,7 +54,7 @@ public class RefereeClient {
             System.exit(1);
         }
 
-        Referee referee = new Referee(bench, playground, refereesite);
+        Referee referee = new Referee(configs, bench, playground, refereesite);
         referee.start();
 
         try {

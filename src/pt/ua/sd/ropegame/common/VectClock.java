@@ -3,6 +3,7 @@ package pt.ua.sd.ropegame.common;
 import pt.ua.sd.ropegame.common.interfaces.IVectClock;
 import pt.ua.sd.ropegame.referee.Referee;
 import pt.ua.sd.ropegame.team.Coach;
+import pt.ua.sd.ropegame.team.Contestant;
 
 import java.io.Serializable;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
  */
 public class VectClock  implements Serializable, Comparable<VectClock> {
 
-    private static final long serialVersionUID = 3963949565814453628L;
+    private static final long serialVersionUID = 201606042011L;
 
     private int[] clocks;
     private final int COACH_0_INDEX = 1;
@@ -24,15 +25,22 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         }
     }
 
-    public void increment(Object entity, int teamID, int id) {
+    public void increment(Object entity) {
 
         if(entity instanceof Referee)
             clocks[0]++;
-        else if(entity instanceof Coach)  {
-            if(teamID == 0) clocks[COACH_0_INDEX]++;
+        else if(entity instanceof Coach) {
+            Coach c = (Coach) entity;
+            int team = c.getTeam();
+
+            if(team == 0) clocks[COACH_0_INDEX]++;
             else clocks[COACH_1_INDEX]++;
         } else {
-            if(teamID == 0) clocks[COACH_0_INDEX + id]++;
+            Contestant c = (Contestant) entity;
+            int team = c.getTeam();
+            int id = c.getNumber();
+
+            if(team == 0) clocks[COACH_0_INDEX + id]++;
             else clocks[COACH_1_INDEX + id]++;
         }
     }
@@ -44,7 +52,7 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
             if(clocks[i] < newClock[i]) clocks[i] = newClock[i];
     }
 
-    public int[] copy() {
+    private int[] copy() {
         int[] newArr = new int[this.clocks.length];
         for(int i = 0; i < newArr.length; i++) newArr[i] = clocks[i];
 

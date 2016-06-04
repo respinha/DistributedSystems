@@ -60,11 +60,11 @@ public class TeamClient {
             System.exit(1);
         }
 
-        Coach coach = new Coach((ICoachBench) bench, (ICoachPlay) playground, refereeSite, team, new CoachStrategy());
+        Coach coach = new Coach(configs, (ICoachBench) bench, (ICoachPlay) playground, refereeSite, team, new CoachStrategy());
         Contestant[] contestants = new Contestant[configs.getNContestants()];
 
         for (int j = 0; j < configs.getNContestants(); j++)
-            contestants[j] = new Contestant((IContestantsBench) bench, (IContestantsPlay) playground, team, j);
+            contestants[j] = new Contestant(configs, (IContestantsBench) bench, (IContestantsPlay) playground, team, j);
 
 
         coach.start();

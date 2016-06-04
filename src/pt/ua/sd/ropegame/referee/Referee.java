@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.referee;
 
 
+import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.interfaces.IRefRefSite;
@@ -26,23 +28,25 @@ public class Referee extends Thread {
     private IRefPlay playground;
     private IRefRefSite refereeSite;
 
-
     private int currentTrial;
 
     // position of the rope and information on knockout
     private int ropePos;
     private boolean knockout;
 
+    private VectClock clock;
+
 
     /**
      * Constructor for a referee.
      */
-    public Referee(IRefBench bench, IRefPlay playground, IRefRefSite refSite) {
+    public Referee(GameOfTheRopeConfigs configs, IRefBench bench, IRefPlay playground, IRefRefSite refSite) {
 
         // assign memory regions
         this.refereeSite = refSite;
         this.playground = playground;
         this.bench = bench;
+        clock = new VectClock(configs);
 
         // init variables
         currentTrial = 0;
@@ -71,19 +75,21 @@ public class Referee extends Thread {
 
                     case START_OF_THE_MATCH:                    // transition
 
-                        response = playground.announceNewGamePlayground();
-                        // clocks
+                        clock.increment(this);
+                        response = playground.announceNewGamePlayground(clock);
+                        clock.update(response.getClock());
 
-                        response = this.refereeSite.announceNewGameRefSite();
+                        clock.increment(this);
+                        response = this.refereeSite.announceNewGameRefSite(clock);
+                        clock.update(response.getClock());
                         currentState = RefereeState.longName(response.getState());
-                        System.out.println("após: "+currentState);
-                        // clocks
                         break;
 
                     case START_OF_A_GAME:
-                        // call trial
-                        response = bench.callTrial();
-                        // clocks
+                        clock.increment(this);
+                        response = bench.callTrial(clock);
+                        clock.update(response.getClock());
+
                         currentState = RefereeState.longName(response.getState());
 
                         break;
@@ -91,10 +97,14 @@ public class Referee extends Thread {
                     case TEAMS_READY:
                         try {
                             // start trial when both teams are ready
-                            response = refereeSite.startTrialRefSite();
-                            // clocks
-                            response = playground.startTrialPlayground();
-                            // clocks
+
+                            clock.increment(this);
+                            response = refereeSite.startTrialRefSite(clock);
+                            clock.update(response.getClock());
+
+                            clock.increment(this);
+                            response = playground.startTrialPlayground(clock);
+                            clock.update(response.getClock());
 
                             currentTrial = response.getIntVal();
                             currentState = RefereeState.longName(response.getState());
@@ -109,19 +119,20 @@ public class Referee extends Thread {
                         try {
 
                             // wait for trial conclusion and update game stats
-                            response = playground.assertTrialDecisionPlayground();
+                            clock.increment(this);
+                            response = playground.assertTrialDecision(clock);
+                            clock.update(response.getClock());
 
-                            System.out.println("saiu astd");
-                            // clocks
                             knockout = response.isBoolVal();
                             ropePos = response.getIntVal();
                             boolean endOfGame = response.isBoolVal2();
 
-                            // response = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
-
 
                             if (!endOfGame) {
-                                response = bench.callTrial();
+                                clock.increment(this);
+                                response = bench.callTrial(clock);
+                                clock.update(response.getClock());
+
                                 currentState = RefereeState.longName(response.getState());
                                 // clocks
                             } else currentState = RefereeState.longName(response.getState());
@@ -132,15 +143,22 @@ public class Referee extends Thread {
                         break;
 
                     case END_OF_A_GAME:
-
-                        response = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
+                        clock.increment(this);
+                        response = refereeSite.declareGameWinner(clock, currentTrial, ropePos, knockout);
+                        clock.update(response.getClock());
 
                         boolean endOfMatch = response.isBoolVal();
 
                         // clocks
                         if(!endOfMatch) {
-                            playground.announceNewGamePlayground();
-                            response = refereeSite.announceNewGameRefSite();
+                            clock.increment(this);
+                            playground.announceNewGamePlayground(clock);
+                            clock.update(response.getClock());
+
+                            clock.increment(this);
+                            response = refereeSite.announceNewGameRefSite(clock);
+                            clock.update(response.getClock());
+
                             currentState = RefereeState.longName(response.getState());
                             // clocks
                         } else currentState = RefereeState.longName(response.getState());
@@ -149,8 +167,9 @@ public class Referee extends Thread {
                     case END_OF_THE_MATCH:
                         // declare match winner
 
-                        System.out.println("VOU MORRER AGORA");
-                        response = refereeSite.declareMatchWinner();
+                        clock.increment(this);
+                        response = refereeSite.declareMatchWinner(clock);
+                        clock.update(response.getClock());
 
                         // clocks
                         break;

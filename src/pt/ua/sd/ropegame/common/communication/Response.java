@@ -1,5 +1,7 @@
 package pt.ua.sd.ropegame.common.communication;
 
+import pt.ua.sd.ropegame.common.VectClock;
+
 import java.io.Serializable;
 
 /**
@@ -8,66 +10,66 @@ import java.io.Serializable;
 public class Response implements Serializable {
 
     private boolean boolVal2;
-    private int[] clocks;
+    private VectClock clock;
     private String state;
     private boolean boolVal;
     private int intVal;
     private int int2Val;
 
-    public Response(int[] clocks) {
-        this.clocks = clocks;
+    public Response(VectClock clocks) {
+        this.clock = clocks;
     }
 
-    public Response(int[] clocks, int intVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, int intVal) {
+        this.clock = clock;
         this.intVal = intVal;
     }
 
-    public Response(int[] clocks, int intVal, boolean boolVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, int intVal, boolean boolVal) {
+        this.clock = clock;
         this.intVal = intVal;
         this.boolVal = boolVal;
     }
 
-    public Response(int[] clocks, String state, int intVal, boolean boolVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, String state, int intVal, boolean boolVal) {
+        this.clock = clock;
         this.state = state;
         this.intVal = intVal;
         this.boolVal = boolVal;
     }
 
-    public Response(int[] clocks, String state, int intVal, boolean boolVal, boolean boolVal2) {
-        this.clocks = clocks;
+    public Response(VectClock clock, String state, int intVal, boolean boolVal, boolean boolVal2) {
+        this.clock = clock;
         this.state = state;
         this.intVal = intVal;
         this.boolVal = boolVal;
         this.boolVal2 = boolVal2;
     }
 
-    public Response(int[] clocks, int intVal, int int2Val, boolean boolVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, int intVal, int int2Val, boolean boolVal) {
+        this.clock = clock;
         this.intVal = intVal;
         this.int2Val = int2Val;
         this.boolVal = boolVal;
     }
 
-    public Response(int[] clocks, boolean boolVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, boolean boolVal) {
+        this.clock = clock;
         this.boolVal = boolVal;
     }
-    public Response(int[] clocks, String state) {
-        this.clocks = clocks;
+    public Response(VectClock clock, String state) {
+        this.clock = clock;
         this.state = state;
     }
 
-    public Response(int[] clocks, String state, int intVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, String state, int intVal) {
+        this.clock = clock;
         this.state = state;
         this.intVal = intVal;
     }
 
-    public Response(int[] clocks, String state, boolean boolVal) {
-        this.clocks = clocks;
+    public Response(VectClock clock, String state, boolean boolVal) {
+        this.clock = clock;
         this.state = state;
         this.boolVal = boolVal;
     }
@@ -76,8 +78,8 @@ public class Response implements Serializable {
         return state;
     }
 
-    public int[] getClocks() {
-        return clocks;
+    public VectClock getClock() {
+        return clock;
     }
 
     public boolean isBoolVal() {
