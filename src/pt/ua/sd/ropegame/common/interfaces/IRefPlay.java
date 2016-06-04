@@ -6,7 +6,6 @@ import java.rmi.RemoteException;
 
 public interface IRefPlay extends IPlayground {
 
-    int getRopePos() throws RemoteException;
     Response startTrialPlayground() throws RemoteException;
     Response assertTrialDecisionPlayground() throws InterruptedException, RemoteException;
     Response announceNewGamePlayground() throws RemoteException;

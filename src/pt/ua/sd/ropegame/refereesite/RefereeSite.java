@@ -75,7 +75,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     @Override
-    public Response refHasMoreOperations() {
+    public Response refHasMoreOperations() throws RemoteException {
 
         mutex.lock();
         try {
@@ -121,7 +121,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @throws InterruptedException Thread was interrupted.
      */
     @Override
-    public Response startTrialRefSite() throws InterruptedException {
+    public Response startTrialRefSite() throws InterruptedException, RemoteException{
 
         mutex.lock();
 
@@ -255,13 +255,13 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
 
             // referee.hasNoMoreOperations();
             refHasMoreOperations = false;
-            String state = RefereeState.END_OF_THE_MATCH.shortName();
-            repository.updateRefState(state);
+            //String state = RefereeState.END_OF_THE_MATCH.shortName();
+            //repository.updateRefState(state);
 
             repository.updateMatchWinner(matchWinner, teamGameScores);
             repository.generateLogFile();
 
-            return new Response(null, state);
+            return new Response(null);
         } finally {
             mutex.unlock();
         }

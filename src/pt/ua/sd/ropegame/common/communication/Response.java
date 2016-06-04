@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Response implements Serializable {
 
+    private boolean boolVal2;
     private int[] clocks;
     private String state;
     private boolean boolVal;
@@ -26,6 +27,21 @@ public class Response implements Serializable {
         this.clocks = clocks;
         this.intVal = intVal;
         this.boolVal = boolVal;
+    }
+
+    public Response(int[] clocks, String state, int intVal, boolean boolVal) {
+        this.clocks = clocks;
+        this.state = state;
+        this.intVal = intVal;
+        this.boolVal = boolVal;
+    }
+
+    public Response(int[] clocks, String state, int intVal, boolean boolVal, boolean boolVal2) {
+        this.clocks = clocks;
+        this.state = state;
+        this.intVal = intVal;
+        this.boolVal = boolVal;
+        this.boolVal2 = boolVal2;
     }
 
     public Response(int[] clocks, int intVal, int int2Val, boolean boolVal) {
@@ -74,5 +90,9 @@ public class Response implements Serializable {
 
     public int getInt2Val() {
         return int2Val;
+    }
+
+    public boolean isBoolVal2() {
+        return boolVal2;
     }
 }

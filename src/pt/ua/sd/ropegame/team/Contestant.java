@@ -59,10 +59,12 @@ public class Contestant extends TeamMember {
         Response response;
         boolean hasMoreOper;
         try {
-            bench.seatDown(number, team, strength, playgroundPos, false);
+            response = bench.seatDown(number, team, strength, playgroundPos, false);
+            currentState = ContestantState.longName(response.getState());
 
 
              do {
+                 System.out.println(currentState);
                 switch (currentState) {
 
                     case SEAT_AT_THE_BENCH:
@@ -70,15 +72,17 @@ public class Contestant extends TeamMember {
                         try {
                             // wait until the team's coach calls this contestant
                             response = bench.waitForContestantCall(this.number, this.team);
+                            // clocks
                             strength = response.getIntVal();
-                            // clocks
-                            response = bench.contestantsHaveMoreOperations();
-                            // clocks
-                            if (!response.isBoolVal())
+                            hasMoreOper = response.isBoolVal();
+                            if (!hasMoreOper)
                                 break;
 
                             // move to playground
-                            playgroundPos = playground.standInLine(this.number, this.team, this.strength);
+                            response = playground.standInLine(this.number, this.team, this.strength);
+                            //clocks
+                            playgroundPos = response.getIntVal();
+                            changeState(ContestantState.longName(response.getState()));
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -86,7 +90,9 @@ public class Contestant extends TeamMember {
 
                     case STAND_IN_POSITION:
                         try {
-                            playground.getReady(number, team, strength);
+                            response = playground.getReady(number, team, strength);
+                            // clocks
+                            changeState(ContestantState.longName(response.getState()));
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -95,13 +101,23 @@ public class Contestant extends TeamMember {
                     case DO_YOUR_BEST:
                         try {
 
-                            playground.pullTheRope();
-                            boolean matchOver = playground.amDone();
+                            System.out.println("cheguei0 "+number);
+                            response = playground.pullTheRope();
+                            // clocks
 
+                            System.out.println("cheguei1 "+number);
+                            response = playground.amDone();
+                            // clocks
+
+                            boolean matchOver = response.isBoolVal();
+
+                            System.out.println("cheguei2 "+number);
                             // seat down after the trial ended
                             response = bench.seatDown(number, team, strength, playgroundPos, matchOver);
+                            System.out.println("cheguei3 "+number);
                             // clocks
-                            currentState = ContestantState.valueOf(response.getState());
+
+                            currentState = ContestantState.longName(response.getState());
                             playgroundPos = 0;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -112,6 +128,7 @@ public class Contestant extends TeamMember {
 
                  response = bench.contestantsHaveMoreOperations();
                  hasMoreOper = response.isBoolVal();
+                 System.out.println("Contestant: " + hasMoreOper);
             } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");

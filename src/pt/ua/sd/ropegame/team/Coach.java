@@ -65,6 +65,8 @@ public class Coach extends TeamMember {
             System.out.println("Now reviewing notes");
             // the coach is waiting for referee command
             response = bench.reviewNotes(this.team, currentTrial, knockout);
+            currentState = CoachState.longName(response.getState());
+            System.out.println(currentState);
 
             //clocks = response.getClocks();
             boolean hasMoreOper;
@@ -85,7 +87,7 @@ public class Coach extends TeamMember {
                              System.out.println("Waiting for coach call2");
                              // call contestants
                              response = bench.callContestants(this.team, this.getStrategy().shortName());
-                             currentState = CoachState.valueOf(response.getState());
+                             currentState = CoachState.longName(response.getState());
                              //clocks = response.getClocks();
                          } catch (InterruptedException e) {
                              e.printStackTrace();
@@ -106,10 +108,10 @@ public class Coach extends TeamMember {
                              // this variable is always set in the operation moveCoachToPlayground
                              if (iShouldInformRef == this.team) {
                                  response = refSite.informReferee(this.team);
-                                 changeState(CoachState.valueOf(response.getState()));
+                                 changeState(CoachState.longName(response.getState()));
                              }
                              else {
-                                 changeState(CoachState.valueOf(response.getState()));
+                                 changeState(CoachState.longName(response.getState()));
                              }
 
                          } catch (InterruptedException e) {
@@ -133,7 +135,7 @@ public class Coach extends TeamMember {
                             response = bench.reviewNotes(this.team, currentTrial + 1, knockout);
 
                             //clocks = response.getClocks();
-                            currentState = CoachState.valueOf(response.getState());
+                            currentState = CoachState.longName(response.getState());
                          } catch (InterruptedException e) {
                              e.printStackTrace();
                          }

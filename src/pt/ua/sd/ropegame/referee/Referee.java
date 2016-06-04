@@ -63,22 +63,28 @@ public class Referee extends Thread {
             Response response;
 
             boolean hasMoreOper;
+            currentState = RefereeState.START_OF_THE_MATCH;
+
             do {
+                System.out.println(currentState);
                 switch (currentState) {
 
                     case START_OF_THE_MATCH:                    // transition
 
-                        this.playground.announceNewGamePlayground();
-                        response = this.refereeSite.announceNewGameRefSite();
-                        currentState = RefereeState.valueOf(response.getState());
+                        response = playground.announceNewGamePlayground();
+                        // clocks
 
+                        response = this.refereeSite.announceNewGameRefSite();
+                        currentState = RefereeState.longName(response.getState());
+                        System.out.println("após: "+currentState);
                         // clocks
                         break;
 
                     case START_OF_A_GAME:
                         // call trial
                         response = bench.callTrial();
-                        currentState = RefereeState.valueOf(response.getState());
+                        // clocks
+                        currentState = RefereeState.longName(response.getState());
 
                         break;
 
@@ -87,7 +93,12 @@ public class Referee extends Thread {
                             // start trial when both teams are ready
                             response = refereeSite.startTrialRefSite();
                             // clocks
-                            currentTrial = playground.startTrialPlayground();
+                            response = playground.startTrialPlayground();
+                            // clocks
+
+                            currentTrial = response.getIntVal();
+                            currentState = RefereeState.longName(response.getState());
+
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -98,18 +109,22 @@ public class Referee extends Thread {
                         try {
 
                             // wait for trial conclusion and update game stats
-                            knockout = this.playground.assertTrialDecisionPlayground();
-                            ropePos = this.playground.getRopePos();
+                            response = playground.assertTrialDecisionPlayground();
 
-                            response = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
-
-                            boolean endOfGame = response.isBoolVal();
+                            System.out.println("saiu astd");
                             // clocks
+                            knockout = response.isBoolVal();
+                            ropePos = response.getIntVal();
+                            boolean endOfGame = response.isBoolVal2();
+
+                            // response = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
+
+
                             if (!endOfGame) {
                                 response = bench.callTrial();
-                                currentState = RefereeState.valueOf(response.getState());
+                                currentState = RefereeState.longName(response.getState());
                                 // clocks
-                            } else currentState = RefereeState.valueOf(response.getState());
+                            } else currentState = RefereeState.longName(response.getState());
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -118,29 +133,32 @@ public class Referee extends Thread {
 
                     case END_OF_A_GAME:
 
-
                         response = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
 
                         boolean endOfMatch = response.isBoolVal();
+
                         // clocks
                         if(!endOfMatch) {
                             playground.announceNewGamePlayground();
                             response = refereeSite.announceNewGameRefSite();
-                            currentState = RefereeState.valueOf(response.getState());
+                            currentState = RefereeState.longName(response.getState());
                             // clocks
-                        }
+                        } else currentState = RefereeState.longName(response.getState());
                         break;
 
                     case END_OF_THE_MATCH:
                         // declare match winner
 
+                        System.out.println("VOU MORRER AGORA");
                         response = refereeSite.declareMatchWinner();
+
                         // clocks
                         break;
                 }
 
                 response = refereeSite.refHasMoreOperations();
                 hasMoreOper = response.isBoolVal();
+                System.out.println("Arbitro: " + hasMoreOper);
                 // clocks
             } while (hasMoreOper);
 

@@ -132,7 +132,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      */
 
     @Override
-    public Response waitForCoachCall() throws InterruptedException {
+    public Response waitForCoachCall() throws InterruptedException, RemoteException {
         mutex.lock();
         try {
             nCoachesBeingCalled++;
@@ -153,7 +153,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @return True if Coaches have more operations, False otherwise.
      */
     @Override
-    public Response coachesHaveMoreOperations() {
+    public Response coachesHaveMoreOperations() throws RemoteException{
         mutex.lock();
 
         try {
@@ -299,7 +299,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public Response waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException {
+    public Response waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -309,14 +309,14 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
                 waitingForPick[teamID][gameMemberID].await();
 
             if(!contestantsHaveMoreOperations) {
-                return new Response(null, configs.getMaxTrials() + 1);
+                return new Response(null, configs.getMaxTrials() + 1, false);
             } else
                 wasPicked[teamID][gameMemberID] = false;
             //contestant.callContestant(false);
 
 
 
-            return new Response(null, strengths[teamID][gameMemberID]);
+            return new Response(null, strengths[teamID][gameMemberID], true);
 
         } finally {
             mutex.unlock();
@@ -377,7 +377,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     @Override
-    public Response contestantsHaveMoreOperations()
+    public Response contestantsHaveMoreOperations() throws RemoteException
     {
         mutex.lock();
         try {

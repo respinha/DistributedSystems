@@ -112,7 +112,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             // contestant.changeState(ContestantState.STAND_IN_POSITION);
             repository.updateContestantState(ContestantState.STAND_IN_POSITION.shortName(), gameMemberID, teamID);
             repository.updateContestantPosition(gameMemberID, teamID, pos);
-            return new Response(null, pos);
+            return new Response(null, ContestantState.STAND_IN_POSITION.shortName(), pos);
         } finally {
             mutex.unlock();
         }
@@ -233,7 +233,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public Response pullTheRope() throws InterruptedException {
+    public Response pullTheRope() throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -254,7 +254,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public Response amDone() throws InterruptedException {
+    public Response amDone() throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -292,6 +292,8 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
            while (contestantsDone < configs.getMaxContsPlayground())
                issuingTrial.await();
 
+           System.out.println("passei aqui");
+
            if(teamStrength[1] > teamStrength[0])
                ropePos++;
            else if(teamStrength[1] < teamStrength[0])
@@ -316,7 +318,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
            if(contestantsDone == 6) contestantsDone = 0;
 
 
-           return new Response(null, refState, knockout);
+           return new Response(null, refState, ropePos, knockout, gameOver);
        } finally {
 
            mutex.unlock();
@@ -343,32 +345,6 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         }
     }
 
-    /**
-     * @return current trial.
-     */
-    @Override
-    public Response getCurrentTrial() {
-        mutex.lock();
-        try {
-            return new Response(null, currentTrial);
-        } finally {
-            mutex.unlock();
-        }
-    }
-
-    /**
-     *
-     * @return rope position.
-     */
-    @Override
-    public int getRopePos() {
-        mutex.lock();
-        try {
-            return ropePos;
-        } finally {
-            mutex.unlock();
-        }
-    }
 
     /**
      * Called by coach in the end of a trial to change strategy based on what happened during the previous trial.
@@ -377,7 +353,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @param teamID
      */
     @Override
-    public Response reviewNotes(int teamID) throws InterruptedException {
+    public Response reviewNotes(int teamID) throws InterruptedException, RemoteException {
         mutex.lock();
 
         try {
@@ -408,17 +384,6 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             mutex.unlock();
         }
 
-
-    }
-
-    @Override
-    public Response isKnockout() {
-        mutex.lock();
-        try {
-            return knockout;
-        } finally {
-            mutex.unlock();
-        }
 
     }
 
