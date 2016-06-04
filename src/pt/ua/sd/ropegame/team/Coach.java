@@ -62,7 +62,6 @@ public class Coach extends TeamMember {
 
             int currentTrial = 1;
 
-            System.out.println("Now reviewing notes");
             // the coach is waiting for referee command
             response = bench.reviewNotes(this.team, currentTrial, knockout);
             currentState = CoachState.longName(response.getState());
@@ -78,13 +77,11 @@ public class Coach extends TeamMember {
 
                      case WAIT_FOR_REFEREE_COMMAND:
                          try {
-                             System.out.println("Waiting for coach call");
                              // wait for referee to call this coach
 
                              response = bench.waitForCoachCall();
                              //clocks = response.getClocks();
 
-                             System.out.println("Waiting for coach call2");
                              // call contestants
                              response = bench.callContestants(this.team, this.getStrategy().shortName());
                              currentState = CoachState.longName(response.getState());

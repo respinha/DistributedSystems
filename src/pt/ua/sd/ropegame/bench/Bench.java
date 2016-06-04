@@ -344,7 +344,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
             if ((matchOver)) {
                 firstToEndMatch++;
-                if (firstToEndMatch < 6) return new Response(null);
+                if (firstToEndMatch < 6) return new Response(null, state);
 
                 this.contestantsHaveMoreOperations = false;
 

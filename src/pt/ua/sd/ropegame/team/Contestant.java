@@ -70,13 +70,18 @@ public class Contestant extends TeamMember {
                     case SEAT_AT_THE_BENCH:
 
                         try {
+                            System.out.println("Seated");
                             // wait until the team's coach calls this contestant
                             response = bench.waitForContestantCall(this.number, this.team);
                             // clocks
                             strength = response.getIntVal();
                             hasMoreOper = response.isBoolVal();
-                            if (!hasMoreOper)
+                            if (!hasMoreOper) {
+                                System.out.println("Eu, "+team+","+number+" vou morrer");
                                 break;
+                            }
+
+                            System.out.println("Eu, "+number+" fui chamado");
 
                             // move to playground
                             response = playground.standInLine(this.number, this.team, this.strength);
@@ -100,21 +105,20 @@ public class Contestant extends TeamMember {
 
                     case DO_YOUR_BEST:
                         try {
-
-                            System.out.println("cheguei0 "+number);
                             response = playground.pullTheRope();
                             // clocks
 
-                            System.out.println("cheguei1 "+number);
                             response = playground.amDone();
                             // clocks
 
                             boolean matchOver = response.isBoolVal();
 
-                            System.out.println("cheguei2 "+number);
                             // seat down after the trial ended
+
+                            System.out.println(matchOver);
                             response = bench.seatDown(number, team, strength, playgroundPos, matchOver);
-                            System.out.println("cheguei3 "+number);
+                            System.out.println("Seat down finished");
+                            System.out.println("Next state: "+response.getState());
                             // clocks
 
                             currentState = ContestantState.longName(response.getState());
@@ -123,12 +127,17 @@ public class Contestant extends TeamMember {
                             e.printStackTrace();
                         }
                         break;
+
+                    default:
+                        System.out.println("Cheguei aqui, mas não devia: "+number);
+                        System.out.println(currentState);
+                        break;
                 }
 
 
                  response = bench.contestantsHaveMoreOperations();
                  hasMoreOper = response.isBoolVal();
-                 System.out.println("Contestant: " + hasMoreOper);
+                 System.out.println("Contestant: " + number + ", " + hasMoreOper);
             } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");

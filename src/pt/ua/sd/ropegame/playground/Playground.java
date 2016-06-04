@@ -379,7 +379,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
                     strategy = 1;
             }
 
-            return new Response(null, strategy);
+            return new Response(null, strategy, currentTrial, knockout);
         } finally {
             mutex.unlock();
         }
