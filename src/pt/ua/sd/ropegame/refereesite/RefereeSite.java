@@ -70,9 +70,10 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             String state = RefereeState.START_OF_THE_MATCH.shortName();
-            repository.updateRefState(state);
-            return new Response(null, state);
+            repository.updateRefState(vectClock, state);
+            return new Response(vectClock, state);
         } finally {
             mutex.unlock();
         }
@@ -110,11 +111,12 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         try {
             RefereeState state = RefereeState.START_OF_A_GAME;
             // referee.changeState(state);
+            vectClock.update(clientClock);
             currentGame++;
-            repository.updateRefState(state.shortName());
-            repository.updateGame(currentGame);
+            repository.updateRefState(vectClock, state.shortName());
+            repository.updateGame(vectClock, currentGame);
 
-            return new Response(null, state.shortName());
+            return new Response(vectClock, state.shortName());
         } finally {
 
             mutex.unlock();
@@ -131,12 +133,12 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             while (!coachAndContestantsReady)
                 waitingForCoachAndPlayers.await();
 
-
             coachAndContestantsReady = false;
-            return new Response(null);
+            return new Response(vectClock);
         } finally {
 
             mutex.unlock();
@@ -153,14 +155,15 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             coachAndContestantsReady = true;
             waitingForCoachAndPlayers.signal();
 
             CoachState state = CoachState.WATCH_TRIAL;
             // coach.changeState(state);
 
-            repository.updateCoachState(state.shortName(), coachTeamID);
-            return new Response(null, state.shortName());
+            repository.updateCoachState(vectClock, state.shortName(), coachTeamID);
+            return new Response(vectClock, state.shortName());
         } finally {
 
             mutex.unlock();
@@ -182,7 +185,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
 
         try {
             // declare game winner
-
+            vectClock.update(clientClock);
             int gameWinner = ropePos != 0 ? (ropePos > 0 ? 1:2) : 0;
 
             switch (gameWinner) {
@@ -207,11 +210,11 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
                 endOfMatch = false;
             }
 
-            repository.updateGameWinner(currentGame, gameWinner, ntrials, knockout);
+            repository.updateGameWinner(vectClock, currentGame, gameWinner, ntrials, knockout);
             // referee.(state);
-            repository.updateRefState(state.shortName());
+            repository.updateRefState(vectClock, state.shortName());
 
-            return new Response(null, state.shortName(), endOfMatch);
+            return new Response(vectClock, state.shortName(), endOfMatch);
         } finally {
             mutex.unlock();
         }
@@ -226,6 +229,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             int matchWinner = (teamGameScores[0] != teamGameScores[1]) ? ((teamGameScores[0] > teamGameScores[1]) ? 1 : 2) : 0;
 
             // referee.hasNoMoreOperations();
@@ -233,9 +237,9 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
             //String state = RefereeState.END_OF_THE_MATCH.shortName();
             //repository.updateRefState(state);
 
-            repository.updateMatchWinner(matchWinner, teamGameScores);
+            repository.updateMatchWinner(vectClock, matchWinner, teamGameScores);
 
-            return new Response(null);
+            return new Response(vectClock);
         } finally {
             mutex.unlock();
         }
