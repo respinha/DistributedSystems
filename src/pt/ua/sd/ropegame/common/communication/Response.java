@@ -18,7 +18,7 @@ public class Response implements Serializable {
         this.clocks = clocks;
     }
 
-    public Response(int[] clocks, int intVal) {
+    public Response(int[]   clocks, int intVal) {
         this.clocks = clocks;
         this.intVal = intVal;
     }

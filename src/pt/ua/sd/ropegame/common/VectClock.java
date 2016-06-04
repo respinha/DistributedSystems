@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class VectClock  implements Serializable, Comparable<VectClock> {
 
-    private static final long serialVersionUID = 3963949565814453628L;
+    private static final long serialVersionUID = 040616L;
 
     private int[] clocks;
     private final int COACH_0_INDEX = 1;

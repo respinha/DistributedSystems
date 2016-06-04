@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.genrepository;
 
 
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -142,15 +143,19 @@ class GeneralRepository implements
     }
 
     @Override
-    public void updateGame(int game) {
+    public Response updateGame(int game) {
 
         mutex.lock();
 
-        String s1 = "Game " + game;
-        lines.add(s1);
-        System.out.println(s1);
+        try {
+            String s1 = "Game " + game;
+            lines.add(s1);
+            System.out.println(s1);
 
-        mutex.unlock();
+            return new Response(null);
+        } finally {
+            mutex.unlock();
+        }
     }
 
     /**
@@ -159,22 +164,28 @@ class GeneralRepository implements
      * @param results final results.
      */
     @Override
-    public void updateMatchWinner(int winner, int[] results) {
+    public Response updateMatchWinner(int winner, int[] results) {
 
         mutex.lock();
-        String s1;
 
-        if(results[0] == results[1])
-            s1 = "Match was a draw.";
+        try {
+            String s1;
 
-        else {
-            s1 = "Match was won by team " + winner + " ";
-            s1 += "(" + results[0] + " - " + results[1] + ").";
+            if (results[0] == results[1])
+                s1 = "Match was a draw.";
+
+            else {
+                s1 = "Match was won by team " + winner + " ";
+                s1 += "(" + results[0] + " - " + results[1] + ").";
+            }
+
+            lines.add(s1);
+            System.out.println(s1);
+
+            return new Response(null);
+        } finally {
+            mutex.unlock();
         }
-
-        lines.add(s1);
-        System.out.println(s1);
-        mutex.unlock();
     }
 
     /**
@@ -185,24 +196,30 @@ class GeneralRepository implements
      * @param knockout true if one of the teams won by knockout.
      */
     @Override
-    public void updateGameWinner(int currentGame, int gameWinner, int ntrials, boolean knockout) {
+    public Response updateGameWinner(int currentGame, int gameWinner, int ntrials, boolean knockout) {
         mutex.lock();
 
-        String s1 = "Game " + currentGame + " ";
-        if(gameWinner == 0)
-            s1 += "was a draw.";
-        else {
-            s1 += "was won by team ";
-            if(knockout)
-                s1 += gameWinner + " by knockout in " + ntrials + " trials.";
+        try {
+            String s1 = "Game " + currentGame + " ";
+            if (gameWinner == 0)
+                s1 += "was a draw.";
+            else {
+                s1 += "was won by team ";
+                if (knockout)
+                    s1 += gameWinner + " by knockout in " + ntrials + " trials.";
 
-            else
-                s1 += gameWinner + " by points.";
+                else
+                    s1 += gameWinner + " by points.";
+            }
+
+
+            lines.add(s1);
+            System.out.println(s1);
+
+            return new Response(null);
+        } finally {
+            mutex.unlock();
         }
-
-        lines.add(s1);
-        System.out.println(s1);
-        mutex.unlock();
     }
 
     /** Update referee state.
@@ -212,12 +229,14 @@ class GeneralRepository implements
     public void updateRefState(String state) {
         mutex.lock();
 
-        if(!write) // && currentStatus[STATUSID.PS.id] != "-")
-            write = true;
-        currentStatus[STATUSID.REFSTAT.id] = state;
-        printStatus();
-
-        mutex.unlock();
+        try {
+            if (!write) // && currentStatus[STATUSID.PS.id] != "-")
+                write = true;
+            currentStatus[STATUSID.REFSTAT.id] = state;
+            printStatus();
+        } finally {
+            mutex.unlock();
+        }
 
     }
 
@@ -267,7 +286,7 @@ class GeneralRepository implements
      * @param gameMemberID The contestant's ID.
      */
     @Override
-    public void updateContestantState(String state, int gameMemberID, int teamID) {
+    public Response updateContestantState(String state, int gameMemberID, int teamID) {
         mutex.lock();
 
         try {
@@ -275,6 +294,8 @@ class GeneralRepository implements
             updateStates(teamID, gameMemberID, state);
 
             printStatus();
+
+            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -286,30 +307,34 @@ class GeneralRepository implements
      * @param strength
      */
     @Override
-    public void updateStrengths(int teamID, int[] strength) {
+    public Response updateStrengths(int teamID, int[] strength) {
 
         mutex.lock();
 
-        switch (teamID) {
-            case 0:
-                currentStatus[STATUSID.CONT01SG.id] = strength[0] + "";
-                currentStatus[STATUSID.CONT02SG.id] = strength[1] + "";
-                currentStatus[STATUSID.CONT03SG.id] = strength[2] + "";
-                currentStatus[STATUSID.CONT04SG.id] = strength[3] + "";
-                currentStatus[STATUSID.CONT05SG.id] = strength[4] + "";
-                break;
-            case 1:
-                currentStatus[STATUSID.CONT11SG.id] = strength[0] + "";
-                currentStatus[STATUSID.CONT12SG.id] = strength[1] + "";
-                currentStatus[STATUSID.CONT13SG.id] = strength[2] + "";
-                currentStatus[STATUSID.CONT14SG.id] = strength[3] + "";
-                currentStatus[STATUSID.CONT15SG.id] = strength[4] + "";
-                break;
+        try {
+            switch (teamID) {
+                case 0:
+                    currentStatus[STATUSID.CONT01SG.id] = strength[0] + "";
+                    currentStatus[STATUSID.CONT02SG.id] = strength[1] + "";
+                    currentStatus[STATUSID.CONT03SG.id] = strength[2] + "";
+                    currentStatus[STATUSID.CONT04SG.id] = strength[3] + "";
+                    currentStatus[STATUSID.CONT05SG.id] = strength[4] + "";
+                    break;
+                case 1:
+                    currentStatus[STATUSID.CONT11SG.id] = strength[0] + "";
+                    currentStatus[STATUSID.CONT12SG.id] = strength[1] + "";
+                    currentStatus[STATUSID.CONT13SG.id] = strength[2] + "";
+                    currentStatus[STATUSID.CONT14SG.id] = strength[3] + "";
+                    currentStatus[STATUSID.CONT15SG.id] = strength[4] + "";
+                    break;
+            }
+
+            printStatus();
+
+            return new Response(null);
+        } finally {
+            mutex.unlock();
         }
-
-        printStatus();
-
-        mutex.unlock();
 
     }
 
@@ -368,18 +393,23 @@ class GeneralRepository implements
      * @param state new coach state.
      */
     @Override
-    public void updateCoachState(String state, int teamID) {
+    public Response updateCoachState(String state, int teamID) {
         mutex.lock();
 
 
-        if(teamID == 0)
-            currentStatus[STATUSID.COACH1STAT.id] = state;
-        else
-            currentStatus[STATUSID.COACH2STAT.id] = state;
+        try {
+            if (teamID == 0)
+                currentStatus[STATUSID.COACH1STAT.id] = state;
+            else
+                currentStatus[STATUSID.COACH2STAT.id] = state;
 
-        printStatus();
+            printStatus();
 
-        mutex.unlock();
+            return new Response(null);
+        }
+        finally {
+            mutex.unlock();
+        }
 
     }
 
@@ -389,32 +419,36 @@ class GeneralRepository implements
      * @param pos Contestant's posistion in playground,
      */
     @Override
-    public void removeContestantFromPosition(int team, int pos) {
+    public Response removeContestantFromPosition(int team, int pos) {
 
         mutex.lock();
 
-        switch (pos) {
-            case 1:
-                if(team == 0) currentStatus[STATUSID.TEAM03.id] = "-";
-                else currentStatus[STATUSID.TEAM11.id] = "-";
-                break;
+        try {
+            switch (pos) {
+                case 1:
+                    if (team == 0) currentStatus[STATUSID.TEAM03.id] = "-";
+                    else currentStatus[STATUSID.TEAM11.id] = "-";
+                    break;
 
-            case 2:
-                if(team == 0) currentStatus[STATUSID.TEAM02.id] = "-";
-                else currentStatus[STATUSID.TEAM12.id] = "-";
-                break;
+                case 2:
+                    if (team == 0) currentStatus[STATUSID.TEAM02.id] = "-";
+                    else currentStatus[STATUSID.TEAM12.id] = "-";
+                    break;
 
-            case 3:
-                if(team == 0) currentStatus[STATUSID.TEAM01.id] = "-";
-                else currentStatus[STATUSID.TEAM13.id] = "-";
-                break;
+                case 3:
+                    if (team == 0) currentStatus[STATUSID.TEAM01.id] = "-";
+                    else currentStatus[STATUSID.TEAM13.id] = "-";
+                    break;
 
-            default: break;
+                default:
+                    break;
+            }
+
+            printStatus();
+            return new Response(null);
+        } finally {
+            mutex.unlock();
         }
-
-        printStatus();
-
-        mutex.unlock();
     }
 
     /**
@@ -424,40 +458,50 @@ class GeneralRepository implements
      * @param pos
      */
     @Override
-    public void updateContestantPosition(int id, int teamID, int pos) {
+    public Response updateContestantPosition(int id, int teamID, int pos) {
         mutex.lock();
 
-        switch(teamID) {
-            case 0:
-                switch (pos) {
-                    case 0: // no position
-                        break;
-                    case 1: currentStatus[STATUSID.TEAM03.id] = String.valueOf(id+1);
-                        break;
-                    case 2:currentStatus[STATUSID.TEAM02.id] = String.valueOf(id+1);
-                        break;
-                    case 3:currentStatus[STATUSID.TEAM01.id] = String.valueOf(id+1);
-                        break;
+        try {
+            switch (teamID) {
+                case 0:
+                    switch (pos) {
+                        case 0: // no position
+                            break;
+                        case 1:
+                            currentStatus[STATUSID.TEAM03.id] = String.valueOf(id + 1);
+                            break;
+                        case 2:
+                            currentStatus[STATUSID.TEAM02.id] = String.valueOf(id + 1);
+                            break;
+                        case 3:
+                            currentStatus[STATUSID.TEAM01.id] = String.valueOf(id + 1);
+                            break;
 
-                }
-                break;
-            case 1:
-                switch(pos) {
-                    case 0:
-                        break;
-                    case 1:currentStatus[STATUSID.TEAM11.id] = String.valueOf(id+1);
-                        break;
-                    case 2:currentStatus[STATUSID.TEAM12.id] = String.valueOf(id+1);
-                        break;
-                    case 3:currentStatus[STATUSID.TEAM13.id] = String.valueOf(id+1);
-                        break;
-                }
-                break;
+                    }
+                    break;
+                case 1:
+                    switch (pos) {
+                        case 0:
+                            break;
+                        case 1:
+                            currentStatus[STATUSID.TEAM11.id] = String.valueOf(id + 1);
+                            break;
+                        case 2:
+                            currentStatus[STATUSID.TEAM12.id] = String.valueOf(id + 1);
+                            break;
+                        case 3:
+                            currentStatus[STATUSID.TEAM13.id] = String.valueOf(id + 1);
+                            break;
+                    }
+                    break;
+            }
+
+            printStatus();
+
+            return new Response(null);
+        } finally {
+            mutex.unlock();
         }
-
-        printStatus();
-
-        mutex.unlock();
     }
 
     /**
@@ -466,13 +510,17 @@ class GeneralRepository implements
      */
 
     @Override
-    public void updateTrial(int trial) {
+    public Response updateTrial(int trial) {
         mutex.lock();
 
-        currentStatus[STATUSID.NB.id] = String.valueOf(trial);
-        printStatus();
+        try {
+            currentStatus[STATUSID.NB.id] = String.valueOf(trial);
+            printStatus();
 
-        mutex.unlock();
+            return new Response(null);
+        } finally {
+            mutex.unlock();
+        }
     }
 
     /**
@@ -480,13 +528,17 @@ class GeneralRepository implements
      * @param ropePos current rope position.
      */
     @Override
-    public void updateRopePosition(int ropePos) {
+    public Response updateRopePosition(int ropePos) {
         mutex.lock();
 
-        currentStatus[STATUSID.PS.id] = String.valueOf(ropePos);
-        printStatus();
+        try {
+            currentStatus[STATUSID.PS.id] = String.valueOf(ropePos);
+            printStatus();
 
-        mutex.unlock();
+            return new Response(null);
+        } finally {
+            mutex.unlock();
+        }
     }
 
     /**
