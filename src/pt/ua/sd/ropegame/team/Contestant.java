@@ -60,7 +60,10 @@ public class Contestant extends TeamMember {
         Response response;
         boolean hasMoreOper;
         try {
-            response = bench.seatDown(number, team, strength, playgroundPos, false);
+            clock.increment(this);
+            response = bench.seatDown(clock, number, team, strength, playgroundPos, false);
+            clock.update(response.getClock());
+
             currentState = ContestantState.longName(response.getState());
 
             do {

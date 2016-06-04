@@ -58,7 +58,7 @@ public class Coach extends TeamMember {
     public void run() {
 
         try {
-            Response response = null;
+            Response response;
 
             int currentTrial = 1;
 
