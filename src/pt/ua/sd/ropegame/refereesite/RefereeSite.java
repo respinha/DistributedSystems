@@ -85,7 +85,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
 
         mutex.lock();
         try {
-            return new Response(null, this.refHasMoreOperations);
+            return new Response(this.refHasMoreOperations);
         } finally {
             mutex.unlock();
         }

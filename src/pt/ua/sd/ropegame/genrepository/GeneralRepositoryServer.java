@@ -36,10 +36,10 @@ public class GeneralRepositoryServer {
 
         System.out.println("Security Manager foi instalado.");
 
-        String logFile = configs.getLogFileName();
+
 
         // shared regions and interfaces
-        GeneralRepository generalRepository = new GeneralRepository(logFile);
+        GeneralRepository generalRepository = new GeneralRepository(configs);
         IGeneralRepository generalRepositoryInterface = null;
 
         try {

@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.genrepository;
 
 
+import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.*;
@@ -25,7 +26,7 @@ class GeneralRepository implements
     private Lock mutex;
     private String[] currentStatus;
     private int deadRegions;
-
+    private VectClock vectClock;
     // positions to write data to.
 
     private enum STATUSID {
@@ -52,9 +53,9 @@ class GeneralRepository implements
 
     /**
      * Constructor for the general repository.
-     * @param fileName The logging file name.
+     * @param configs
      */
-    public GeneralRepository(String fileName) {
+    public GeneralRepository(GameOfTheRopeConfigs configs) {
         mutex = new ReentrantLock();
 
         currentStatus = new String[32];
@@ -66,13 +67,14 @@ class GeneralRepository implements
         currentStatus[STATUSID.ROPE.id] = ".";
 
         // create log file
-        file = Paths.get(fileName);
+        file = Paths.get(configs.getLogFileName());
 
         //logger = new Logger(32, 2);
         lines = new ArrayList<>();
 
         deadRegions = 0;
 
+        vectClock = new VectClock(configs);
         printFirstLines();
     }
 
@@ -144,16 +146,16 @@ class GeneralRepository implements
     }
 
     @Override
-    public Response updateGame(VectClock clientClock, int game) {
+    public void updateGame(VectClock clientClock, int game) {
 
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             String s1 = "Game " + game;
             lines.add(s1);
             System.out.println(s1);
 
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -165,11 +167,12 @@ class GeneralRepository implements
      * @param results final results.
      */
     @Override
-    public Response updateMatchWinner(VectClock clientClock, int winner, int[] results) {
+    public void updateMatchWinner(VectClock clientClock, int winner, int[] results) {
 
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             String s1;
 
             if (results[0] == results[1])
@@ -184,7 +187,6 @@ class GeneralRepository implements
             System.out.println(s1);
 
             generateLogFile();
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -198,10 +200,11 @@ class GeneralRepository implements
      * @param knockout true if one of the teams won by knockout.
      */
     @Override
-    public Response updateGameWinner(VectClock clientClock, int currentGame, int gameWinner, int ntrials, boolean knockout) {
+    public void updateGameWinner(VectClock clientClock, int currentGame, int gameWinner, int ntrials, boolean knockout) {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             String s1 = "Game " + currentGame + " ";
             if (gameWinner == 0)
                 s1 += "was a draw.";
@@ -218,7 +221,6 @@ class GeneralRepository implements
             lines.add(s1);
             System.out.println(s1);
 
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -232,6 +234,7 @@ class GeneralRepository implements
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             if (!write) // && currentStatus[STATUSID.PS.id] != "-")
                 write = true;
             currentStatus[STATUSID.REFSTAT.id] = state;
@@ -288,16 +291,14 @@ class GeneralRepository implements
      * @param gameMemberID The contestant's ID.
      */
     @Override
-    public Response updateContestantState(VectClock clientClock, String state, int gameMemberID, int teamID) {
+    public void updateContestantState(VectClock clientClock, String state, int gameMemberID, int teamID) {
         mutex.lock();
 
         try {
-
+            vectClock.update(clientClock);
             updateStates(teamID, gameMemberID, state);
 
             printStatus();
-
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -309,11 +310,12 @@ class GeneralRepository implements
      * @param strength
      */
     @Override
-    public Response updateStrengths(VectClock clientClock, int teamID, int[] strength) {
+    public void updateStrengths(VectClock clientClock, int teamID, int[] strength) {
 
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             switch (teamID) {
                 case 0:
                     currentStatus[STATUSID.CONT01SG.id] = strength[0] + "";
@@ -333,7 +335,6 @@ class GeneralRepository implements
 
             printStatus();
 
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -346,7 +347,7 @@ class GeneralRepository implements
      * @param gameMemberID
      * @param state
      */
-    private void updateStates(VectClock clientClock, int teamID, int gameMemberID, String state) {
+    private void updateStates(int teamID, int gameMemberID, String state) {
         if(teamID == 0) {
             switch (gameMemberID) {
                 case 0:
@@ -395,11 +396,12 @@ class GeneralRepository implements
      * @param state new coach state.
      */
     @Override
-    public Response updateCoachState(VectClock clientClock, String state, int teamID) {
+    public void updateCoachState(VectClock clientClock, String state, int teamID) {
         mutex.lock();
 
 
         try {
+            vectClock.update(clientClock);
             if (teamID == 0)
                 currentStatus[STATUSID.COACH1STAT.id] = state;
             else
@@ -407,7 +409,6 @@ class GeneralRepository implements
 
             printStatus();
 
-            return new Response(null);
         }
         finally {
             mutex.unlock();
@@ -421,11 +422,12 @@ class GeneralRepository implements
      * @param pos Contestant's posistion in playground,
      */
     @Override
-    public Response removeContestantFromPosition(VectClock clientClock, int team, int pos) {
+    public void removeContestantFromPosition(VectClock clientClock, int team, int pos) {
 
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             switch (pos) {
                 case 1:
                     if (team == 0) currentStatus[STATUSID.TEAM03.id] = "-";
@@ -447,7 +449,6 @@ class GeneralRepository implements
             }
 
             printStatus();
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -460,10 +461,11 @@ class GeneralRepository implements
      * @param pos
      */
     @Override
-    public Response updateContestantPosition(VectClock clientClock, int id, int teamID, int pos) {
+    public void updateContestantPosition(VectClock clientClock, int id, int teamID, int pos) {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             switch (teamID) {
                 case 0:
                     switch (pos) {
@@ -499,8 +501,6 @@ class GeneralRepository implements
             }
 
             printStatus();
-
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -512,14 +512,14 @@ class GeneralRepository implements
      */
 
     @Override
-    public Response updateTrial(VectClock clientClock, int trial) {
+    public void updateTrial(VectClock clientClock, int trial) {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             currentStatus[STATUSID.NB.id] = String.valueOf(trial);
             printStatus();
 
-            return new Response(null);
         } finally {
             mutex.unlock();
         }
@@ -530,14 +530,13 @@ class GeneralRepository implements
      * @param ropePos current rope position.
      */
     @Override
-    public Response updateRopePosition(VectClock clientClock, int ropePos) {
+    public void updateRopePosition(VectClock clientClock, int ropePos) {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             currentStatus[STATUSID.PS.id] = String.valueOf(ropePos);
             printStatus();
-
-            return new Response(null);
         } finally {
             mutex.unlock();
         }

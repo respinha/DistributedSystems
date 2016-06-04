@@ -75,6 +75,10 @@ public class Response implements Serializable {
         this.boolVal = boolVal;
     }
 
+    public Response(boolean boolVal) {
+        this.boolVal = boolVal;
+    }
+
     public String getState() {
         return state;
     }

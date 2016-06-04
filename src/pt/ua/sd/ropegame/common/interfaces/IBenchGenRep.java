@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 
 public interface IBenchGenRep extends IGeneralRepository {
 
-    Response removeContestantFromPosition(VectClock clientClock, int team, int pos) throws RemoteException;
+    void removeContestantFromPosition(VectClock clientClock, int team, int pos) throws RemoteException;
 
-    Response updateStrengths(VectClock clientClock, int teamID, int[] strength) throws RemoteException;
+    void updateStrengths(VectClock clientClock, int teamID, int[] strength) throws RemoteException;
 }

@@ -7,8 +7,8 @@ import java.rmi.RemoteException;
 
 public interface IRefSiteGenRep extends IGeneralRepository {
 
-    Response updateGame(VectClock clientClock, int game) throws RemoteException;
-    Response updateMatchWinner(VectClock clientClock, int winner, int[] results) throws RemoteException;
-    Response updateGameWinner(VectClock clientClock, int currentGame, int gameWinner, int ntrials, boolean knockout) throws RemoteException;
+    void updateGame(VectClock clientClock, int game) throws RemoteException;
+    void updateMatchWinner(VectClock clientClock, int winner, int[] results) throws RemoteException;
+    void updateGameWinner(VectClock clientClock, int currentGame, int gameWinner, int ntrials, boolean knockout) throws RemoteException;
 
 }

@@ -96,6 +96,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
         mutex.lock();
         try {
+            vectClock.update(clientClock);
             nContInPlayground++;
 
             teamStrength[teamID] += strength;
@@ -113,9 +114,9 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             }
 
             // contestant.changeState(ContestantState.STAND_IN_POSITION);
-            repository.updateContestantState(ContestantState.STAND_IN_POSITION.shortName(), gameMemberID, teamID);
-            repository.updateContestantPosition(gameMemberID, teamID, pos);
-            return new Response(null, ContestantState.STAND_IN_POSITION.shortName(), pos);
+            repository.updateContestantState(vectClock, ContestantState.STAND_IN_POSITION.shortName(), gameMemberID, teamID);
+            repository.updateContestantPosition(vectClock, gameMemberID, teamID, pos);
+            return new Response(vectClock, ContestantState.STAND_IN_POSITION.shortName(), pos);
         } finally {
             mutex.unlock();
         }
@@ -133,6 +134,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             while (nContInPlayground < configs.getMaxContsPlayground())
                 coachWaitingForContestants.await();
 
@@ -148,14 +150,14 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             if (nCoachesInPlayground == 1) {
                 state = CoachState.WATCH_TRIAL.shortName();
                 // teamID.changeState(state);
-                repository.updateCoachState(state, teamID);
+                repository.updateCoachState(vectClock,state, teamID);
             }
             if (nCoachesInPlayground == configs.getNCoaches()) {
                 nCoachesInPlayground = 0;
                 nContInPlayground = 0;
             }
 
-            return new Response(null, state, coachToInform);
+            return new Response(vectClock, state, coachToInform);
         } finally {
             mutex.unlock();
         }
@@ -175,6 +177,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             while (!trialStarted)
                 waitingForTrialToStart.await();
 
@@ -186,9 +189,9 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
             ContestantState st = ContestantState.DO_YOUR_BEST;
             // contestant.changeState(st);
-            repository.updateContestantState(st.shortName(), gameMemberID, teamID);
+            repository.updateContestantState(vectClock, st.shortName(), gameMemberID, teamID);
 
-            return new Response(null, st.shortName());
+            return new Response(vectClock, st.shortName());
         } finally {
             mutex.unlock();
         }
@@ -204,7 +207,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
-
+            vectClock.update(clientClock);
             trialStarted = true;
             waitingForTrialToStart.signalAll();
 
@@ -215,13 +218,13 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
             currentTrial++;
 
-            repository.updateTrial(currentTrial);
+            repository.updateTrial(vectClock, currentTrial);
 
             RefereeState state = RefereeState.WAIT_FOR_TRIAL_CONCLUSION;
             // referee.changeState(state);
-            repository.updateRefState(state.shortName());
+            repository.updateRefState(vectClock, state.shortName());
 
-            return new Response(null, state.shortName(), currentTrial);
+            return new Response(vectClock, state.shortName(), currentTrial);
 
         } finally {
 
@@ -241,10 +244,11 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             int r = RANDOMGEN.nextInt(100) + 1;
             Thread.sleep(r);
 
-            return new Response(null);
+            return new Response(vectClock);
         } finally {
             mutex.unlock();
         }
@@ -262,9 +266,8 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             contestantsDone++;
-
-            // c.hasPlayedInLastTrial();
 
             // if this is the last contestant
             if (contestantsDone == configs.getMaxContsPlayground()) {
@@ -275,7 +278,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             while (!decided)
                 waitingForTrialDecision.await();
 
-            return new Response(null, (gameOver && game == configs.getMaxGames()));
+            return new Response(vectClock, (gameOver && game == configs.getMaxGames()));
         } finally {
 
             mutex.unlock();
@@ -292,6 +295,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
        try {
+           vectClock.update(clientClock);
            while (contestantsDone < configs.getMaxContsPlayground())
                issuingTrial.await();
 
@@ -301,7 +305,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
                ropePos++;
            else if(teamStrength[1] < teamStrength[0])
                ropePos--;
-           repository.updateRopePosition(ropePos);
+           repository.updateRopePosition(vectClock, ropePos);
 
            knockout = (Math.abs(ropePos) >= 4);
            teamStrength[1] = teamStrength[0] = 0;
@@ -314,14 +318,14 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
            }
            else refState = RefereeState.TEAMS_READY.shortName();
 
-           repository.updateRefState(refState);
+           repository.updateRefState(vectClock, refState);
 
            decided = true;
            waitingForTrialDecision.signalAll();
            if(contestantsDone == 6) contestantsDone = 0;
 
 
-           return new Response(null, refState, ropePos, knockout, gameOver);
+           return new Response(vectClock, refState, ropePos, knockout, gameOver);
        } finally {
 
            mutex.unlock();
@@ -337,12 +341,13 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             this.ropePos = 0;
             gameOver = false;
             game++;
-            repository.updateRopePosition(ropePos);
+            repository.updateRopePosition(vectClock, ropePos);
 
-            return new Response(null);
+            return new Response(vectClock);
         } finally {
             mutex.unlock();
         }
@@ -360,6 +365,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             while (!decided)
                 waitingForTrialDecision.await();
 
@@ -382,7 +388,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
                     strategy = 1;
             }
 
-            return new Response(null, strategy, currentTrial, knockout);
+            return new Response(vectClock, strategy, currentTrial, knockout);
         } finally {
             mutex.unlock();
         }

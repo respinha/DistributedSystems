@@ -60,10 +60,6 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     private GameOfTheRopeConfigs configs;
     private VectClock vectClock;
 
-    private int[] clocks = null;
-
-
-
     /**
     *  Constructor for the bench.
      *  @param rep The @GeneralRepository interface containing all needed methods.
@@ -116,13 +112,14 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             if (nCoachesBeingCalled == 3) nCoachesBeingCalled = 0;
 
             nCoachesBeingCalled++;
             waitingForTrialToStart.signalAll();
-            repository.updateRefState(RefereeState.TEAMS_READY.shortName());
+            repository.updateRefState(vectClock, RefereeState.TEAMS_READY.shortName());
 
-            return new Response(clocks, RefereeState.TEAMS_READY.shortName());
+            return new Response(vectClock, RefereeState.TEAMS_READY.shortName());
         } finally {
             mutex.unlock();
         }
@@ -139,12 +136,13 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     public Response waitForCoachCall(VectClock clientClock) throws InterruptedException, RemoteException {
         mutex.lock();
         try {
+            vectClock.update(clientClock);
             nCoachesBeingCalled++;
             while (nCoachesBeingCalled < configs.getNCoaches() + 1)
                 waitingForTrialToStart.await();
             waitingForTrialToStart.signalAll();
 
-            return new Response(clocks);
+            return new Response(vectClock);
         } finally {
             mutex.unlock();
         }
@@ -157,11 +155,11 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @return True if Coaches have more operations, False otherwise.
      */
     @Override
-    public Response coachesHaveMoreOperations(VectClock clientClock) throws RemoteException{
+    public Response coachesHaveMoreOperations() throws RemoteException{
         mutex.lock();
 
         try {
-            return new Response(clocks, coachesHaveMoreOperations);
+            return new Response(coachesHaveMoreOperations);
         } finally {
             mutex.unlock();
         }
@@ -178,6 +176,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
+            vectClock.update(clientClock);
             nCoaches++; // increment the number of coaches reviewing notes
 
 
@@ -220,14 +219,14 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
                 }
 
 
-                repository.updateStrengths(teamID, strengths[teamID]);
+                repository.updateStrengths(vectClock, teamID, strengths[teamID]);
             }
 
 
             CoachState state = CoachState.WAIT_FOR_REFEREE_COMMAND;
-            repository.updateCoachState(state.shortName(), teamID);
+            repository.updateCoachState(vectClock, state.shortName(), teamID);
 
-            return new Response(null, state.shortName());
+            return new Response(vectClock, state.shortName());
         } finally {
             mutex.unlock();
         }
@@ -247,7 +246,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
-
+            vectClock.update(clientClock);
             int j = 0;
             if (strategy.equals(String.valueOf(CoachStrategy.Strategy.RANDOM.shortName()))) {
                 Set<Integer> generated = new HashSet<>();
@@ -287,9 +286,9 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
             //coach.changeState(CoachState.ASSEMBLE_TEAM);
             CoachState state = CoachState.ASSEMBLE_TEAM;
-            repository.updateCoachState(state.shortName(), teamID);
+            repository.updateCoachState(vectClock, state.shortName(), teamID);
 
-            return new Response(null, state.shortName());
+            return new Response(vectClock, state.shortName());
         } finally {
 
             mutex.unlock();
@@ -308,19 +307,19 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
-
+            vectClock.update(clientClock);
             while(!wasPicked[teamID][gameMemberID])
                 waitingForPick[teamID][gameMemberID].await();
 
             if(!contestantsHaveMoreOperations) {
-                return new Response(null, configs.getMaxTrials() + 1, false);
+                return new Response(vectClock, configs.getMaxTrials() + 1, false);
             } else
                 wasPicked[teamID][gameMemberID] = false;
             //contestant.callContestant(false);
 
 
 
-            return new Response(null, strengths[teamID][gameMemberID], true);
+            return new Response(vectClock, strengths[teamID][gameMemberID], true);
 
         } finally {
             mutex.unlock();
@@ -335,20 +334,20 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
-
+            vectClock.update(clientClock);
             // contestant.removePlaygroundPosition();
             if (nContestants[teamID] < configs.getNContestants()) {
                 nContestants[teamID]++;
                 this.assignStrength(teamID, gameMemberID, strength);
             } else
-                repository.removeContestantFromPosition(teamID, position);
+                repository.removeContestantFromPosition(vectClock, teamID, position);
 
             String state = ContestantState.SEAT_AT_THE_BENCH.shortName();
-            repository.updateContestantState(state, gameMemberID, teamID);
+            repository.updateContestantState(vectClock, state, gameMemberID, teamID);
 
             if ((matchOver)) {
                 firstToEndMatch++;
-                if (firstToEndMatch < 6) return new Response(null, state);
+                if (firstToEndMatch < 6) return new Response(vectClock, state);
 
                 this.contestantsHaveMoreOperations = false;
 
@@ -365,7 +364,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
             }
 
-            return new Response(null, state);
+            return new Response(vectClock, state);
 
         } finally {
             mutex.unlock();
@@ -376,7 +375,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     private void assignStrength(int teamID, int gameMemberID, int strength) throws RemoteException {
         strengths[teamID][gameMemberID] = strength;
         if(nContestants[teamID] == configs.getNContestants())
-            repository.updateStrengths(teamID, strengths[teamID]);
+            repository.updateStrengths(vectClock, teamID, strengths[teamID]);
 
     }
 
@@ -385,7 +384,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     {
         mutex.lock();
         try {
-            return new Response(null, this.contestantsHaveMoreOperations);
+            return new Response(this.contestantsHaveMoreOperations);
         } finally {
             mutex.unlock();
         }
