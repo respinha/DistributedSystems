@@ -64,69 +64,78 @@ public class Coach extends TeamMember {
 
             System.out.println("Now reviewing notes");
             // the coach is waiting for referee command
-            bench.reviewNotes(this.team, currentTrial, knockout);
+            response = bench.reviewNotes(this.team, currentTrial, knockout);
 
-            while(bench.coachesHaveMoreOperations()) {
+            //clocks = response.getClocks();
+            boolean hasMoreOper;
+            do {
 
-                System.out.println(currentState);
+                 System.out.println(currentState);
 
-                switch (currentState) {
+                 switch (currentState) {
 
-                    case WAIT_FOR_REFEREE_COMMAND:
-                        try {
-                            System.out.println("Waiting for coach call");
-                            // wait for referee to call this coach
+                     case WAIT_FOR_REFEREE_COMMAND:
+                         try {
+                             System.out.println("Waiting for coach call");
+                             // wait for referee to call this coach
 
-                            response = bench.waitForCoachCall();
-                            clocks = response.getClocks();
+                             response = bench.waitForCoachCall();
+                             //clocks = response.getClocks();
 
-                            System.out.println("Waiting for coach call2");
-                            // call contestants
-                            bench.callContestants(this.team, this.getStrategy().shortName());
+                             System.out.println("Waiting for coach call2");
+                             // call contestants
+                             response = bench.callContestants(this.team, this.getStrategy().shortName());
+                             currentState = CoachState.valueOf(response.getState());
+                             //clocks = response.getClocks();
+                         } catch (InterruptedException e) {
+                             e.printStackTrace();
+                         }
 
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        break;
-
-
-                    case ASSEMBLE_TEAM:
-                        try {
-
-                            // the coach is moved to the playground
-                            int iShouldInformRef = playground.moveCoachToPlayground(this.team);
-                            // the last of the coaches informs the referee
-                            // this variable is always set in the operation moveCoachToPlayground
-                            if(iShouldInformRef == this.team)
-                                refSite.informReferee(this.team);
-
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        break;
+                         break;
 
 
-                    case WATCH_TRIAL:
-                        try {
+                     case ASSEMBLE_TEAM:
+                         try {
 
-                            // wait until the trial has not finished
-                            this.changeStrategy(playground.reviewNotes(this.team));
-                            knockout = playground.isKnockout();
-                            currentTrial = playground.getCurrentTrial();
+                             // the coach is moved to the playground
+                             int iShouldInformRef = playground.moveCoachToPlayground(this.team);
 
-                            // update this team's contestants' strength
-                            bench.reviewNotes(this.team, currentTrial+1, knockout);
+                             // the last of the coaches informs the referee
+                             // this variable is always set in the operation moveCoachToPlayground
+                             if (iShouldInformRef == this.team)
+                                 refSite.informReferee(this.team);
 
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                }
+                         } catch (InterruptedException e) {
+                             e.printStackTrace();
+                         }
+
+                         break;
 
 
-            }
+                     case WATCH_TRIAL:
+                         try {
+
+                             // wait until the trial has not finished
+                             this.changeStrategy(playground.reviewNotes(this.team));
+                             knockout = playground.isKnockout();
+                             currentTrial = playground.getCurrentTrial();
+
+                             // update this team's contestants' strength
+                             response = bench.reviewNotes(this.team, currentTrial + 1, knockout);
+
+                             //clocks = response.getClocks();
+                             currentState = CoachState.valueOf(response.getState());
+                         } catch (InterruptedException e) {
+                             e.printStackTrace();
+                         }
+                         break;
+                 }
+
+                 response = bench.coachesHaveMoreOperations();
+                 hasMoreOper = response.isBoolVal();
+
+                 //clocks = response.getClocks();
+             } while(hasMoreOper);
 
             System.out.println("O treinador da equipa "+ team + " terminou.");
             playground.closePlaygroundConnection();
