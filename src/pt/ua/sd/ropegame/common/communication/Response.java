@@ -20,6 +20,7 @@ public class Response implements Serializable {
         this.clock = clocks;
     }
 
+
     public Response(VectClock clock, int intVal) {
         this.clock = clock;
         this.intVal = intVal;
