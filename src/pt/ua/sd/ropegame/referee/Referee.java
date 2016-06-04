@@ -17,7 +17,7 @@ import pt.ua.sd.ropegame.common.interfaces.IRefPlay;
  *  The referee is responsible for announcing which team won each trial, game and match.<p>
  *  This process is repeated until MAX_GAMES is reached.
  */
-class Referee extends Thread {
+public class Referee extends Thread {
 
     private RefereeState currentState;
 
@@ -60,7 +60,7 @@ class Referee extends Thread {
 
         try {
             refereeSite.startTheMatch();
-            Response response = null;
+            Response response;
 
             boolean hasMoreOper;
             do {
