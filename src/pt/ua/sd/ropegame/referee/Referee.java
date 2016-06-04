@@ -61,10 +61,12 @@ public class Referee extends Thread {
      */
     @Override
     public void run() {
-
+        Response response;
         try {
-            refereeSite.startTheMatch();
-            Response response;
+
+            clock.increment(this);
+            response = refereeSite.startTheMatch(clock);
+            clock.update(response.getClock());
 
             boolean hasMoreOper;
             currentState = RefereeState.START_OF_THE_MATCH;
