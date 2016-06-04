@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.genrepository;
 
 
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.*;
 import java.io.IOException;
@@ -143,7 +144,7 @@ class GeneralRepository implements
     }
 
     @Override
-    public Response updateGame(int game) {
+    public Response updateGame(VectClock clientClock, int game) {
 
         mutex.lock();
 
@@ -164,7 +165,7 @@ class GeneralRepository implements
      * @param results final results.
      */
     @Override
-    public Response updateMatchWinner(int winner, int[] results) {
+    public Response updateMatchWinner(VectClock clientClock, int winner, int[] results) {
 
         mutex.lock();
 
@@ -182,6 +183,7 @@ class GeneralRepository implements
             lines.add(s1);
             System.out.println(s1);
 
+            generateLogFile();
             return new Response(null);
         } finally {
             mutex.unlock();
@@ -196,7 +198,7 @@ class GeneralRepository implements
      * @param knockout true if one of the teams won by knockout.
      */
     @Override
-    public Response updateGameWinner(int currentGame, int gameWinner, int ntrials, boolean knockout) {
+    public Response updateGameWinner(VectClock clientClock, int currentGame, int gameWinner, int ntrials, boolean knockout) {
         mutex.lock();
 
         try {
@@ -226,7 +228,7 @@ class GeneralRepository implements
      * @param state Referee's new State.
      */
     @Override
-    public void updateRefState(String state) {
+    public void updateRefState(VectClock clientClock, String state) {
         mutex.lock();
 
         try {
@@ -286,7 +288,7 @@ class GeneralRepository implements
      * @param gameMemberID The contestant's ID.
      */
     @Override
-    public Response updateContestantState(String state, int gameMemberID, int teamID) {
+    public Response updateContestantState(VectClock clientClock, String state, int gameMemberID, int teamID) {
         mutex.lock();
 
         try {
@@ -307,7 +309,7 @@ class GeneralRepository implements
      * @param strength
      */
     @Override
-    public Response updateStrengths(int teamID, int[] strength) {
+    public Response updateStrengths(VectClock clientClock, int teamID, int[] strength) {
 
         mutex.lock();
 
@@ -344,7 +346,7 @@ class GeneralRepository implements
      * @param gameMemberID
      * @param state
      */
-    private void updateStates(int teamID, int gameMemberID, String state) {
+    private void updateStates(VectClock clientClock, int teamID, int gameMemberID, String state) {
         if(teamID == 0) {
             switch (gameMemberID) {
                 case 0:
@@ -393,7 +395,7 @@ class GeneralRepository implements
      * @param state new coach state.
      */
     @Override
-    public Response updateCoachState(String state, int teamID) {
+    public Response updateCoachState(VectClock clientClock, String state, int teamID) {
         mutex.lock();
 
 
@@ -419,7 +421,7 @@ class GeneralRepository implements
      * @param pos Contestant's posistion in playground,
      */
     @Override
-    public Response removeContestantFromPosition(int team, int pos) {
+    public Response removeContestantFromPosition(VectClock clientClock, int team, int pos) {
 
         mutex.lock();
 
@@ -458,7 +460,7 @@ class GeneralRepository implements
      * @param pos
      */
     @Override
-    public Response updateContestantPosition(int id, int teamID, int pos) {
+    public Response updateContestantPosition(VectClock clientClock, int id, int teamID, int pos) {
         mutex.lock();
 
         try {
@@ -510,7 +512,7 @@ class GeneralRepository implements
      */
 
     @Override
-    public Response updateTrial(int trial) {
+    public Response updateTrial(VectClock clientClock, int trial) {
         mutex.lock();
 
         try {
@@ -528,7 +530,7 @@ class GeneralRepository implements
      * @param ropePos current rope position.
      */
     @Override
-    public Response updateRopePosition(int ropePos) {
+    public Response updateRopePosition(VectClock clientClock, int ropePos) {
         mutex.lock();
 
         try {
@@ -544,9 +546,8 @@ class GeneralRepository implements
     /**
      * Generate final log file.
      */
-    @Override
-    public void generateLogFile() {
-        mutex.lock();
+
+    private void generateLogFile() {
 
         try {
             Files.write(file, lines, Charset.forName("UTF-8"));
@@ -555,7 +556,6 @@ class GeneralRepository implements
             e.printStackTrace();
         }
 
-        mutex.unlock();
     }
 
 

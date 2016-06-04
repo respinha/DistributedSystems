@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.refereesite;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
@@ -35,6 +36,8 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Constructor
      * @param repo General Repository.
      */
+
+    private VectClock vectClock;
     public RefereeSite(IRefSiteGenRep repo, GameOfTheRopeConfigs configs) {
 
         this.configs = configs;
@@ -54,13 +57,15 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         currentGame = 0;
 
         refHasMoreOperations = true;
+
+        vectClock = new VectClock(configs);
     }
 
     /**
      * Method used make the first refereee state update.
      */
     @Override
-    public Response startTheMatch() throws RemoteException {
+    public Response startTheMatch(VectClock clientClock) throws RemoteException {
 
         mutex.lock();
 
@@ -98,7 +103,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Transition.
      */
     @Override
-    public Response announceNewGameRefSite() throws RemoteException {
+    public Response announceNewGameRefSite(VectClock clientClock) throws RemoteException {
 
         mutex.lock();
 
@@ -121,7 +126,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @throws InterruptedException Thread was interrupted.
      */
     @Override
-    public Response startTrialRefSite() throws InterruptedException, RemoteException{
+    public Response startTrialRefSite(VectClock clientClock) throws InterruptedException, RemoteException{
 
         mutex.lock();
 
@@ -139,41 +144,11 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     *
-     * @param currentTrial The trial in  which the referee is asserting her decision.
-     * @param knockout Boolean that checks if there has been a knockout in this trial.
-     * @return
-     */
-    @Override
-    public Response assertTrialDecisionRefSite(int currentTrial, boolean knockout) throws RemoteException {
-
-        mutex.lock();
-
-        try {
-
-            if (currentTrial == configs.getMaxTrials() || knockout) {
-                RefereeState state = RefereeState.END_OF_A_GAME;
-                // referee.changeState(state);
-                repository.updateRefState(state.shortName());
-
-                return new Response(null, state.shortName(), false);
-            }
-
-
-            return new Response(null, true);
-        } finally {
-            mutex.unlock();
-        }
-
-    }
-
-
-    /**
      * Called by the coach of the last team to arrive at the playground to inform the referee the trial can start.
      * @param coachTeamID
      */
     @Override
-    public Response informReferee(int coachTeamID) throws RemoteException {
+    public Response informReferee(VectClock clientClock, int coachTeamID) throws RemoteException {
 
         mutex.lock();
 
@@ -201,7 +176,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * @param knockout true if the victory was achieved by knockout.
      */
     @Override
-    public Response declareGameWinner(int ntrials, int ropePos, boolean knockout) throws RemoteException {
+    public Response declareGameWinner(VectClock clientClock, int ntrials, int ropePos, boolean knockout) throws RemoteException {
 
         mutex.lock();
 
@@ -246,7 +221,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
      * Update repository with match stats.
      */
     @Override
-    public Response declareMatchWinner() throws RemoteException {
+    public Response declareMatchWinner(VectClock clientClock) throws RemoteException {
 
         mutex.lock();
 
@@ -259,13 +234,11 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
             //repository.updateRefState(state);
 
             repository.updateMatchWinner(matchWinner, teamGameScores);
-            repository.generateLogFile();
 
             return new Response(null);
         } finally {
             mutex.unlock();
         }
-
     }
 
 }

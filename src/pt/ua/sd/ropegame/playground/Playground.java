@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.playground;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.ContestantState;
@@ -49,6 +50,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     private int game;
 
     private GameOfTheRopeConfigs configs;
+    private VectClock vectClock;
 
 
     /**
@@ -82,6 +84,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         teamStrength = new int[2];
 
         game = 0;
+        vectClock = new VectClock(configs);
     }
 
     /**
@@ -89,7 +92,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted
      */
     @Override
-     public Response standInLine(int gameMemberID, int teamID, int strength) throws RemoteException {
+     public Response standInLine(VectClock clientClock, int gameMemberID, int teamID, int strength) throws RemoteException {
 
         mutex.lock();
         try {
@@ -125,7 +128,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public Response moveCoachToPlayground(int teamID) throws InterruptedException, RemoteException {
+    public Response moveCoachToPlayground(VectClock clientClock, int teamID) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -167,7 +170,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException If Thread was interrupted.
      */
     @Override
-    public Response getReady(int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
+    public Response getReady(VectClock clientClock, int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -197,7 +200,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @return current trial.
      */
     @Override
-    public Response startTrialPlayground() throws RemoteException {
+    public Response startTrialPlayground(VectClock clientClock) throws RemoteException {
         mutex.lock();
 
         try {
@@ -233,7 +236,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public Response pullTheRope() throws InterruptedException, RemoteException {
+    public Response pullTheRope(VectClock clientClock) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -254,7 +257,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public Response amDone() throws InterruptedException, RemoteException {
+    public Response amDone(VectClock clientClock) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -285,7 +288,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @throws InterruptedException When thread is interrupted.
      */
     @Override
-    public Response assertTrialDecisionPlayground() throws InterruptedException, RemoteException {
+    public Response assertTrialDecision(VectClock clientClock) throws InterruptedException, RemoteException {
         mutex.lock();
 
        try {
@@ -330,7 +333,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * Called by referee to reset rope position.
      */
     @Override
-    public Response announceNewGamePlayground() throws RemoteException {
+    public Response announceNewGamePlayground(VectClock clientClock) throws RemoteException {
         mutex.lock();
 
         try {
@@ -353,7 +356,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
      * @param teamID
      */
     @Override
-    public Response reviewNotes(int teamID) throws InterruptedException, RemoteException {
+    public Response reviewNotes(VectClock clientClock, int teamID) throws InterruptedException, RemoteException {
         mutex.lock();
 
         try {

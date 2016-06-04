@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.bench;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachStrategy;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
@@ -57,6 +58,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     private Condition waitingForTrialToStart;
 
     private GameOfTheRopeConfigs configs;
+    private VectClock vectClock;
 
     private int[] clocks = null;
 
@@ -102,13 +104,15 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
         nContestants = new int[configs.getNTeams()];
         Arrays.fill(nContestants, 0);
+
+        vectClock = new VectClock(configs);
     }
 
     /**
      * Called by referee to signal a new trial call.
      */
     @Override
-    public Response callTrial() throws RemoteException {
+    public Response callTrial(VectClock clientClock) throws RemoteException {
         mutex.lock();
 
         try {
@@ -132,7 +136,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      */
 
     @Override
-    public Response waitForCoachCall() throws InterruptedException, RemoteException {
+    public Response waitForCoachCall(VectClock clientClock) throws InterruptedException, RemoteException {
         mutex.lock();
         try {
             nCoachesBeingCalled++;
@@ -153,7 +157,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @return True if Coaches have more operations, False otherwise.
      */
     @Override
-    public Response coachesHaveMoreOperations() throws RemoteException{
+    public Response coachesHaveMoreOperations(VectClock clientClock) throws RemoteException{
         mutex.lock();
 
         try {
@@ -170,7 +174,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @param knockout True if knockout, false otherwise.
      */
     @Override
-    public Response reviewNotes(int teamID, int trial, boolean knockout) throws RemoteException {
+    public Response reviewNotes(VectClock clientClock, int teamID, int trial, boolean knockout) throws RemoteException {
         mutex.lock();
 
         try {
@@ -238,7 +242,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public Response callContestants(int teamID, String strategy) throws RemoteException {
+    public Response callContestants(VectClock clientClock, int teamID, String strategy) throws RemoteException {
 
         mutex.lock();
 
@@ -299,7 +303,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public Response waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException, RemoteException {
+    public Response waitForContestantCall(VectClock clientClock, int gameMemberID, int teamID) throws InterruptedException, RemoteException {
 
         mutex.lock();
 
@@ -327,7 +331,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * Transition.
      */
     @Override
-    public Response seatDown(int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
+    public Response seatDown(VectClock clientClock, int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
         mutex.lock();
 
         try {
