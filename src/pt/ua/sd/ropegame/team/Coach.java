@@ -1,6 +1,8 @@
 package pt.ua.sd.ropegame.team;
 
 
+import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
+import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.CoachStrategy;
@@ -30,16 +32,14 @@ public class Coach extends TeamMember {
     // this variable is set to true if a game ended due to a knockout
     private boolean knockout;
 
-    private int[] clocks;
-
 
     /**
      * Constructor for Coach
      * @param team The team this coach belongs to
      * @param strategies The pool of strategies this coach follows during game
      */
-    public Coach(ICoachBench bench, ICoachPlay playground, ICoachRefSite refSite, int team, CoachStrategy strategies) {
-        super(team);
+    public Coach(GameOfTheRopeConfigs configs, ICoachBench bench, ICoachPlay playground, ICoachRefSite refSite, int team, CoachStrategy strategies) {
+        super(configs, team);
 
         this.strategies = strategies;
 
@@ -63,7 +63,10 @@ public class Coach extends TeamMember {
             int currentTrial = 1;
 
             // the coach is waiting for referee command
-            response = bench.reviewNotes(this.team, currentTrial, knockout);
+            clock.increment(this);
+            response = bench.reviewNotes(clock, this.team, currentTrial, knockout);
+            clock.update(response.getClock());
+
             currentState = CoachState.longName(response.getState());
             System.out.println(currentState);
 
@@ -71,57 +74,66 @@ public class Coach extends TeamMember {
             boolean hasMoreOper;
             do {
 
-                 System.out.println(currentState);
+                System.out.println(currentState);
 
-                 switch (currentState) {
+                switch (currentState) {
 
-                     case WAIT_FOR_REFEREE_COMMAND:
-                         try {
-                             // wait for referee to call this coach
+                    case WAIT_FOR_REFEREE_COMMAND:
+                        try {
+                            // wait for referee to call this coach
 
-                             response = bench.waitForCoachCall();
-                             //clocks = response.getClocks();
+                            clock.increment(this);
+                            response = bench.waitForCoachCall(clock);
+                            clock.update(response.getClock());
 
-                             // call contestants
-                             response = bench.callContestants(this.team, this.getStrategy().shortName());
-                             currentState = CoachState.longName(response.getState());
-                             //clocks = response.getClocks();
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
-                         }
+                            // call contestants
+                            clock.increment(this);
+                            response = bench.callContestants(clock, this.team, this.getStrategy().shortName());
+                            clock.update(response.getClock());
 
-                         break;
+                            currentState = CoachState.longName(response.getState());
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
-
-                     case ASSEMBLE_TEAM:
-                         try {
-
-                             // the coach is moved to the playground
-                             response = playground.moveCoachToPlayground(this.team);
-
-                             int iShouldInformRef = response.getIntVal();
-
-                             // the last of the coaches informs the referee
-                             // this variable is always set in the operation moveCoachToPlayground
-                             if (iShouldInformRef == this.team) {
-                                 response = refSite.informReferee(this.team);
-                                 changeState(CoachState.longName(response.getState()));
-                             }
-                             else {
-                                 changeState(CoachState.longName(response.getState()));
-                             }
-
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
-                         }
-
-                         break;
+                        break;
 
 
-                     case WATCH_TRIAL:
-                         try {
+                    case ASSEMBLE_TEAM:
+                        try {
 
-                            response = playground.reviewNotes(this.team);
+                            // the coach is moved to the playground
+                            clock.increment(this);
+                            response = playground.moveCoachToPlayground(clock, this.team);
+                            clock.update(response.getClock());
+
+                            int iShouldInformRef = response.getIntVal();
+
+                            // the last of the coaches informs the referee
+                            // this variable is always set in the operation moveCoachToPlayground
+                            if (iShouldInformRef == this.team) {
+                                clock.increment(this);
+                                response = refSite.informReferee(clock, this.team);
+                                clock.update(response.getClock());
+
+                                changeState(CoachState.longName(response.getState()));
+                            }
+                            else {
+                                changeState(CoachState.longName(response.getState()));
+                            }
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        break;
+
+
+                    case WATCH_TRIAL:
+                        try {
+                            clock.increment(this);
+                            response = playground.reviewNotes(clock, this.team);
+                            clock.update(response.getClock());
                             int result = response.getIntVal();
                             knockout = response.isBoolVal();
                             currentTrial = response.getInt2Val();
@@ -129,21 +141,22 @@ public class Coach extends TeamMember {
                             changeStrategy(result);
 
                             // update this team's contestants' strength
-                            response = bench.reviewNotes(this.team, currentTrial + 1, knockout);
+                            clock.increment(this);
+                            response = bench.reviewNotes(clock, this.team, currentTrial + 1, knockout);
+                            clock.update(response.getClock());
 
                             //clocks = response.getClocks();
                             currentState = CoachState.longName(response.getState());
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
-                         }
-                         break;
-                 }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
 
-                 response = bench.coachesHaveMoreOperations();
-                 hasMoreOper = response.isBoolVal();
 
-                 //clocks = response.getClocks();
-             } while(hasMoreOper);
+                response = bench.coachesHaveMoreOperations();
+                hasMoreOper = response.isBoolVal();
+            } while(hasMoreOper);
 
             System.out.println("O treinador da equipa "+ team + " terminou.");
             playground.closePlaygroundConnection();
