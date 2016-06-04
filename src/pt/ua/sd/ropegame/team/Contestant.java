@@ -1,6 +1,7 @@
 package pt.ua.sd.ropegame.team;
 
 
+import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsPlay;
 import pt.ua.sd.ropegame.common.enums.ContestantState;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsBench;
@@ -55,21 +56,25 @@ public class Contestant extends TeamMember {
     @Override
     public void run() {
 
+        Response response;
+        boolean hasMoreOper;
         try {
             bench.seatDown(number, team, strength, playgroundPos, false);
 
 
-            while (bench.contestantsHaveMoreOperations()) {
+             do {
                 switch (currentState) {
 
                     case SEAT_AT_THE_BENCH:
 
                         try {
                             // wait until the team's coach calls this contestant
-                            strength = bench.waitForContestantCall(this.number, this.team);
-
-
-                            if (!bench.contestantsHaveMoreOperations())
+                            response = bench.waitForContestantCall(this.number, this.team);
+                            strength = response.getIntVal();
+                            // clocks
+                            response = bench.contestantsHaveMoreOperations();
+                            // clocks
+                            if (!response.isBoolVal())
                                 break;
 
                             // move to playground
@@ -94,7 +99,9 @@ public class Contestant extends TeamMember {
                             boolean matchOver = playground.amDone();
 
                             // seat down after the trial ended
-                            bench.seatDown(number, team, strength, playgroundPos, matchOver);
+                            response = bench.seatDown(number, team, strength, playgroundPos, matchOver);
+                            // clocks
+                            currentState = ContestantState.valueOf(response.getState());
                             playgroundPos = 0;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -103,7 +110,9 @@ public class Contestant extends TeamMember {
                 }
 
 
-            }
+                 response = bench.contestantsHaveMoreOperations();
+                 hasMoreOper = response.isBoolVal();
+            } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");
             bench.closeBenchConnection();

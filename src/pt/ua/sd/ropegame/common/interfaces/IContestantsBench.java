@@ -1,14 +1,16 @@
 package pt.ua.sd.ropegame.common.interfaces;
 
+import pt.ua.sd.ropegame.common.communication.Response;
+
 import java.rmi.RemoteException;
 
 public interface IContestantsBench extends ITeamBench {
 
-    int waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException, RemoteException;
+    Response waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException, RemoteException;
 
-    void seatDown(int gameMemberID, int teamID, int strength, int position, boolean gameOver) throws RemoteException;
+    Response seatDown(int gameMemberID, int teamID, int strength, int position, boolean gameOver) throws RemoteException;
 
-    boolean contestantsHaveMoreOperations() throws RemoteException;
+    Response contestantsHaveMoreOperations() throws RemoteException;
 
     boolean closeBenchConnection() throws RemoteException;
 }

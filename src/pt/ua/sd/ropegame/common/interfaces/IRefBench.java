@@ -8,5 +8,4 @@ public interface IRefBench extends IBench {
 
     Response callTrial() throws RemoteException;
 
-    void notifyContestantsMatchIsOver() throws RemoteException;
 }

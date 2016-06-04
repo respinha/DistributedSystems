@@ -170,7 +170,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @param knockout True if knockout, false otherwise.
      */
     @Override
-    public void reviewNotes(int teamID, int trial, boolean knockout) throws RemoteException {
+    public Response reviewNotes(int teamID, int trial, boolean knockout) throws RemoteException {
         mutex.lock();
 
         try {
@@ -223,6 +223,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
             CoachState state = CoachState.WAIT_FOR_REFEREE_COMMAND;
             repository.updateCoachState(state.shortName(), teamID);
 
+            return new Response(null, state.shortName());
         } finally {
             mutex.unlock();
         }
@@ -237,55 +238,58 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public void callContestants(int teamID, String strategy) throws RemoteException {
+    public Response callContestants(int teamID, String strategy) throws RemoteException {
 
         mutex.lock();
 
+        try {
 
-        int j = 0;
-        if(strategy.equals(String.valueOf(CoachStrategy.Strategy.RANDOM.shortName()))) {
-            Set<Integer> generated = new HashSet<>();
-            while (generated.size() < 3)
-            {
-                Integer n = RANDOMGEN.nextInt(4);
-                generated.add(n);
-            }
+            int j = 0;
+            if (strategy.equals(String.valueOf(CoachStrategy.Strategy.RANDOM.shortName()))) {
+                Set<Integer> generated = new HashSet<>();
+                while (generated.size() < 3) {
+                    Integer n = RANDOMGEN.nextInt(4);
+                    generated.add(n);
+                }
 
-            for(int number: generated) {
+                for (int number : generated) {
+                    for (int i = 0; i < configs.getNContestants(); i++) {
+                        if (i == number) {
+                            wasPicked[teamID][i] = true;
+                            waitingForPick[teamID][i].signal();
+                            pickedContestants[teamID][j++] = i;
+                        }
+                    }
+                }
+            } else if (strategy.equals(CoachStrategy.Strategy.PICK_FIRST_THREE_CONTESTANTS.shortName())) {
                 for (int i = 0; i < configs.getNContestants(); i++) {
-                    if (i == number) {
+                    if (i <= 2) {
+                        wasPicked[teamID][i] = true;
+                        waitingForPick[teamID][i].signal();
+                        pickedContestants[teamID][j++] = i;
+                    } else break;
+                }
+            } else { // last three
+                for (int i = 0; i < configs.getNContestants(); i++) {
+                    if (i >= 2) {
                         wasPicked[teamID][i] = true;
                         waitingForPick[teamID][i].signal();
                         pickedContestants[teamID][j++] = i;
                     }
                 }
+
             }
+
+
+            //coach.changeState(CoachState.ASSEMBLE_TEAM);
+            CoachState state = CoachState.ASSEMBLE_TEAM;
+            repository.updateCoachState(state.shortName(), teamID);
+
+            return new Response(null, state.shortName());
+        } finally {
+
+            mutex.unlock();
         }
-        else if(strategy.equals(CoachStrategy.Strategy.PICK_FIRST_THREE_CONTESTANTS.shortName())) {
-            for(int i = 0; i < configs.getNContestants(); i++) {
-                if(i <= 2) {
-                    wasPicked[teamID][i] = true;
-                    waitingForPick[teamID][i].signal();
-                    pickedContestants[teamID][j++] = i;
-                } else break;
-            }
-        } else { // last three
-            for(int i = 0; i < configs.getNContestants(); i++) {
-                if(i >= 2) {
-                    wasPicked[teamID][i] = true;
-                    waitingForPick[teamID][i].signal();
-                    pickedContestants[teamID][j++] = i;
-                }
-            }
-
-        }
-
-
-
-        //coach.changeState(CoachState.ASSEMBLE_TEAM);
-        repository.updateCoachState(CoachState.ASSEMBLE_TEAM.shortName(), teamID);
-
-        mutex.unlock();
 
     }
 
@@ -295,7 +299,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
      * @throws InterruptedException The thread was interrupted.
      */
     @Override
-    public int waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException {
+    public Response waitForContestantCall(int gameMemberID, int teamID) throws InterruptedException {
 
         mutex.lock();
 
@@ -305,14 +309,14 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
                 waitingForPick[teamID][gameMemberID].await();
 
             if(!contestantsHaveMoreOperations) {
-                return configs.getMaxTrials() + 1;
+                return new Response(null, configs.getMaxTrials() + 1);
             } else
                 wasPicked[teamID][gameMemberID] = false;
             //contestant.callContestant(false);
 
 
 
-            return strengths[teamID][gameMemberID];
+            return new Response(null, strengths[teamID][gameMemberID]);
 
         } finally {
             mutex.unlock();
@@ -320,19 +324,10 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Called by the referee when a game is over to wake up contestants blocked at waitingForContestantCall().
-     */
-    @Override
-    public void notifyContestantsMatchIsOver()  {
-
-    }
-
-
-    /**
      * Transition.
      */
     @Override
-    public void seatDown(int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
+    public Response seatDown(int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
         mutex.lock();
 
         try {
@@ -344,11 +339,12 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
             } else
                 repository.removeContestantFromPosition(teamID, position);
 
-            repository.updateContestantState(ContestantState.SEAT_AT_THE_BENCH.shortName(), gameMemberID, teamID);
+            String state = ContestantState.SEAT_AT_THE_BENCH.shortName();
+            repository.updateContestantState(state, gameMemberID, teamID);
 
             if ((matchOver)) {
                 firstToEndMatch++;
-                if (firstToEndMatch < 6) return;
+                if (firstToEndMatch < 6) return new Response(null);
 
                 this.contestantsHaveMoreOperations = false;
 
@@ -365,6 +361,8 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
             }
 
+            return new Response(null, state);
+
         } finally {
             mutex.unlock();
         }
@@ -379,11 +377,11 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     @Override
-    public boolean contestantsHaveMoreOperations()
+    public Response contestantsHaveMoreOperations()
     {
         mutex.lock();
         try {
-            return this.contestantsHaveMoreOperations;
+            return new Response(null, this.contestantsHaveMoreOperations);
         } finally {
             mutex.unlock();
         }

@@ -17,7 +17,7 @@ import pt.ua.sd.ropegame.common.interfaces.IRefPlay;
  *  The referee is responsible for announcing which team won each trial, game and match.<p>
  *  This process is repeated until MAX_GAMES is reached.
  */
-class Referee extends Thread {
+public class Referee extends Thread {
 
     private RefereeState currentState;
 
@@ -60,16 +60,19 @@ class Referee extends Thread {
 
         try {
             refereeSite.startTheMatch();
-            Response response = null;
+            Response response;
 
-            while (refereeSite.refHasMoreOperations()) {
+            boolean hasMoreOper;
+            do {
                 switch (currentState) {
 
                     case START_OF_THE_MATCH:                    // transition
 
                         this.playground.announceNewGamePlayground();
-                        this.refereeSite.announceNewGameRefSite();
+                        response = this.refereeSite.announceNewGameRefSite();
+                        currentState = RefereeState.valueOf(response.getState());
 
+                        // clocks
                         break;
 
                     case START_OF_A_GAME:
@@ -82,7 +85,8 @@ class Referee extends Thread {
                     case TEAMS_READY:
                         try {
                             // start trial when both teams are ready
-                            refereeSite.startTrialRefSite();
+                            response = refereeSite.startTrialRefSite();
+                            // clocks
                             currentTrial = playground.startTrialPlayground();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -97,12 +101,15 @@ class Referee extends Thread {
                             knockout = this.playground.assertTrialDecisionPlayground();
                             ropePos = this.playground.getRopePos();
 
-                            boolean endOfGame = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
+                            response = refereeSite.assertTrialDecisionRefSite(currentTrial, knockout);
 
+                            boolean endOfGame = response.isBoolVal();
+                            // clocks
                             if (!endOfGame) {
                                 response = bench.callTrial();
                                 currentState = RefereeState.valueOf(response.getState());
-                            }
+                                // clocks
+                            } else currentState = RefereeState.valueOf(response.getState());
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -112,24 +119,30 @@ class Referee extends Thread {
                     case END_OF_A_GAME:
 
 
-                        boolean endOfMatch = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
+                        response = refereeSite.declareGameWinner(currentTrial, ropePos, knockout);
 
-                        if (endOfMatch)
-                            bench.notifyContestantsMatchIsOver();
-
-                        else {
+                        boolean endOfMatch = response.isBoolVal();
+                        // clocks
+                        if(!endOfMatch) {
                             playground.announceNewGamePlayground();
-                            refereeSite.announceNewGameRefSite();
+                            response = refereeSite.announceNewGameRefSite();
+                            currentState = RefereeState.valueOf(response.getState());
+                            // clocks
                         }
                         break;
 
                     case END_OF_THE_MATCH:
                         // declare match winner
 
-                        refereeSite.declareMatchWinner();
+                        response = refereeSite.declareMatchWinner();
+                        // clocks
                         break;
                 }
-            }
+
+                response = refereeSite.refHasMoreOperations();
+                hasMoreOper = response.isBoolVal();
+                // clocks
+            } while (hasMoreOper);
 
             System.out.println("O árbitro terminou.");
             refereeSite.closeRefSite();
