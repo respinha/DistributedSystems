@@ -75,8 +75,12 @@ public class Contestant extends TeamMember {
                         try {
                             // wait until the team's coach calls this contestant
                             clock.increment(this);
+                            System.out.println("contestant "+number);
+                            System.out.println("SEAT_AT_THE_BENCH "+ clock);
+
                             response = bench.waitForContestantCall(clock, this.number, this.team);
                             clock.update(response.getClock());
+                            System.out.println("end waitforcontestantcall ");
 
                             strength = response.getIntVal();
                             hasMoreOper = response.isBoolVal();
