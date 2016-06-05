@@ -41,8 +41,8 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
             int team = c.getTeam();
             int id = c.getNumber();
 
-            if(team == 0) clocks[COACH_0_INDEX + id]++;
-            else clocks[COACH_1_INDEX + id]++;
+            if(team == 0) clocks[COACH_0_INDEX + id + 1]++;
+            else clocks[COACH_1_INDEX + id + 1]++;
         }
     }
 

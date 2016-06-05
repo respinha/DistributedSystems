@@ -11,5 +11,5 @@ public interface IBenchGenRep extends IGeneralRepository {
 
     void updateStrengths(VectClock clientClock, int teamID, int[] strength) throws RemoteException;
 
-    void updateClock(VectClock vectClock);
+    void updateClock(VectClock vectClock) throws RemoteException;
 }
