@@ -308,11 +308,12 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
         try {
             vectClock.update(clientClock);
+            repository.updateClock(vectClock);
             while(!wasPicked[teamID][gameMemberID])
                 waitingForPick[teamID][gameMemberID].await();
 
             if(!contestantsHaveMoreOperations) {
-                repository.updateContestantState(vectClock, ContestantState.SEAT_AT_THE_BENCH.shortName(), gameMemberID, teamID);
+                // todo: alternativamente, repository.updateContestantState(vectClock, ContestantState.SEAT_AT_THE_BENCH.shortName(), gameMemberID, teamID);
                 return new Response(vectClock, configs.getMaxTrials() + 1, false);
             } else
                 wasPicked[teamID][gameMemberID] = false;

@@ -343,6 +343,15 @@ class GeneralRepository implements
 
     }
 
+    @Override
+    public void updateClock(VectClock clientClock) {
+       mutex.lock();
+
+        vectClock.update(clientClock);
+
+        mutex.unlock();
+    }
+
     /**
      * Update a single contestant state.
      * @param teamID
