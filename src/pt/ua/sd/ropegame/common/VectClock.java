@@ -1,5 +1,6 @@
 package pt.ua.sd.ropegame.common;
 
+import pt.ua.sd.ropegame.common.interfaces.IClockChangeListener;
 import pt.ua.sd.ropegame.common.interfaces.IVectClock;
 import pt.ua.sd.ropegame.referee.Referee;
 import pt.ua.sd.ropegame.team.Coach;
@@ -16,14 +17,20 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
     private static final long serialVersionUID = 201606042011L;
 
     private int[] clocks;
-    private final int COACH_0_INDEX = 1;
-    private final int COACH_1_INDEX = 7;
+    public final int COACH_0_INDEX = 1;
+    public final int COACH_1_INDEX = 7;
+
+    private IClockChangeListener listener;
 
     public VectClock(GameOfTheRopeConfigs configs) {
         clocks = new int[configs.getNCoaches() + configs.getNContestants()*configs.getNTeams() + 1];
         for(int i = 0; i < clocks.length; i++) {
             clocks[i] = 0;
         }
+    }
+
+    public void assignClockListener(IClockChangeListener listener) {
+        this.listener = listener;
     }
 
     public void increment(Object entity) {
@@ -51,6 +58,9 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         int[] newClock = clock.copy();
         for(int i = 0; i < clocks.length; i++)
             if(clocks[i] < newClock[i]) clocks[i] = newClock[i];
+
+        if(listener != null)
+            listener.clockUpdated();
     }
 
     private int[] copy() {
@@ -77,5 +87,9 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
     @Override
     public String toString() {
         return Arrays.toString(clocks);
+    }
+
+    public int[] getClocks() {
+        return clocks;
     }
 }

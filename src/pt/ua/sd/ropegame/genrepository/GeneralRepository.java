@@ -19,13 +19,20 @@ import java.util.concurrent.locks.ReentrantLock;
  * General repository: generates the log file.
  */
 class GeneralRepository implements
-        IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep {
+        IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep, IClockChangeListener {
 
 
     private Lock mutex;
     private String[] currentStatus;
     private int deadRegions;
     private VectClock vectClock;
+
+    @Override
+    public void clockUpdated() {
+        for(int i = 0; i < vectClock.getClocks().length; i++) {
+            currentStatus[STATUSID.REFCLK.id + i] = vectClock.getClocks()[i] + "";
+        }
+    }
     // positions to write data to.
 
     private enum STATUSID {
@@ -76,6 +83,7 @@ class GeneralRepository implements
         deadRegions = 0;
 
         vectClock = new VectClock(configs);
+        vectClock.assignClockListener(this);
         printFirstLines();
     }
 
@@ -132,7 +140,7 @@ class GeneralRepository implements
                 "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
                 "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
                 "3", "2", "1", ".", "1", "2", "3", "NB", "PS",
-                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
+                " 0", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12"
 
         };
 
@@ -292,7 +300,6 @@ class GeneralRepository implements
         String line = Logger.log(row.toArray(new String[0]), size);
         lines.add(line);
         System.out.println(line);
-        System.out.println(vectClock);
     }
 
 
