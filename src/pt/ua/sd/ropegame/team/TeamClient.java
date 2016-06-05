@@ -40,16 +40,16 @@ public class TeamClient {
         String playgroundEntry = "Playground";
         String refSiteEntry = "RefSite";
 
-        ITeamBench bench = null;
-        ITeamPlayground playground = null;
-        ICoachRefSite refereeSite = null;
+        ITeamBench benchInterface = null;
+        ITeamPlayground playgroundInterface = null;
+        ICoachRefSite refereeSiteInterface = null;
 
 
         try {
             Registry registry = LocateRegistry.getRegistry(rmiRegHostName, rmiRegPortNumb);
-            bench = (ITeamBench) registry.lookup(benchEntry);
-            playground = (ITeamPlayground) registry.lookup(playgroundEntry);
-            refereeSite = (ICoachRefSite) registry.lookup(refSiteEntry);
+            benchInterface = (ITeamBench) registry.lookup(benchEntry);
+            playgroundInterface = (ITeamPlayground) registry.lookup(playgroundEntry);
+            refereeSiteInterface = (ICoachRefSite) registry.lookup(refSiteEntry);
         } catch (RemoteException e) {
             System.out.println("Exceção na localização de um registo: "+e.getMessage());
             e.printStackTrace();
@@ -60,11 +60,11 @@ public class TeamClient {
             System.exit(1);
         }
 
-        Coach coach = new Coach(configs, (ICoachBench) bench, (ICoachPlay) playground, refereeSite, team, new CoachStrategy());
+        Coach coach = new Coach(configs, (ICoachBench) benchInterface, (ICoachPlay) playgroundInterface, refereeSiteInterface, team, new CoachStrategy());
         Contestant[] contestants = new Contestant[configs.getNContestants()];
 
         for (int j = 0; j < configs.getNContestants(); j++)
-            contestants[j] = new Contestant(configs, (IContestantsBench) bench, (IContestantsPlay) playground, team, j);
+            contestants[j] = new Contestant(configs, (IContestantsBench) benchInterface, (IContestantsPlay) playgroundInterface, team, j);
 
 
         coach.start();
