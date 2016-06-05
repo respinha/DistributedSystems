@@ -12,6 +12,6 @@ public interface IGeneralRepository extends Remote {
     void updateContestantState(VectClock clientClock, String state, int gameMemberID, int teamID) throws RemoteException;
 
     void updateRefState(VectClock clientClock, String state) throws RemoteException;
-    void requestToDie() throws RemoteException;
+    void closeConnection() throws RemoteException;
 
 }

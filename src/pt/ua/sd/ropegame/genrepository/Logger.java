@@ -20,12 +20,16 @@ class Logger {
 
         for(int i = 0; i < row.length; i++) {
             String t = row[i];
+
+            int lent_t = t.length();
             int s = size[i];
 
-            sb.append(t);
+            int nblankSpaces = s-lent_t;
 
-            for(int j = t.length(); j <= s; j++)
+            for(int j = 0; j <= nblankSpaces; j++)
                 sb.append(" ");
+
+            sb.append(t);
         }
 
         return sb.toString();

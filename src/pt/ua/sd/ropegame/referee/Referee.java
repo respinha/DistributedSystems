@@ -63,6 +63,7 @@ public class Referee extends Thread {
     public void run() {
         Response response;
         try {
+            System.out.println("O árbitro iniciou.");
 
             clock.increment(this);
             response = refereeSite.startTheMatch(clock);
@@ -72,7 +73,6 @@ public class Referee extends Thread {
             currentState = RefereeState.START_OF_THE_MATCH;
 
             do {
-                System.out.println(currentState);
                 switch (currentState) {
 
                     case START_OF_THE_MATCH:                    // transition
@@ -179,12 +179,9 @@ public class Referee extends Thread {
 
                 response = refereeSite.refHasMoreOperations();
                 hasMoreOper = response.isBoolVal();
-                System.out.println("Arbitro: " + hasMoreOper);
-                // clocks
             } while (hasMoreOper);
 
             System.out.println("O árbitro terminou.");
-            System.out.println(clock);
             refereeSite.closeRefSite();
 
         } catch (Exception e) {}

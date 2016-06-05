@@ -13,5 +13,5 @@ public interface IContestantsBench extends ITeamBench {
 
     Response contestantsHaveMoreOperations() throws RemoteException;
 
-    boolean closeBenchConnection() throws RemoteException;
+    void closeBenchConnection() throws RemoteException;
 }

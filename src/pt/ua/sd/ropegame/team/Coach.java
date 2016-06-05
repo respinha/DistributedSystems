@@ -58,6 +58,7 @@ public class Coach extends TeamMember {
     public void run() {
 
         try {
+            System.out.println("O treinador da equipa "+ team + " iniciou.");
             Response response;
 
             int currentTrial = 1;
@@ -68,13 +69,10 @@ public class Coach extends TeamMember {
             clock.update(response.getClock());
 
             currentState = CoachState.longName(response.getState());
-            System.out.println(currentState);
 
             //clocks = response.getClocks();
             boolean hasMoreOper;
             do {
-
-                System.out.println(currentState);
 
                 switch (currentState) {
 
@@ -159,7 +157,6 @@ public class Coach extends TeamMember {
             } while(hasMoreOper);
 
             System.out.println("O treinador da equipa "+ team + " terminou.");
-            System.out.println(clock);
             playground.closePlaygroundConnection();
 
         } catch (Exception e) {}

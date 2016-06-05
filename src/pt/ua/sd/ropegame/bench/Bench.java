@@ -394,19 +394,19 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     private int nrequestsToDie = 0;
     @Override
-    public boolean closeBenchConnection() throws RemoteException {
+    public void closeBenchConnection() throws RemoteException {
         mutex.lock();
 
         try {
             nrequestsToDie++;
 
             if (nrequestsToDie == configs.getNTeams() * configs.getNContestants()) {
-                System.out.println(vectClock);
-                repository.requestToDie();
-                return true;
+                try {repository.closeConnection(); }
+                catch (RemoteException e) {}
+                System.out.println("O banco foi desligado.");
+                System.exit(0);
             }
 
-            return false;
         } finally {
             mutex.unlock();
         }

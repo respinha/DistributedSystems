@@ -4,7 +4,7 @@ package pt.ua.sd.ropegame.common.enums;
  * Coach states.
  */
 public enum CoachState {
-    WATCH_TRIAL("WATR"), ASSEMBLE_TEAM("ASTE"), WAIT_FOR_REFEREE_COMMAND("WFRC");
+    WATCH_TRIAL("WATR "), ASSEMBLE_TEAM("ASTE "), WAIT_FOR_REFEREE_COMMAND("WFRC ");
 
     private String shortName;
 

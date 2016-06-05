@@ -29,9 +29,11 @@ class GeneralRepository implements
 
     @Override
     public void clockUpdated() {
+        mutex.lock();
         for(int i = 0; i < vectClock.getClocks().length; i++) {
             currentStatus[STATUSID.REFCLK.id + i] = vectClock.getClocks()[i] + "";
         }
+        mutex.unlock();
     }
     // positions to write data to.
 
@@ -97,7 +99,7 @@ class GeneralRepository implements
         String row[] = new String [1];
         int[] size = new int[1];
 
-        row[0] = "Game of the Rope - Description of the internal state";
+        row[0] = "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tGame of the Rope - Description of the internal state\n";
         size[0] = 45;
 
         String line = Logger.log(row, size);
@@ -108,11 +110,11 @@ class GeneralRepository implements
         // second row
 
         row = new String[] {
-                "Ref",
+                "Ref  ",
                 "Coa 1", "Cont 1", "Cont 2", "Cont 3", "Cont 4", "Cont 5",
                 "Coa 2", "Cont 1", "Cont 2", "Cont 3", "Cont 4", "Cont 5",
                 "   Trial", "", "", "", "", "", "", "", "",
-                "", "", "", "", "","", "", "", "", "", "VCk",
+                "", "", "", "", "","", "", "", "", "", "\t\t\t\t\tVCk",
                 "", "", "", "", "", "", "", "", "", "", "", "", ""
         };
 
@@ -136,12 +138,11 @@ class GeneralRepository implements
         // third row
 
         row = new String[] {
-                "Stat",
-                "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
-                "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
+                "Stat ",
+                "Stat ", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
+                "Stat ", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
                 "3", "2", "1", ".", "1", "2", "3", "NB", "PS",
-                " 0", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12"
-
+                "  0", "  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9", " 10", " 11", " 12"
         };
 
         size = new int[] {
@@ -150,7 +151,7 @@ class GeneralRepository implements
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 1, 1, 1, 1, 1, 1, 1,
                 2, 2,
-                2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+                3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
         };
 
         line = Logger.log(row, size);
@@ -261,12 +262,13 @@ class GeneralRepository implements
     }
 
     @Override
-    public void requestToDie() {
+    public void closeConnection() {
         mutex.lock();
          try {
              deadRegions++;
              if(deadRegions == 3) {
-                 System.out.println(vectClock);
+                 System.out.println("O repositório geral foi desligado.");
+                 System.exit(0);
              }
 
          } finally {
@@ -290,7 +292,7 @@ class GeneralRepository implements
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 1, 1, 1, 1, 1, 1, 1,
                 2, 2,
-                2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+                3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
         };
 
 

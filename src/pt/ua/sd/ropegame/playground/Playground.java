@@ -299,8 +299,6 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
            while (contestantsDone < configs.getMaxContsPlayground())
                issuingTrial.await();
 
-           System.out.println("passei aqui");
-
            if(teamStrength[1] > teamStrength[0])
                ropePos++;
            else if(teamStrength[1] < teamStrength[0])
@@ -406,8 +404,9 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
             ncloseRequests++;
 
             if (ncloseRequests == configs.getNCoaches()) {
-                repository.requestToDie();
-                System.out.println(vectClock);
+                repository.closeConnection();
+                System.out.println("O terreiro foi desligado.");
+                System.exit(0);
             }
 
         } finally {

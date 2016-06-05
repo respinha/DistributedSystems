@@ -60,6 +60,8 @@ public class Contestant extends TeamMember {
         Response response;
         boolean hasMoreOper;
         try {
+            System.out.println("O jogador " + number + " da equipa " + team + " iniciou.");
+
             clock.increment(this);
             response = bench.seatDown(clock, number, team, strength, playgroundPos, false);
             clock.update(response.getClock());
@@ -67,7 +69,6 @@ public class Contestant extends TeamMember {
             currentState = ContestantState.longName(response.getState());
 
             do {
-                System.out.println(currentState);
                 switch (currentState) {
 
                     case SEAT_AT_THE_BENCH:
@@ -78,14 +79,11 @@ public class Contestant extends TeamMember {
 
                             response = bench.waitForContestantCall(clock, this.number, this.team);
                             clock.update(response.getClock());
-                            System.out.println("end waitforcontestantcall ");
 
                             strength = response.getIntVal();
                             hasMoreOper = response.isBoolVal();
                             if (!hasMoreOper)
                                 break;
-
-                            System.out.println("cheguei aqui "+ number);
 
                             // move to playground
                             clock.increment(this);
@@ -125,8 +123,6 @@ public class Contestant extends TeamMember {
 
                             // seat down after the trial ended
 
-                            System.out.println(matchOver);
-
                             clock.increment(this);
                             response = bench.seatDown(clock, number, team, strength, playgroundPos, matchOver);
                             clock.update(response.getClock());
@@ -146,7 +142,6 @@ public class Contestant extends TeamMember {
             } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");
-            System.out.println(clock);
             bench.closeBenchConnection();
         } catch (Exception e) {}
     }

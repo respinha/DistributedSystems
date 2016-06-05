@@ -95,9 +95,9 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     public void closeRefSite() throws RemoteException {
         mutex.lock();
 
-        System.out.println(vectClock);
-
-        repository.requestToDie();
+        System.out.println("O sítio do árbitro foi desligado.");
+        repository.closeConnection();
+        System.exit(0);
 
         mutex.unlock();
     }
