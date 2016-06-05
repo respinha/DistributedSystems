@@ -34,16 +34,16 @@ public class RefereeClient {
         String playgroundEntry = "Playground";
         String refSiteEntry = "RefSite";
 
-        IRefBench bench = null;
-        IRefPlay playground = null;
-        IRefRefSite refereesite = null;
+        IRefBench benchInterface = null;
+        IRefPlay playgroundInterface = null;
+        IRefRefSite refereesiteInterface = null;
 
 
         try {
             Registry registry = LocateRegistry.getRegistry(rmiRegHostName, rmiRegPortNumb);
-            bench = (IRefBench) registry.lookup(benchEntry);
-            playground = (IRefPlay) registry.lookup(playgroundEntry);
-            refereesite = (IRefRefSite) registry.lookup(refSiteEntry);
+            benchInterface = (IRefBench) registry.lookup(benchEntry);
+            playgroundInterface = (IRefPlay) registry.lookup(playgroundEntry);
+            refereesiteInterface = (IRefRefSite) registry.lookup(refSiteEntry);
         } catch (RemoteException e) {
             System.out.println("Exceção na localização de um registo: "+e.getMessage());
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class RefereeClient {
             System.exit(1);
         }
 
-        Referee referee = new Referee(configs, bench, playground, refereesite);
+        Referee referee = new Referee(configs, benchInterface, playgroundInterface, refereesiteInterface);
         referee.start();
 
         try {
