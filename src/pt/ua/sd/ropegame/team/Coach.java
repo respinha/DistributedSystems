@@ -159,6 +159,7 @@ public class Coach extends TeamMember {
             } while(hasMoreOper);
 
             System.out.println("O treinador da equipa "+ team + " terminou.");
+            System.out.println(clock);
             playground.closePlaygroundConnection();
 
         } catch (Exception e) {}

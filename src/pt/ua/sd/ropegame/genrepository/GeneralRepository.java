@@ -3,7 +3,6 @@ package pt.ua.sd.ropegame.genrepository;
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.VectClock;
-import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -246,11 +245,13 @@ class GeneralRepository implements
     }
 
     @Override
-    public boolean requestToDie() {
+    public void requestToDie() {
         mutex.lock();
          try {
              deadRegions++;
-             return deadRegions == 3;
+             if(deadRegions == 3) {
+                 System.out.println(vectClock);
+             }
 
          } finally {
              mutex.unlock();
@@ -282,6 +283,7 @@ class GeneralRepository implements
         String line = Logger.log(row.toArray(new String[0]), size);
         lines.add(line);
         System.out.println(line);
+        System.out.println(vectClock);
     }
 
 

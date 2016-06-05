@@ -95,6 +95,8 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     public void closeRefSite() throws RemoteException {
         mutex.lock();
 
+        System.out.println(vectClock);
+
         repository.requestToDie();
 
         mutex.unlock();

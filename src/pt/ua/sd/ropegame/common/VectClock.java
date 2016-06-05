@@ -6,6 +6,7 @@ import pt.ua.sd.ropegame.team.Coach;
 import pt.ua.sd.ropegame.team.Contestant;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Created by rui on 6/4/16.
@@ -71,5 +72,10 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         for(int i = 0; i < clock.length; i++) sum += clock[i];
 
         return sum;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(clocks);
     }
 }

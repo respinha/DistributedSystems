@@ -405,8 +405,10 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
         try {
             ncloseRequests++;
 
-            if (ncloseRequests == configs.getNCoaches())
+            if (ncloseRequests == configs.getNCoaches()) {
                 repository.requestToDie();
+                System.out.println(vectClock);
+            }
 
         } finally {
             mutex.unlock();

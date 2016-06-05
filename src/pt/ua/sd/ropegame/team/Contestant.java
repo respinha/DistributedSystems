@@ -139,10 +139,10 @@ public class Contestant extends TeamMember {
 
                 response = bench.contestantsHaveMoreOperations();
                 hasMoreOper = response.isBoolVal();
-                System.out.println("Contestant: " + number + ", " + hasMoreOper);
             } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");
+            System.out.println(clock);
             bench.closeBenchConnection();
         } catch (Exception e) {}
     }

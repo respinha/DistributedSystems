@@ -399,6 +399,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
             nrequestsToDie++;
 
             if (nrequestsToDie == configs.getNTeams() * configs.getNContestants()) {
+                System.out.println(vectClock);
                 repository.requestToDie();
                 return true;
             }

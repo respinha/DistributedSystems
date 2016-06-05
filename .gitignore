@@ -33,7 +33,7 @@
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+out/production/sd1516-p4g8-rmi/pt
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

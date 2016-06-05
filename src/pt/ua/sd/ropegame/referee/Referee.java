@@ -184,6 +184,7 @@ public class Referee extends Thread {
             } while (hasMoreOper);
 
             System.out.println("O árbitro terminou.");
+            System.out.println(clock);
             refereeSite.closeRefSite();
 
         } catch (Exception e) {}
