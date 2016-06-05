@@ -34,8 +34,10 @@ class GeneralRepository implements
         CONT01SG(3), CONT02SG(5), CONT03SG(7), CONT04SG(9), CONT05SG(11),
         COACH2STAT(12), CONT11STAT(13), CONT12STAT(15), CONT13STAT(17), CONT14STAT(19), CONT15STAT(21),
         CONT11SG(14), CONT12SG(16), CONT13SG(18), CONT14SG(20), CONT15SG(22),
-        TEAM03(23), TEAM02(24), TEAM01(25), ROPE(26), TEAM11(27), TEAM12(28), TEAM13(29), NB(30), PS(31);
-
+        TEAM03(23), TEAM02(24), TEAM01(25), ROPE(26), TEAM11(27), TEAM12(28), TEAM13(29), NB(30), PS(31),
+        REFCLK(32),
+        COACH1CLK(33), CONT01CLK(34),CONT02CLK(35), CONT03CLK(36), CONT04CLK(37),CONT05CLK(38),
+        COACH2CLK(39), CONT11CLK(40),CONT12CLK(41), CONT13CLK(42),CONT14CLK(43), CONT15CLK(44);
 
         private int id;
 
@@ -57,7 +59,7 @@ class GeneralRepository implements
     GeneralRepository(GameOfTheRopeConfigs configs) {
         mutex = new ReentrantLock();
 
-        currentStatus = new String[32];
+        currentStatus = new String[45];
 
         for (int i = 0; i < currentStatus.length; i++) {
             currentStatus[i] = "-";
@@ -88,7 +90,7 @@ class GeneralRepository implements
         int[] size = new int[1];
 
         row[0] = "Game of the Rope - Description of the internal state";
-        size[0] = 32;
+        size[0] = 45;
 
         String line = Logger.log(row, size);
         lines.add(line);
@@ -102,7 +104,8 @@ class GeneralRepository implements
                 "Coa 1", "Cont 1", "Cont 2", "Cont 3", "Cont 4", "Cont 5",
                 "Coa 2", "Cont 1", "Cont 2", "Cont 3", "Cont 4", "Cont 5",
                 "   Trial", "", "", "", "", "", "", "", "",
-                "", "", "", "", "","", "", "", "", ""
+                "", "", "", "", "","", "", "", "", "", "VCk",
+                "", "", "", "", "", "", "", "", "", "", "", "", ""
         };
 
         size = new int[] {
@@ -112,7 +115,9 @@ class GeneralRepository implements
                 9, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0,
-                0
+                0,
+                5,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         };
 
         line = Logger.log(row, size);
@@ -126,7 +131,9 @@ class GeneralRepository implements
                 "Stat",
                 "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
                 "Stat", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG", "Sta","SG",
-                "3", "2", "1", ".", "1", "2", "3", "NB", "PS"
+                "3", "2", "1", ".", "1", "2", "3", "NB", "PS",
+                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
+
         };
 
         size = new int[] {
@@ -134,7 +141,8 @@ class GeneralRepository implements
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 1, 1, 1, 1, 1, 1, 1,
-                2, 2
+                2, 2,
+                2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
         };
 
         line = Logger.log(row, size);
@@ -273,7 +281,8 @@ class GeneralRepository implements
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 5, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
                 1, 1, 1, 1, 1, 1, 1,
-                2, 2
+                2, 2,
+                2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
         };
 
 
