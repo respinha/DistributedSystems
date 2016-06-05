@@ -1,0 +1,1577 @@
+Security Manager foi instalado.
+Game of the Rope - Description of the internal state
+
+Ref  Coa 1 Cont 1 Cont 2 Cont 3 Cont 4 Cont 5 Coa 2 Cont 1 Cont 2 Cont 3 Cont 4 Cont 5    Trial                    
+Stat Stat  Sta SG Sta SG Sta SG Sta SG Sta SG Stat  Sta SG Sta SG Sta SG Sta SG Sta SG 3 2 1 . 1 2 3 NB PS 
+STM  WFRC  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  WFRC  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  -  
+[1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0]
+STM  WFRC  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  WFRC  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0]
+SOG  WFRC  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  WFRC  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[3, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0]
+Game 1
+TRE  WFRC  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  WFRC  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[4, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[4, 2, 2, 2, 2, 2, 0, 3, 2, 2, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SAB 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[4, 3, 2, 2, 2, 2, 0, 3, 2, 2, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . - - - -  0  
+[4, 3, 2, 2, 2, 2, 0, 4, 2, 2, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SAB 2  SAB 2  SAB 4  - - - . 1 - - -  0  
+[4, 3, 2, 2, 2, 2, 0, 4, 2, 2, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SIP 2  SAB 2  SAB 4  - - - . 1 - - -  0  
+[4, 3, 2, 2, 2, 2, 0, 4, 2, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SAB 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SIP 2  SAB 2  SAB 4  - - - . 1 3 - -  0  
+[4, 3, 2, 2, 2, 2, 0, 4, 2, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SIP 2  SAB 2  SAB 4  - - - . 1 3 - -  0  
+[4, 3, 2, 3, 2, 2, 0, 4, 2, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SAB 2  SAB 2  ASTE  SIP 2  SAB 4  SIP 2  SAB 2  SAB 4  3 - - . 1 3 - -  0  
+[4, 3, 2, 3, 2, 2, 0, 4, 2, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SAB 2  SAB 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 - - . 1 3 - -  0  
+[4, 3, 2, 3, 2, 2, 0, 4, 3, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SAB 2  SAB 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 - - . 1 3 2 -  0  
+[4, 3, 2, 3, 2, 2, 0, 4, 3, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SIP 2  SAB 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 - - . 1 3 2 -  0  
+[4, 3, 2, 3, 3, 2, 0, 4, 3, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SIP 2  SAB 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 - . 1 3 2 -  0  
+[4, 3, 2, 3, 3, 2, 0, 4, 3, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 - . 1 3 2 -  0  
+[4, 3, 2, 3, 3, 3, 0, 4, 3, 3, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 -  0  
+[4, 3, 2, 3, 3, 3, 0, 4, 3, 3, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  ASTE  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 -  0  
+[4, 4, 2, 3, 3, 3, 0, 4, 3, 3, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  WATR  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 -  0  
+[5, 4, 2, 4, 3, 4, 0, 6, 3, 4, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  WATR  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  WATR  SIP 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  WATR  DYB 2  SIP 4  SIP 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  SIP 1  SIP 2  SIP 2  WATR  DYB 2  SIP 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  DYB 1  SIP 2  SIP 2  WATR  DYB 2  SIP 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  DYB 1  SIP 2  DYB 2  WATR  DYB 2  SIP 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  DYB 1  SIP 2  DYB 2  WATR  DYB 2  DYB 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WATR  DYB 2  DYB 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  0  
+[6, 5, 2, 4, 4, 4, 0, 7, 4, 4, 2, 2, 0]
+WTC  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WATR  DYB 2  DYB 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  1  
+[7, 5, 2, 6, 6, 6, 0, 9, 6, 6, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WATR  DYB 2  DYB 4  DYB 2  SAB 2  SAB 4  3 4 5 . 1 3 2 1  1  
+[7, 5, 2, 6, 6, 6, 0, 9, 6, 6, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 5 . 1 3 2 1  1  
+[7, 5, 2, 6, 6, 6, 0, 10, 6, 6, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 5 . 1 3 2 1  1  
+[7, 5, 2, 6, 6, 6, 0, 10, 6, 6, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 5 . 1 3 2 1  1  
+[8, 5, 2, 6, 6, 6, 0, 10, 6, 6, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 5 . 1 - 2 1  1  
+[8, 5, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  DYB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 5 . 1 - 2 1  1  
+[8, 5, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  DYB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 5 . - - 2 1  1  
+[8, 5, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WATR  SAB 3  SAB 1  DYB 1  DYB 2  DYB 2  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 5 . - - 2 1  1  
+[8, 5, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WATR  SAB 4  SAB 2  DYB 0  DYB 1  DYB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 5 . - - 2 1  1  
+[8, 6, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  DYB 0  DYB 1  DYB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 5 . - - 2 1  1  
+[8, 6, 2, 6, 6, 6, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  DYB 0  DYB 1  DYB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 - . - - 2 1  1  
+[8, 6, 2, 6, 6, 7, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  DYB 0  DYB 1  SAB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  3 4 - . - - 2 1  1  
+[8, 6, 2, 6, 6, 7, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  DYB 0  DYB 1  SAB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  - 4 - . - - 2 1  1  
+[8, 6, 2, 7, 6, 7, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  DYB 1  SAB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  - 4 - . - - 2 1  1  
+[8, 6, 2, 7, 6, 7, 0, 10, 6, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  DYB 1  SAB 1  WFRC  SAB 1  DYB 3  SAB 1  SAB 3  SAB 5  - 4 - . - - - 1  1  
+[8, 6, 2, 7, 6, 7, 0, 10, 7, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  DYB 1  SAB 1  WFRC  SAB 1  SAB 3  SAB 1  SAB 3  SAB 5  - 4 - . - - - 1  1  
+[8, 6, 2, 7, 6, 7, 0, 10, 7, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  DYB 1  SAB 1  WFRC  SAB 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . - - - 1  1  
+[8, 6, 2, 7, 7, 7, 0, 10, 7, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  WFRC  SAB 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . - - - 1  1  
+[8, 6, 2, 7, 7, 7, 0, 10, 7, 7, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SAB 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . - - - 1  1  
+[8, 7, 2, 7, 8, 7, 0, 12, 8, 8, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . - - - 1  1  
+[8, 7, 2, 7, 8, 7, 0, 13, 8, 8, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . - - - 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 8, 8, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SAB 3  SAB 1  SAB 3  SAB 5  - - - . 1 - - 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 8, 8, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SAB 1  SAB 3  SAB 5  - - - . 1 - - 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 9, 8, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SAB 1  SAB 3  SAB 5  - - - . 1 2 - 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 9, 8, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  - - - . 1 2 - 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SAB 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  - - - . 1 2 3 1  1  
+[8, 8, 2, 8, 8, 7, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SIP 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  - - - . 1 2 3 1  1  
+[8, 8, 2, 9, 8, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SIP 0  SAB 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 - - . 1 2 3 1  1  
+[8, 8, 2, 9, 8, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SIP 0  SIP 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 - - . 1 2 3 1  1  
+[8, 8, 2, 9, 9, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 2  SIP 0  SIP 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 - . 1 2 3 1  1  
+[8, 8, 2, 9, 9, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 - . 1 2 3 1  1  
+[8, 9, 3, 9, 9, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  ASTE  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 1  1  
+[8, 9, 3, 9, 9, 8, 0, 13, 9, 9, 2, 2, 0]
+TRE  ASTE  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 1  1  
+[8, 9, 3, 9, 9, 8, 0, 14, 10, 10, 2, 2, 0]
+TRE  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 1  1  
+[9, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+TRE  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  SIP 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  DYB 1  SIP 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  DYB 1  DYB 3  SIP 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  SIP 0  SIP 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 14, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  DYB 0  SIP 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 15, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  SIP 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 15, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  1  
+[10, 10, 4, 10, 10, 8, 0, 15, 10, 10, 2, 2, 0]
+WTC  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  2  
+[11, 11, 6, 12, 12, 8, 0, 16, 12, 12, 2, 2, 0]
+TRE  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  2  
+[11, 11, 6, 12, 12, 8, 0, 16, 12, 12, 2, 2, 0]
+TRE  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 2 3 2  2  
+[12, 11, 6, 12, 12, 8, 0, 16, 12, 12, 2, 2, 0]
+TRE  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  DYB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 - 3 2  2  
+[12, 11, 6, 12, 12, 8, 0, 16, 13, 12, 2, 2, 0]
+TRE  WATR  SAB 4  DYB 2  DYB 0  DYB 1  SAB 1  WATR  DYB 1  SAB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 - 3 2  2  
+[12, 11, 6, 12, 12, 8, 0, 16, 13, 12, 2, 2, 0]
+TRE  WATR  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WATR  DYB 1  SAB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 16, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WATR  DYB 1  SAB 3  DYB 1  SAB 3  SAB 5  3 4 2 . 1 - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 16, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WATR  DYB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 4 2 . 1 - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WFRC  DYB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 4 2 . 1 - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WFRC  DYB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 4 2 . - - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 4 2 . - - 3 2  2  
+[12, 12, 6, 12, 12, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  DYB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 - 2 . - - 3 2  2  
+[12, 12, 6, 12, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  3 - 2 . - - 3 2  2  
+[12, 12, 6, 12, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  DYB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  - - 2 . - - 3 2  2  
+[12, 12, 6, 13, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  SAB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  - - 2 . - - 3 2  2  
+[12, 12, 6, 13, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  DYB 1  SAB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  - - - . - - 3 2  2  
+[12, 12, 7, 13, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  - - - . - - 3 2  2  
+[12, 12, 7, 13, 13, 8, 0, 17, 13, 12, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  DYB 0  SAB 4  SAB 6  - - - . - - - 2  2  
+[12, 12, 7, 13, 13, 8, 0, 17, 13, 13, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  WFRC  SAB 0  SAB 2  SAB 0  SAB 4  SAB 6  - - - . - - - 2  2  
+[12, 12, 7, 13, 13, 8, 0, 17, 13, 13, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SAB 0  SAB 2  SAB 0  SAB 4  SAB 6  - - - . - - - 2  2  
+[12, 13, 8, 14, 14, 8, 0, 19, 14, 14, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SAB 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . - - - 2  2  
+[12, 13, 8, 14, 14, 8, 0, 19, 14, 15, 2, 2, 0]
+TRE  WFRC  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SAB 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . 3 - - 2  2  
+[12, 13, 8, 14, 14, 8, 0, 19, 14, 15, 2, 2, 0]
+TRE  ASTE  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SAB 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . 3 - - 2  2  
+[12, 14, 8, 14, 14, 8, 0, 19, 14, 15, 2, 2, 0]
+TRE  ASTE  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . 3 - - 2  2  
+[12, 14, 8, 14, 14, 8, 0, 20, 14, 15, 2, 2, 0]
+TRE  ASTE  SAB 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . 3 1 - 2  2  
+[12, 14, 8, 14, 14, 8, 0, 20, 14, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SAB 2  SIP 0  SAB 4  SAB 6  - - - . 3 1 - 2  2  
+[12, 15, 8, 14, 14, 8, 0, 20, 14, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SAB 2  SIP 0  SAB 4  SAB 6  1 - - . 3 1 - 2  2  
+[12, 15, 8, 14, 14, 8, 0, 20, 14, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 - - . 3 1 - 2  2  
+[12, 15, 8, 14, 14, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SAB 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 - - . 3 1 2 2  2  
+[12, 15, 8, 14, 14, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SIP 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 - - . 3 1 2 2  2  
+[12, 15, 9, 14, 14, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SIP 1  SAB 0  SAB 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 - . 3 1 2 2  2  
+[12, 15, 9, 14, 14, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 - . 3 1 2 2  2  
+[12, 15, 9, 14, 15, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  ASTE  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 4 . 3 1 2 2  2  
+[12, 15, 9, 14, 15, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  ASTE  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 4 . 3 1 2 2  2  
+[12, 15, 9, 14, 15, 8, 0, 20, 15, 15, 2, 2, 0]
+TRE  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 4 . 3 1 2 2  2  
+[13, 16, 9, 14, 15, 8, 0, 22, 15, 16, 2, 2, 0]
+TRE  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[14, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  SIP 0  SIP 2  SIP 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[14, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  SIP 0  SIP 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[14, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  SIP 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  DYB 0  SIP 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[14, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  DYB 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  DYB 0  SIP 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[14, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  DYB 5  SIP 1  SAB 0  SIP 0  SAB 2  WATR  DYB 0  DYB 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[15, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  DYB 5  DYB 1  SAB 0  SIP 0  SAB 2  WATR  DYB 0  DYB 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[15, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WATR  DYB 0  DYB 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  2  
+[15, 17, 10, 14, 16, 8, 0, 22, 16, 16, 2, 2, 0]
+WTC  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WATR  DYB 0  DYB 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 24, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WATR  DYB 0  DYB 2  DYB 0  SAB 4  SAB 6  1 2 4 . 3 1 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 24, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 4 . 3 1 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WFRC  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 4 . 3 1 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WFRC  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 4 . 3 - 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WFRC  SAB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 4 . 3 - 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 18, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WFRC  SAB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 4 . - - 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WATR  DYB 5  DYB 1  SAB 0  DYB 0  SAB 2  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 2 4 . - - 2 3  1  
+[15, 19, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WATR  DYB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 2 4 . - - 2 3  1  
+[15, 20, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WFRC  DYB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 2 4 . - - 2 3  1  
+[15, 20, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WFRC  DYB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 2 4 . - - 2 3  1  
+[16, 20, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WFRC  DYB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  - 2 4 . - - 2 3  1  
+[16, 20, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  - 2 4 . - - 2 3  1  
+[16, 20, 12, 14, 18, 8, 0, 25, 18, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  DYB 1  SAB 0  SAB 5  SAB 7  - 2 4 . - - - 3  1  
+[16, 20, 12, 14, 18, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - 2 4 . - - - 3  1  
+[16, 20, 12, 14, 18, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  DYB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - 4 . - - - 3  1  
+[16, 20, 13, 14, 18, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - 4 . - - - 3  1  
+[16, 20, 13, 14, 18, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 0  SAB 1  DYB 0  SAB 3  WFRC  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - - . - - - 3  1  
+[16, 20, 13, 14, 19, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  WFRC  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - - . - - - 3  1  
+[16, 20, 13, 14, 19, 8, 0, 25, 19, 19, 2, 2, 0]
+TRE  WFRC  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - - . - - - 3  1  
+[16, 21, 13, 14, 20, 8, 0, 27, 20, 20, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SAB 0  SAB 1  SAB 0  SAB 5  SAB 7  - - - . - - - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 27, 20, 20, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SAB 0  SAB 1  SIP 0  SAB 5  SAB 7  - - - . - - - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 27, 20, 21, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SAB 0  SAB 1  SIP 0  SAB 5  SAB 7  - - - . 3 - - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 27, 20, 21, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SAB 1  SIP 0  SAB 5  SAB 7  - - - . 3 - - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 28, 20, 21, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SAB 1  SIP 0  SAB 5  SAB 7  - - - . 3 1 - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 28, 20, 21, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  - - - . 3 1 - 3  1  
+[16, 22, 14, 14, 20, 8, 0, 28, 21, 21, 2, 2, 0]
+TRE  ASTE  SAB 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  - - - . 3 1 2 3  1  
+[16, 22, 14, 14, 20, 8, 0, 28, 21, 21, 2, 2, 0]
+TRE  ASTE  SIP 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  - - - . 3 1 2 3  1  
+[16, 23, 14, 14, 20, 8, 0, 28, 21, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SAB 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 - - . 3 1 2 3  1  
+[16, 23, 14, 14, 20, 8, 0, 28, 21, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SIP 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 - - . 3 1 2 3  1  
+[16, 23, 15, 14, 20, 8, 0, 28, 21, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SIP 0  SAB 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 - . 3 1 2 3  1  
+[16, 23, 15, 14, 20, 8, 0, 28, 21, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 - . 3 1 2 3  1  
+[16, 23, 15, 15, 20, 8, 0, 28, 22, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  ASTE  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 3 . 3 1 2 3  1  
+[16, 23, 15, 15, 20, 8, 0, 28, 22, 22, 2, 2, 0]
+TRE  ASTE  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 3 . 3 1 2 3  1  
+[16, 23, 15, 15, 20, 8, 0, 29, 22, 22, 2, 2, 0]
+TRE  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 3 . 3 1 2 3  1  
+[17, 25, 15, 15, 20, 8, 0, 29, 22, 22, 2, 2, 0]
+TRE  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  SIP 1  SIP 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  SIP 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  SIP 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  SIP 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  DYB 4  SIP 0  SIP 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  DYB 4  DYB 0  SIP 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  DYB 4  DYB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  1  
+[18, 25, 16, 16, 20, 8, 0, 30, 22, 22, 2, 2, 0]
+WTC  WATR  DYB 4  DYB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  0  
+[19, 27, 18, 18, 20, 8, 0, 32, 24, 24, 2, 2, 0]
+TRE  WATR  DYB 4  DYB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  0  
+[19, 27, 18, 18, 20, 8, 0, 32, 24, 24, 2, 2, 0]
+TRE  WATR  DYB 4  DYB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 2 3 . 3 1 2 4  0  
+[20, 27, 18, 18, 20, 8, 0, 32, 24, 24, 2, 2, 0]
+TRE  WATR  DYB 4  DYB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 - 3 . 3 1 2 4  0  
+[20, 27, 19, 18, 20, 8, 0, 32, 24, 24, 2, 2, 0]
+TRE  WATR  DYB 4  SAB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 - 3 . 3 1 2 4  0  
+[20, 27, 19, 18, 20, 8, 0, 32, 24, 24, 2, 2, 0]
+TRE  WATR  DYB 4  SAB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  DYB 0  SAB 5  SAB 7  1 - 3 . - 1 2 4  0  
+[20, 27, 19, 18, 20, 8, 0, 32, 24, 25, 2, 2, 0]
+TRE  WATR  DYB 4  SAB 0  DYB 1  SAB 0  SAB 3  WATR  DYB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 - 3 . - 1 2 4  0  
+[20, 27, 19, 18, 20, 8, 0, 32, 24, 25, 2, 2, 0]
+TRE  WATR  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WATR  DYB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 - 3 . - 1 2 4  0  
+[20, 28, 19, 18, 20, 8, 0, 32, 24, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WATR  DYB 0  DYB 1  SAB 0  SAB 5  SAB 7  1 - 3 . - 1 2 4  0  
+[20, 28, 19, 18, 20, 8, 0, 32, 24, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WATR  DYB 0  DYB 0  SAB 0  SAB 6  SAB 8  1 - 3 . - 1 2 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 24, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  DYB 0  SAB 0  SAB 6  SAB 8  1 - 3 . - 1 2 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 24, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  DYB 0  SAB 0  SAB 6  SAB 8  1 - 3 . - 1 - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  SAB 0  SAB 0  SAB 6  SAB 8  1 - 3 . - 1 - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  DYB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - 3 . - 1 - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - 3 . - 1 - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  DYB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - 3 . - - - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  SAB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - 3 . - - - 4  0  
+[20, 28, 19, 18, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  DYB 0  SAB 1  SAB 4  WFRC  SAB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - - . - - - 4  0  
+[20, 28, 19, 19, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  SAB 0  SAB 1  SAB 4  WFRC  SAB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - - . - - - 4  0  
+[20, 28, 19, 19, 20, 8, 0, 33, 25, 25, 2, 2, 0]
+TRE  WFRC  SAB 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - - . - - - 4  0  
+[20, 29, 20, 20, 20, 8, 0, 35, 26, 26, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SAB 0  SAB 0  SAB 6  SAB 8  - - - . - - - 4  0  
+[20, 30, 20, 20, 20, 8, 0, 35, 26, 26, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SAB 0  SAB 6  SAB 8  - - - . - - - 4  0  
+[20, 30, 20, 20, 20, 8, 0, 35, 27, 26, 2, 2, 0]
+TRE  ASTE  SAB 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SAB 0  SAB 6  SAB 8  - - - . 2 - - 4  0  
+[20, 30, 20, 20, 20, 8, 0, 35, 27, 26, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SAB 0  SAB 6  SAB 8  - - - . 2 - - 4  0  
+[20, 31, 20, 20, 20, 8, 0, 35, 27, 26, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SAB 0  SAB 6  SAB 8  1 - - . 2 - - 4  0  
+[20, 31, 20, 20, 20, 8, 0, 35, 27, 26, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SIP 0  SAB 6  SAB 8  1 - - . 2 - - 4  0  
+[20, 31, 20, 20, 20, 8, 0, 35, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SAB 0  SIP 0  SIP 0  SAB 6  SAB 8  1 - - . 2 3 - 4  0  
+[20, 31, 20, 20, 20, 8, 0, 35, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 - - . 2 3 - 4  0  
+[20, 31, 20, 20, 20, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SAB 0  SAB 0  SAB 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 - - . 2 3 1 4  0  
+[20, 31, 20, 20, 20, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SIP 0  SAB 0  SAB 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 - - . 2 3 1 4  0  
+[20, 31, 21, 20, 20, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SIP 0  SAB 0  SAB 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 - . 2 3 1 4  0  
+[20, 31, 21, 20, 20, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 - . 2 3 1 4  0  
+[20, 31, 21, 20, 21, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  ASTE  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 4  0  
+[20, 31, 21, 20, 21, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  WATR  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  ASTE  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 4  0  
+[20, 31, 21, 20, 21, 8, 0, 36, 27, 27, 2, 2, 0]
+TRE  WATR  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 4  0  
+[21, 32, 21, 20, 21, 8, 0, 38, 28, 28, 2, 2, 0]
+TRE  WATR  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  SIP 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  SIP 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  DYB 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  DYB 0  SIP 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  SIP 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  SIP 0  SAB 0  SIP 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  DYB 0  SAB 0  SIP 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  0  
+[22, 32, 22, 20, 22, 8, 0, 38, 28, 28, 2, 2, 0]
+WTC  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 40, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 6  SAB 8  1 2 4 . 2 3 1 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 40, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 1 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WFRC  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 1 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WFRC  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 - 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 3  DYB 0  SAB 0  DYB 1  SAB 4  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 - 5  -1 
+[23, 34, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WATR  DYB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 - 5  -1 
+[23, 35, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WFRC  DYB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 - 5  -1 
+[23, 35, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WFRC  DYB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  1 2 4 . 2 3 - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WFRC  DYB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  - 2 4 . 2 3 - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  - 2 4 . 2 3 - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 30, 30, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  DYB 0  DYB 0  SAB 7  SAB 9  - 2 4 . - 3 - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 31, 30, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  SAB 7  SAB 9  - 2 4 . - 3 - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 31, 30, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  SAB 7  SAB 9  - 2 4 . - - - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 2 4 . - - - 5  -1 
+[24, 35, 24, 20, 24, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 2 - . - - - 5  -1 
+[24, 35, 24, 20, 25, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  SAB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 2 - . - - - 5  -1 
+[24, 35, 24, 20, 25, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  DYB 0  SAB 1  SAB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 5  -1 
+[24, 35, 25, 20, 25, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 5  -1 
+[24, 35, 25, 20, 25, 8, 0, 41, 31, 31, 2, 2, 0]
+TRE  WFRC  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 5  -1 
+[24, 36, 26, 20, 25, 8, 0, 43, 31, 31, 2, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 5  -1 
+[24, 37, 26, 20, 26, 8, 0, 43, 31, 31, 2, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 5  -1 
+[24, 37, 26, 20, 26, 8, 0, 44, 31, 31, 2, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . 1 - - 5  -1 
+[24, 37, 26, 20, 26, 8, 0, 44, 31, 31, 2, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SIP 7  SAB 9  - - - . 1 - - 5  -1 
+[24, 37, 26, 20, 26, 8, 0, 44, 31, 31, 3, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SIP 7  SAB 9  - - - . 1 4 - 5  -1 
+[24, 37, 26, 20, 26, 8, 0, 44, 31, 31, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SIP 7  SAB 9  - - - . 1 4 - 5  -1 
+[24, 38, 26, 20, 26, 8, 0, 45, 32, 32, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SAB 0  SIP 7  SAB 9  1 - - . 1 4 - 5  -1 
+[24, 38, 26, 20, 26, 8, 0, 45, 32, 32, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 - - . 1 4 - 5  -1 
+[24, 38, 26, 20, 26, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 - - . 1 4 3 5  -1 
+[24, 38, 26, 20, 26, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SIP 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 - - . 1 4 3 5  -1 
+[24, 38, 26, 20, 27, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SAB 1  SIP 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 - . 1 4 3 5  -1 
+[24, 38, 26, 20, 27, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 - . 1 4 3 5  -1 
+[24, 38, 26, 21, 27, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  ASTE  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 5  -1 
+[24, 38, 26, 21, 27, 8, 0, 45, 32, 33, 3, 2, 0]
+TRE  ASTE  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 5  -1 
+[24, 39, 26, 21, 27, 8, 0, 45, 32, 33, 4, 2, 0]
+TRE  WATR  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 5  -1 
+[25, 40, 26, 21, 27, 8, 0, 45, 32, 33, 4, 2, 0]
+TRE  WATR  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  SIP 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  DYB 0  SAB 0  SIP 0  SIP 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  SIP 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  DYB 0  SAB 0  SIP 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  DYB 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  DYB 0  SAB 0  SIP 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  DYB 2  SAB 0  SIP 1  SIP 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  DYB 2  SAB 0  DYB 1  SIP 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  -1 
+[26, 41, 26, 22, 28, 8, 0, 46, 32, 34, 4, 2, 0]
+WTC  WATR  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  0  
+[27, 43, 26, 24, 30, 8, 0, 48, 32, 36, 6, 2, 0]
+EOG  WATR  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  0  
+[27, 43, 26, 24, 30, 8, 0, 48, 32, 36, 6, 2, 0]
+EOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . 1 4 3 6  0  
+[27, 44, 26, 24, 30, 8, 0, 48, 32, 36, 6, 2, 0]
+Game 1 was a draw.
+EOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . - 4 3 6  0  
+[28, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  DYB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . - 4 3 6  0  
+[28, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  1 4 3 . - 4 3 6  0  
+[28, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - 4 3 6  0  
+[28, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  DYB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - 4 3 6  0  
+[29, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WATR  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - 4 3 6  0  
+[29, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - 4 3 6  0  
+[29, 44, 26, 24, 30, 8, 0, 49, 32, 36, 6, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - - 3 6  0  
+[29, 44, 26, 24, 30, 8, 0, 49, 32, 36, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  DYB 7  SAB 9  - 4 3 . - - 3 6  0  
+[30, 44, 26, 24, 30, 8, 0, 49, 32, 36, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  SAB 7  SAB 9  - 4 3 . - - 3 6  0  
+[30, 44, 26, 24, 30, 8, 0, 49, 32, 36, 7, 2, 0]
+Game 2
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  DYB 0  SAB 7  SAB 9  - 4 3 . - - - 6  0  
+[30, 44, 26, 24, 30, 8, 0, 49, 32, 37, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 4 3 . - - - 6  0  
+[30, 44, 26, 24, 30, 8, 0, 49, 32, 37, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  DYB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 4 - . - - - 6  0  
+[30, 44, 26, 25, 30, 8, 0, 49, 32, 37, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - 4 - . - - - 6  0  
+[30, 44, 26, 25, 30, 8, 0, 49, 32, 37, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  SAB 1  DYB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[30, 44, 26, 25, 31, 8, 0, 49, 32, 37, 7, 2, 0]
+SOG  WFRC  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[30, 44, 26, 25, 31, 8, 0, 49, 32, 37, 7, 2, 0]
+TRE  WFRC  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  WFRC  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[31, 44, 26, 25, 31, 8, 0, 49, 32, 37, 7, 2, 0]
+TRE  WFRC  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[31, 45, 26, 26, 32, 8, 0, 51, 32, 38, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SAB 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 51, 32, 38, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SIP 0  SAB 0  SAB 7  SAB 9  - - - . - - - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 51, 33, 38, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SIP 0  SAB 0  SAB 7  SAB 9  - - - . 2 - - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 51, 33, 38, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SIP 0  SIP 0  SAB 7  SAB 9  - - - . 2 - - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 51, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SAB 0  SIP 0  SIP 0  SAB 7  SAB 9  - - - . 2 3 - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 51, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  - - - . 2 3 - 6  0  
+[31, 46, 26, 26, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SAB 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  - - - . 2 3 1 6  0  
+[31, 46, 26, 26, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  - - - . 2 3 1 6  0  
+[31, 46, 26, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SAB 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 - - . 2 3 1 6  0  
+[31, 46, 26, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SIP 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 - - . 2 3 1 6  0  
+[31, 46, 27, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SAB 2  SIP 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 - . 2 3 1 6  0  
+[31, 46, 27, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 - . 2 3 1 6  0  
+[31, 47, 27, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  ASTE  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 6  0  
+[31, 47, 27, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  WATR  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  ASTE  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 6  0  
+[31, 47, 28, 27, 32, 8, 0, 52, 33, 39, 8, 2, 0]
+TRE  WATR  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 6  0  
+[32, 47, 28, 28, 32, 8, 0, 54, 34, 40, 8, 2, 0]
+TRE  WATR  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  SIP 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  DYB 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  SIP 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  DYB 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  DYB 0  SIP 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  DYB 0  SIP 1  SAB 0  SAB 5  WATR  SIP 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  DYB 0  SIP 1  SAB 0  SAB 5  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  SIP 2  DYB 0  DYB 1  SAB 0  SAB 5  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  DYB 2  DYB 0  DYB 1  SAB 0  SAB 5  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  0  
+[33, 48, 28, 28, 32, 8, 0, 55, 34, 40, 8, 2, 0]
+WTC  WATR  DYB 2  DYB 0  DYB 1  SAB 0  SAB 5  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  -1 
+[34, 50, 30, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WATR  DYB 2  DYB 0  DYB 1  SAB 0  SAB 5  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  -1 
+[34, 50, 30, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  -1 
+[34, 51, 30, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 2 1 . 2 3 1 1  -1 
+[34, 51, 30, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 - 1 . 2 3 1 1  -1 
+[34, 51, 31, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 - 1 . 2 3 1 1  -1 
+[34, 51, 31, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 7  SAB 9  3 - 1 . 2 3 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 57, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  DYB 0  SAB 8  SAB 10 3 - 1 . 2 3 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  DYB 0  DYB 0  SAB 8  SAB 10 3 - 1 . 2 3 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 36, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  DYB 0  DYB 0  SAB 8  SAB 10 3 - 1 . - 3 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  SAB 0  DYB 0  SAB 8  SAB 10 3 - 1 . - 3 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 42, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  SAB 0  DYB 0  SAB 8  SAB 10 3 - 1 . - - 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 - 1 . - - 1 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  DYB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 - 1 . - - - 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 - 1 . - - - 1  -1 
+[35, 51, 31, 30, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  DYB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - 1 . - - - 1  -1 
+[35, 51, 31, 31, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  SAB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - 1 . - - - 1  -1 
+[35, 51, 31, 31, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  DYB 1  SAB 0  SAB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - - . - - - 1  -1 
+[35, 51, 31, 31, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  WFRC  SAB 1  SAB 0  SAB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - - . - - - 1  -1 
+[35, 51, 31, 31, 32, 8, 0, 58, 37, 43, 8, 2, 0]
+TRE  ASTE  SAB 1  SAB 0  SAB 0  SAB 1  SAB 6  WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - - . - - - 1  -1 
+[35, 53, 32, 32, 32, 8, 0, 59, 38, 44, 8, 2, 0]
+TRE  ASTE  SAB 1  SAB 0  SAB 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - - . - - - 1  -1 
+[35, 53, 32, 32, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SAB 1  SAB 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 - - - . - - - 1  -1 
+[35, 53, 32, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SAB 1  SAB 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 - - . - - - 1  -1 
+[35, 53, 32, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SAB 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 - - . - - - 1  -1 
+[35, 53, 33, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SAB 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 2 - . - - - 1  -1 
+[35, 53, 33, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 2 - . - - - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 10 3 2 1 . - - - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 60, 38, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SAB 0  SAB 0  SAB 8  SAB 10 3 2 1 . - - - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 38, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SAB 0  SAB 0  SAB 8  SAB 10 3 2 1 . 1 - - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 38, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SIP 0  SAB 0  SAB 8  SAB 10 3 2 1 . 1 - - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 39, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SIP 0  SAB 0  SAB 8  SAB 10 3 2 1 . 1 2 - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 39, 44, 8, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 - 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 39, 44, 9, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  ASTE  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 39, 44, 9, 2, 0]
+TRE  ASTE  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  WATR  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 1  -1 
+[35, 54, 33, 33, 32, 8, 0, 61, 40, 44, 9, 2, 0]
+TRE  WATR  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  WATR  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 1  -1 
+[36, 55, 33, 33, 32, 8, 0, 61, 40, 44, 9, 2, 0]
+TRE  WATR  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  WATR  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[37, 55, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  WATR  SIP 0  SIP 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[37, 55, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  SIP 1  SIP 0  SIP 0  SAB 1  SAB 6  WATR  SIP 0  DYB 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[37, 56, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  SIP 1  SIP 0  DYB 0  SAB 1  SAB 6  WATR  SIP 0  DYB 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[37, 56, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  SIP 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  SIP 0  DYB 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[37, 56, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  SIP 0  DYB 0  SAB 0  SIP 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[38, 56, 34, 34, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  SIP 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[38, 56, 34, 35, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  -1 
+[38, 56, 34, 35, 32, 8, 0, 62, 40, 44, 10, 2, 0]
+WTC  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  0  
+[38, 58, 36, 36, 32, 8, 0, 64, 42, 44, 12, 2, 0]
+TRE  WATR  DYB 1  DYB 0  DYB 0  SAB 1  SAB 6  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  0  
+[38, 58, 36, 36, 32, 8, 0, 64, 42, 44, 12, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 64, 42, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . 1 2 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 64, 42, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . - 2 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 65, 42, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  SAB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . - 2 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 65, 42, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  SAB 0  DYB 0  SAB 0  DYB 8  SAB 10 3 2 1 . - - 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  SAB 0  SAB 0  SAB 0  DYB 8  SAB 10 3 2 1 . - - 4 2  0  
+[38, 59, 36, 36, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  SAB 0  SAB 0  SAB 0  DYB 8  SAB 10 3 2 1 . - - 4 2  0  
+[39, 59, 36, 36, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 3 2 1 . - - 4 2  0  
+[39, 59, 36, 36, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 3 2 1 . - - 4 2  0  
+[39, 59, 36, 36, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - 2 1 . - - 4 2  0  
+[39, 59, 36, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - 2 1 . - - 4 2  0  
+[39, 59, 36, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - - 1 . - - 4 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  SAB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - - 1 . - - 4 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  DYB 0  SAB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - - - . - - 4 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - - - . - - 4 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 12, 2, 0]
+TRE  WFRC  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  DYB 7  SAB 11 - - - . - - - 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 13, 2, 0]
+TRE  WFRC  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . - - - 2  0  
+[39, 59, 37, 37, 32, 8, 0, 65, 43, 44, 13, 2, 0]
+TRE  WFRC  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . - - - 2  0  
+[39, 60, 38, 38, 32, 8, 0, 67, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . - - - 2  0  
+[39, 61, 38, 38, 32, 8, 0, 67, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . - - - 2  0  
+[39, 61, 38, 38, 32, 8, 0, 68, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SAB 0  SAB 2  SAB 7  ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . 1 - - 2  0  
+[39, 61, 38, 38, 32, 8, 0, 68, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 11 - - - . 1 - - 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 11 3 - - . 1 - - 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 44, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SAB 7  SAB 11 3 - - . 1 - - 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 45, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SAB 7  SAB 11 3 - - . 1 2 - 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 45, 44, 14, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 - - . 1 2 - 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 45, 44, 15, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 - - . 1 2 4 2  0  
+[39, 61, 38, 39, 32, 8, 0, 68, 45, 44, 15, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 - - . 1 2 4 2  0  
+[39, 62, 38, 39, 32, 8, 0, 68, 46, 44, 15, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 - . 1 2 4 2  0  
+[39, 62, 38, 39, 32, 8, 0, 68, 46, 44, 15, 2, 0]
+TRE  ASTE  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 - . 1 2 4 2  0  
+[39, 62, 39, 39, 32, 8, 0, 68, 46, 44, 15, 2, 0]
+TRE  ASTE  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 2  0  
+[39, 62, 39, 39, 32, 8, 0, 68, 46, 44, 15, 2, 0]
+TRE  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 2  0  
+[39, 62, 39, 40, 32, 8, 0, 69, 46, 44, 16, 2, 0]
+TRE  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 2  0  
+[40, 62, 39, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+TRE  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  WATR  SIP 0  DYB 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  SIP 0  SIP 0  SIP 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  SIP 0  SIP 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  SIP 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  SIP 0  SIP 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 70, 46, 44, 16, 2, 0]
+WTC  WATR  DYB 0  SIP 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 71, 46, 44, 16, 2, 0]
+WTC  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 11 3 1 2 . 1 2 4 3  0  
+[41, 63, 40, 40, 32, 8, 0, 71, 46, 44, 16, 2, 0]
+WTC  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 11 3 1 2 . 1 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 72, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 11 3 1 2 . 1 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 72, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WATR  DYB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . 1 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WFRC  DYB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . 1 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WFRC  DYB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 2  SAB 7  WFRC  SAB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - 2 4 3  1  
+[42, 65, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WATR  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - 2 4 3  1  
+[42, 66, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - 2 4 3  1  
+[42, 66, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - 2 4 3  1  
+[43, 66, 42, 42, 32, 8, 0, 73, 48, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  DYB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - - 4 3  1  
+[43, 66, 42, 42, 32, 8, 0, 73, 49, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  DYB 6  SAB 12 3 1 2 . - - 4 3  1  
+[43, 66, 42, 42, 32, 8, 0, 73, 49, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  DYB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  DYB 6  SAB 12 - 1 2 . - - 4 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  DYB 6  SAB 12 - 1 2 . - - 4 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 18, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  DYB 6  SAB 12 - 1 2 . - - - 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - 1 2 . - - - 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  WFRC  DYB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - 2 . - - - 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  WFRC  SAB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - 2 . - - - 3  1  
+[43, 66, 42, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  WFRC  SAB 0  DYB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - - . - - - 3  1  
+[43, 66, 43, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  WFRC  SAB 0  SAB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - - . - - - 3  1  
+[43, 66, 43, 43, 32, 8, 0, 73, 49, 44, 19, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SAB 0  SAB 3  SAB 8  WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - - . - - - 3  1  
+[43, 68, 44, 44, 32, 8, 0, 74, 50, 44, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SAB 0  SAB 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - - . - - - 3  1  
+[43, 68, 44, 44, 32, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 - - - . - - - 3  1  
+[43, 68, 44, 45, 32, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SAB 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 3 - - . - - - 3  1  
+[43, 68, 44, 45, 32, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 3 - - . - - - 3  1  
+[43, 68, 44, 45, 33, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 3 4 - . - - - 3  1  
+[43, 68, 44, 45, 33, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 3 4 - . - - - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 12 3 4 1 . - - - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 75, 50, 44, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 12 3 4 1 . - - - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 50, 44, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 12 3 4 1 . 1 - - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 50, 44, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SAB 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 - - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 50, 45, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SAB 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 50, 45, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 - 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 51, 45, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 51, 45, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 3  1  
+[43, 69, 44, 45, 33, 8, 0, 76, 51, 45, 20, 2, 0]
+TRE  WATR  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 3  1  
+[44, 70, 44, 45, 33, 8, 0, 76, 51, 45, 20, 2, 0]
+TRE  WATR  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 46, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  SIP 0  SAB 0  SIP 0  SIP 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 46, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  SIP 0  SAB 0  DYB 0  SIP 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 46, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  SIP 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 46, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 46, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 47, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  SIP 0  DYB 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 47, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  1  
+[45, 70, 44, 47, 34, 8, 0, 77, 52, 46, 20, 2, 0]
+WTC  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  0  
+[46, 72, 44, 48, 36, 8, 0, 79, 54, 48, 20, 2, 0]
+TRE  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  0  
+[46, 72, 44, 48, 36, 8, 0, 79, 54, 48, 20, 2, 0]
+TRE  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 1 . 1 3 2 4  0  
+[47, 72, 44, 48, 36, 8, 0, 79, 54, 48, 20, 2, 0]
+TRE  WATR  DYB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 79, 54, 48, 20, 2, 0]
+TRE  WATR  SAB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 12 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 79, 54, 48, 20, 2, 0]
+TRE  WATR  SAB 0  SAB 0  DYB 0  DYB 3  SAB 8  WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WATR  SAB 0  SAB 0  DYB 0  DYB 3  SAB 8  WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WATR  SAB 0  SAB 1  DYB 0  DYB 2  SAB 9  WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  DYB 0  DYB 2  SAB 9  WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . 1 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  DYB 0  DYB 2  SAB 9  WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . - 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  DYB 0  DYB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 3 4 - . - 3 2 4  0  
+[47, 73, 44, 48, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  DYB 0  DYB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 - 4 - . - 3 2 4  0  
+[47, 73, 44, 49, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  DYB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 - 4 - . - 3 2 4  0  
+[47, 73, 44, 49, 36, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  DYB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 - - - . - 3 2 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 - - - . - 3 2 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 54, 48, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 13 - - - . - - 2 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 54, 49, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  DYB 0  SAB 1  SAB 7  SAB 13 - - - . - - 2 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 54, 49, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  DYB 0  SAB 1  SAB 7  SAB 13 - - - . - - - 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 55, 49, 20, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 13 - - - . - - - 4  0  
+[47, 73, 44, 49, 37, 8, 0, 80, 55, 49, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 13 - - - . - - - 4  0  
+[47, 75, 44, 49, 37, 8, 0, 81, 55, 49, 20, 2, 0]
+TRE  ASTE  SAB 0  SAB 1  SAB 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 13 - - - . - - - 4  0  
+[47, 75, 44, 50, 38, 8, 0, 82, 56, 50, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 13 - - - . - - - 4  0  
+[47, 76, 44, 50, 38, 8, 0, 82, 56, 50, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 13 1 - - . - - - 4  0  
+[47, 76, 44, 50, 38, 8, 0, 82, 56, 50, 20, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 - - . - - - 4  0  
+[47, 76, 44, 50, 38, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 - - . 4 - - 4  0  
+[47, 76, 44, 50, 38, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 - - . 4 - - 4  0  
+[47, 77, 44, 51, 38, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SAB 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 3 - . 4 - - 4  0  
+[47, 77, 44, 51, 38, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 3 - . 4 - - 4  0  
+[47, 77, 44, 51, 39, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SAB 0  SAB 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 - - 4  0  
+[47, 77, 44, 51, 39, 8, 0, 82, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SIP 0  SAB 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 - - 4  0  
+[47, 77, 44, 51, 39, 8, 0, 83, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SIP 0  SAB 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 - 4  0  
+[47, 77, 44, 51, 39, 8, 0, 83, 56, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 - 4  0  
+[47, 77, 44, 51, 39, 8, 0, 83, 57, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 4  0  
+[47, 77, 44, 51, 39, 8, 0, 83, 57, 50, 21, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 4  0  
+[47, 77, 44, 51, 39, 8, 0, 83, 57, 50, 21, 2, 0]
+TRE  WATR  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 4  0  
+[48, 78, 44, 52, 39, 8, 0, 84, 57, 50, 22, 2, 0]
+TRE  WATR  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  SIP 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  SIP 0  SIP 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  SIP 0  SIP 2  SAB 9  WATR  DYB 0  SIP 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 0  SIP 2  SAB 9  WATR  DYB 0  SIP 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 0  DYB 2  SAB 9  WATR  DYB 0  SIP 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 0  DYB 2  SAB 9  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  0  
+[49, 78, 44, 52, 40, 8, 0, 84, 58, 50, 22, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 0  DYB 2  SAB 9  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  1  
+[50, 80, 44, 54, 42, 8, 0, 86, 60, 50, 24, 2, 0]
+TRE  WATR  DYB 0  SAB 1  DYB 0  DYB 2  SAB 9  WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  1  
+[50, 80, 44, 54, 42, 8, 0, 86, 60, 50, 24, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 86, 60, 50, 24, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 13 1 3 4 . 4 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 86, 60, 50, 24, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  SAB 2  DYB 6  SAB 14 1 3 4 . 4 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 87, 60, 50, 24, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  DYB 6  SAB 14 1 3 4 . 4 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 87, 60, 50, 24, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  DYB 6  SAB 14 1 3 4 . - 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 14 1 3 4 . - 1 2 5  1  
+[50, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 14 1 3 4 . - 1 2 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - 1 2 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - 1 2 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - - 2 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  SAB 0  DYB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - - 2 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 60, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  SAB 0  DYB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - - - 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - 3 4 . - - - 5  1  
+[51, 81, 44, 54, 42, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  DYB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - 3 - . - - - 5  1  
+[51, 81, 44, 54, 43, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  SAB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - 3 - . - - - 5  1  
+[51, 81, 44, 54, 43, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  DYB 0  SAB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - - - . - - - 5  1  
+[51, 81, 44, 55, 43, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - - - . - - - 5  1  
+[51, 81, 44, 55, 43, 8, 0, 87, 61, 50, 25, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 0  SAB 1  SAB 10 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - - - . - - - 5  1  
+[51, 83, 44, 56, 43, 8, 0, 88, 61, 50, 26, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 0  SAB 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - - - . - - - 5  1  
+[51, 83, 44, 56, 44, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SAB 0  SIP 2  SAB 0  SAB 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 - - - . - - - 5  1  
+[51, 83, 45, 56, 44, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SAB 0  SIP 2  SAB 0  SAB 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 2 - - . - - - 5  1  
+[51, 83, 45, 56, 44, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SAB 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 2 - - . - - - 5  1  
+[51, 84, 45, 56, 44, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SAB 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 2 1 - . - - - 5  1  
+[51, 84, 45, 56, 44, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 2 1 - . - - - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 14 2 1 4 . - - - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 89, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 14 2 1 4 . - - - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 90, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 14 2 1 4 . 1 - - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 90, 62, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SIP 0  SAB 2  SAB 6  SAB 14 2 1 4 . 1 - - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 90, 63, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SIP 0  SAB 2  SAB 6  SAB 14 2 1 4 . 1 2 - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 90, 63, 50, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 - 5  1  
+[51, 84, 45, 56, 45, 8, 0, 91, 63, 51, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 5  1  
+[51, 84, 45, 56, 45, 8, 0, 91, 63, 51, 26, 2, 0]
+TRE  ASTE  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 5  1  
+[51, 84, 45, 56, 45, 8, 0, 91, 63, 51, 26, 2, 0]
+TRE  WATR  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 5  1  
+[52, 86, 46, 56, 46, 8, 0, 91, 63, 51, 26, 2, 0]
+TRE  WATR  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  SIP 0  SIP 2  SAB 0  SIP 1  SAB 10 WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  SIP 0  DYB 2  SAB 0  SIP 1  SAB 10 WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  DYB 0  DYB 2  SAB 0  SIP 1  SAB 10 WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  SIP 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  1  
+[53, 87, 46, 56, 46, 8, 0, 92, 64, 52, 26, 2, 0]
+WTC  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  0  
+[54, 89, 48, 56, 48, 8, 0, 94, 66, 54, 26, 2, 0]
+EOG  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . 1 2 3 6  0  
+[54, 89, 48, 56, 48, 8, 0, 94, 66, 54, 26, 2, 0]
+EOG  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . - 2 3 6  0  
+[54, 89, 48, 56, 48, 8, 0, 95, 66, 54, 26, 2, 0]
+Game 2 was a draw.
+EOG  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . - 2 3 6  0  
+[55, 89, 48, 56, 48, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 4 . - 2 3 6  0  
+[55, 89, 48, 56, 48, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WATR  DYB 0  DYB 2  SAB 0  DYB 1  SAB 10 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[55, 89, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WATR  DYB 0  DYB 2  SAB 0  SAB 1  SAB 10 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[55, 89, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WATR  DYB 0  DYB 2  SAB 0  SAB 1  SAB 10 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[56, 89, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WATR  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[56, 90, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[56, 90, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WATR  SAB 0  DYB 0  DYB 2  SAB 6  SAB 14 2 1 - . - 2 3 6  0  
+[57, 90, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WATR  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 2 1 - . - 2 3 6  0  
+[57, 90, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 2 1 - . - 2 3 6  0  
+[57, 90, 48, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+Game 3
+SOG  WFRC  DYB 0  DYB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 - 1 - . - 2 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 - 1 - . - 2 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  DYB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 - - - . - 2 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 - - - . - 2 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 66, 54, 26, 2, 0]
+SOG  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 15 - - - . - - 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 67, 54, 26, 2, 0]
+SOG  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  SAB 0  DYB 1  SAB 7  SAB 15 - - - . - - 3 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 67, 54, 26, 2, 0]
+SOG  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  SAB 0  DYB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 67, 55, 26, 2, 0]
+SOG  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[57, 90, 49, 56, 49, 8, 0, 95, 67, 55, 26, 2, 0]
+TRE  WFRC  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[58, 91, 49, 56, 50, 8, 0, 96, 67, 55, 26, 2, 0]
+TRE  ASTE  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[58, 92, 49, 56, 50, 8, 0, 96, 67, 56, 26, 2, 0]
+TRE  ASTE  SAB 0  SAB 1  SAB 1  SAB 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[58, 92, 50, 56, 50, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 1  SAB 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 - - - . - - - 6  0  
+[58, 93, 50, 56, 50, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SAB 1  SAB 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 1 - - . - - - 6  0  
+[58, 93, 50, 56, 50, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SAB 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 1 - - . - - - 6  0  
+[58, 93, 50, 57, 50, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SAB 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 1 3 - . - - - 6  0  
+[58, 93, 50, 57, 50, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 1 3 - . - - - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 15 1 3 4 . - - - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 97, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 15 1 3 4 . - - - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 15 1 3 4 . 1 - - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 68, 56, 26, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SAB 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 - - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 68, 56, 27, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SAB 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 68, 56, 27, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 - 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 69, 56, 27, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 ASTE  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 69, 56, 27, 2, 0]
+TRE  ASTE  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 6  0  
+[58, 93, 50, 57, 51, 8, 0, 98, 69, 56, 27, 2, 0]
+TRE  WATR  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 6  0  
+[59, 94, 50, 57, 51, 8, 0, 98, 69, 56, 27, 2, 0]
+TRE  WATR  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[60, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  SIP 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[60, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  SIP 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[60, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  SIP 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[60, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 1  SIP 0  SAB 11 WATR  SIP 0  SIP 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[60, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 1  SIP 0  SAB 11 WATR  SIP 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[61, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 1  DYB 0  SAB 11 WATR  SIP 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[61, 94, 50, 58, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 1  DYB 0  SAB 11 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  0  
+[61, 94, 50, 59, 52, 8, 0, 99, 70, 56, 28, 2, 0]
+WTC  WATR  DYB 0  SAB 1  DYB 1  DYB 0  SAB 11 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  1  
+[61, 96, 50, 60, 54, 8, 0, 101, 72, 56, 30, 2, 0]
+TRE  WATR  DYB 0  SAB 1  DYB 1  DYB 0  SAB 11 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  1  
+[61, 96, 50, 60, 54, 8, 0, 101, 72, 56, 30, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 101, 72, 56, 30, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 4 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 101, 72, 56, 30, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SAB 1  DYB 7  SAB 15 1 3 4 . 1 - 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 101, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SAB 1  SAB 7  SAB 15 1 3 4 . 1 - 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 101, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 - 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 - 2 1  1  
+[61, 97, 50, 60, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 - 2 1  1  
+[62, 97, 50, 60, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 1 - 4 . 1 - 2 1  1  
+[62, 97, 50, 61, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  SAB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 1 - 4 . 1 - 2 1  1  
+[62, 97, 50, 61, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  DYB 0  SAB 2  SAB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 - - 4 . 1 - 2 1  1  
+[62, 97, 50, 61, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 - - 4 . 1 - 2 1  1  
+[62, 97, 50, 61, 54, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 - - - . 1 - 2 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 - - - . 1 - 2 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 72, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  DYB 0  DYB 0  SAB 2  SAB 6  SAB 16 - - - . 1 - - 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 73, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  DYB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . 1 - - 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 73, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  DYB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . - - - 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 73, 56, 31, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . - - - 1  1  
+[62, 97, 50, 61, 55, 8, 0, 102, 73, 56, 31, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 WFRC  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . - - - 1  1  
+[62, 99, 50, 62, 56, 8, 0, 103, 73, 56, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 0  SAB 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . - - - 1  1  
+[62, 99, 50, 62, 56, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SAB 0  SAB 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 - - - . - - - 1  1  
+[62, 100, 50, 62, 56, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SAB 0  SAB 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 1 - - . - - - 1  1  
+[62, 100, 50, 62, 56, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SAB 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 1 - - . - - - 1  1  
+[62, 100, 50, 63, 56, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SAB 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 1 3 - . - - - 1  1  
+[62, 100, 50, 63, 56, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 1 3 - . - - - 1  1  
+[62, 100, 50, 63, 57, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SAB 0  SAB 0  SAB 2  SAB 6  SAB 16 1 3 4 . - - - 1  1  
+[62, 100, 50, 63, 57, 8, 0, 104, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 16 1 3 4 . - - - 1  1  
+[62, 100, 50, 64, 57, 8, 0, 105, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SAB 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 - - 1  1  
+[62, 100, 50, 64, 57, 8, 0, 105, 74, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SIP 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 - - 1  1  
+[62, 100, 50, 64, 58, 8, 0, 105, 75, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SIP 0  SAB 2  SAB 6  SAB 16 1 3 4 . 1 2 - 1  1  
+[62, 100, 50, 64, 58, 8, 0, 105, 75, 56, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 - 1  1  
+[62, 100, 50, 64, 58, 8, 0, 105, 75, 57, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 ASTE  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 1  1  
+[62, 100, 50, 64, 58, 8, 0, 105, 75, 57, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 1  1  
+[62, 100, 50, 64, 58, 8, 0, 105, 75, 57, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 1  1  
+[63, 102, 50, 64, 58, 8, 0, 105, 75, 57, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  SIP 0  SIP 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 0  SIP 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  SIP 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  SIP 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  SIP 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  1  
+[64, 102, 50, 64, 58, 8, 0, 106, 76, 58, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  2  
+[65, 104, 50, 66, 60, 8, 0, 108, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  DYB 2  SAB 6  SAB 16 1 3 4 . 1 2 3 2  2  
+[65, 104, 50, 66, 60, 8, 0, 108, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 3 4 . 1 2 3 2  2  
+[65, 104, 50, 66, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 3 4 . 1 2 3 2  2  
+[65, 104, 50, 66, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 2  DYB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - 4 . 1 2 3 2  2  
+[65, 104, 50, 67, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 2  SAB 0  DYB 0  SAB 12 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - 4 . 1 2 3 2  2  
+[65, 104, 50, 67, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 3  SAB 0  DYB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - 4 . 1 2 3 2  2  
+[65, 105, 50, 67, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 3  SAB 0  DYB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - 4 . 1 2 3 2  2  
+[65, 105, 50, 67, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 3  SAB 0  DYB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - 4 . 1 2 3 2  2  
+[66, 105, 50, 67, 60, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 3  SAB 0  DYB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - - . 1 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 - - . 1 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 - - - . 1 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 - - - . 1 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 - - - . - 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 17 - - - . - 2 3 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 60, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  DYB 0  DYB 1  SAB 7  SAB 17 - - - . - 2 - 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 61, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  DYB 0  SAB 1  SAB 7  SAB 17 - - - . - 2 - 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 78, 61, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  DYB 0  SAB 1  SAB 7  SAB 17 - - - . - - - 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 79, 61, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 - - - . - - - 2  2  
+[66, 105, 50, 67, 61, 8, 0, 109, 79, 61, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 WFRC  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 - - - . - - - 2  2  
+[66, 107, 50, 68, 62, 8, 0, 110, 80, 62, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 3  SAB 0  SAB 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 - - - . - - - 2  2  
+[66, 107, 50, 68, 62, 8, 0, 111, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 0  SAB 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 - - - . - - - 2  2  
+[66, 108, 50, 68, 62, 8, 0, 111, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 0  SAB 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 1 - - . - - - 2  2  
+[66, 108, 50, 68, 62, 8, 0, 111, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 0  SIP 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 1 - - . - - - 2  2  
+[66, 108, 50, 68, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 0  SIP 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 1 4 - . - - - 2  2  
+[66, 108, 50, 68, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 1 4 - . - - - 2  2  
+[66, 108, 50, 69, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SAB 0  SAB 0  SAB 1  SAB 7  SAB 17 1 4 3 . - - - 2  2  
+[66, 108, 50, 69, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 17 1 4 3 . - - - 2  2  
+[66, 108, 50, 69, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SAB 0  SAB 1  SAB 7  SAB 17 1 4 3 . 1 - - 2  2  
+[66, 108, 50, 69, 63, 8, 0, 112, 80, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SIP 0  SAB 1  SAB 7  SAB 17 1 4 3 . 1 - - 2  2  
+[66, 108, 50, 70, 63, 8, 0, 112, 81, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SIP 0  SAB 1  SAB 7  SAB 17 1 4 3 . 1 2 - 2  2  
+[66, 108, 50, 70, 63, 8, 0, 112, 81, 62, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 - 2  2  
+[66, 108, 50, 70, 63, 8, 0, 112, 81, 63, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 2  2  
+[66, 108, 50, 70, 63, 8, 0, 112, 81, 63, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 ASTE  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 2  2  
+[66, 108, 50, 70, 63, 8, 0, 112, 81, 63, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 2  2  
+[67, 109, 50, 70, 64, 8, 0, 113, 81, 63, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[68, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 3  SIP 0  SIP 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[68, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 3  DYB 0  SIP 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[68, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  SIP 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[68, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  SIP 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[68, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  DYB 0  SIP 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[69, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  DYB 0  DYB 0  SIP 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[69, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  2  
+[69, 109, 50, 70, 64, 8, 0, 113, 82, 64, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  3  
+[69, 111, 50, 72, 66, 8, 0, 115, 84, 66, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 3  DYB 0  DYB 0  SAB 13 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  3  
+[69, 111, 50, 72, 66, 8, 0, 115, 84, 66, 32, 2, 0]
+TRE  WATR  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  3  
+[69, 112, 50, 72, 66, 8, 0, 115, 84, 66, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 1  SAB 7  SAB 17 1 4 3 . 1 2 3 3  3  
+[69, 112, 50, 72, 66, 8, 0, 115, 84, 66, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 1 4 3 . 1 2 3 3  3  
+[69, 112, 50, 72, 66, 8, 0, 116, 84, 66, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 1 4 3 . 1 2 3 3  3  
+[69, 112, 50, 72, 66, 8, 0, 116, 84, 66, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 1 4 3 . 1 2 3 3  3  
+[70, 112, 50, 72, 66, 8, 0, 116, 84, 66, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 1 4 3 . 1 2 - 3  3  
+[70, 112, 50, 72, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  SAB 0  SAB 8  SAB 18 1 4 3 . 1 2 - 3  3  
+[70, 112, 50, 72, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  SAB 0  SAB 8  SAB 18 1 4 3 . - 2 - 3  3  
+[70, 112, 50, 72, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 1 4 3 . - 2 - 3  3  
+[70, 112, 50, 72, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  DYB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 1 4 - . - 2 - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 1 4 - . - 2 - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  DYB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 - 4 - . - 2 - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 - 4 - . - 2 - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 84, 67, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  DYB 0  SAB 0  SAB 8  SAB 18 - 4 - . - - - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 85, 67, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - 4 - . - - - 3  3  
+[70, 112, 50, 73, 66, 8, 0, 116, 85, 67, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 4  SAB 0  DYB 0  SAB 14 WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - - - . - - - 3  3  
+[70, 112, 50, 73, 67, 8, 0, 116, 85, 67, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 4  SAB 0  SAB 0  SAB 14 WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - - - . - - - 3  3  
+[70, 112, 50, 73, 67, 8, 0, 116, 85, 67, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 4  SAB 0  SAB 0  SAB 14 WFRC  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - - - . - - - 3  3  
+[70, 114, 50, 74, 68, 8, 0, 117, 85, 68, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 4  SAB 0  SAB 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - - - . - - - 3  3  
+[70, 114, 50, 74, 68, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SAB 0  SIP 4  SAB 0  SAB 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 - - - . - - - 3  3  
+[70, 114, 51, 74, 68, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SAB 0  SIP 4  SAB 0  SAB 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 2 - - . - - - 3  3  
+[70, 114, 51, 74, 68, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SAB 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 2 - - . - - - 3  3  
+[70, 114, 51, 74, 69, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SAB 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 2 4 - . - - - 3  3  
+[70, 114, 51, 74, 69, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 2 4 - . - - - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SAB 0  SAB 0  SAB 0  SAB 8  SAB 18 2 4 1 . - - - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 118, 86, 68, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SAB 0  SAB 0  SAB 8  SAB 18 2 4 1 . - - - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 86, 68, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SAB 0  SAB 0  SAB 8  SAB 18 2 4 1 . 1 - - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 86, 68, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SAB 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 - - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 86, 69, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SAB 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 86, 69, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 - 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 87, 69, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 ASTE  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 87, 69, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 3  3  
+[70, 115, 51, 74, 69, 8, 0, 119, 87, 69, 32, 2, 0]
+TRE  WATR  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 3  3  
+[71, 117, 52, 74, 70, 8, 0, 119, 87, 69, 32, 2, 0]
+TRE  WATR  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  SIP 0  SIP 4  SAB 0  SIP 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  SIP 0  DYB 4  SAB 0  SIP 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  SIP 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  SIP 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  SIP 0  SIP 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 52, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  SIP 0  DYB 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 53, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  3  
+[72, 117, 53, 74, 70, 8, 0, 120, 88, 70, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  2  
+[73, 119, 54, 74, 72, 8, 0, 122, 90, 72, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 0  SAB 8  SAB 18 2 4 1 . 1 3 2 4  2  
+[73, 119, 54, 74, 72, 8, 0, 122, 90, 72, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 1 . 1 3 2 4  2  
+[73, 119, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 4  SAB 0  DYB 0  SAB 14 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 1 . 1 3 2 4  2  
+[73, 119, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 1 . 1 3 2 4  2  
+[73, 120, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 1 . 1 3 2 4  2  
+[73, 120, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 1 . 1 3 2 4  2  
+[74, 120, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 - . 1 3 2 4  2  
+[74, 120, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 2 4 - . 1 3 2 4  2  
+[74, 120, 54, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 - 4 - . 1 3 2 4  2  
+[74, 120, 55, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 - 4 - . 1 3 2 4  2  
+[74, 120, 55, 74, 72, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  DYB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 - - - . 1 3 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 - - - . 1 3 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 72, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 - - - . 1 - 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 73, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  DYB 0  DYB 0  SAB 0  SAB 9  SAB 19 - - - . 1 - 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 73, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  DYB 0  DYB 0  SAB 0  SAB 9  SAB 19 - - - . - - 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 73, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  SAB 0  DYB 0  SAB 0  SAB 9  SAB 19 - - - . - - 2 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 90, 73, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  SAB 0  DYB 0  SAB 0  SAB 9  SAB 19 - - - . - - - 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 91, 73, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 - - - . - - - 4  2  
+[74, 120, 55, 74, 73, 8, 0, 123, 91, 73, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 WFRC  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 - - - . - - - 4  2  
+[74, 122, 56, 74, 74, 8, 0, 124, 92, 74, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 3  SAB 1  SAB 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 - - - . - - - 4  2  
+[74, 122, 56, 74, 74, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 1  SAB 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 - - - . - - - 4  2  
+[74, 123, 56, 74, 74, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 3  SAB 1  SAB 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 1 - - . - - - 4  2  
+[74, 123, 56, 74, 74, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SAB 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 1 - - . - - - 4  2  
+[74, 123, 57, 74, 74, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SAB 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 1 2 - . - - - 4  2  
+[74, 123, 57, 74, 74, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 1 2 - . - - - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SAB 0  SAB 0  SAB 0  SAB 9  SAB 19 1 2 4 . - - - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 125, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SAB 0  SAB 0  SAB 9  SAB 19 1 2 4 . - - - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SAB 0  SAB 0  SAB 9  SAB 19 1 2 4 . 1 - - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 92, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SIP 0  SAB 0  SAB 9  SAB 19 1 2 4 . 1 - - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 93, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SIP 0  SAB 0  SAB 9  SAB 19 1 2 4 . 1 2 - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 93, 74, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 - 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 93, 75, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 ASTE  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 93, 75, 32, 2, 0]
+TRE  ASTE  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 4  2  
+[74, 123, 57, 74, 75, 8, 0, 126, 93, 75, 32, 2, 0]
+TRE  WATR  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 4  2  
+[75, 125, 58, 74, 76, 8, 0, 126, 93, 75, 32, 2, 0]
+TRE  WATR  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  SIP 0  SIP 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  SIP 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  SIP 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  SIP 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  DYB 0  SIP 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  DYB 0  DYB 0  SIP 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  2  
+[76, 126, 58, 74, 76, 8, 0, 127, 94, 76, 32, 2, 0]
+WTC  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  1  
+[77, 128, 60, 74, 78, 8, 0, 129, 96, 78, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 3  SAB 1  DYB 0  SAB 15 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  1  
+[77, 128, 60, 74, 78, 8, 0, 129, 96, 78, 32, 2, 0]
+TRE  WATR  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  1  
+[77, 129, 60, 74, 78, 8, 0, 129, 96, 78, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . 1 2 3 5  1  
+[77, 129, 60, 74, 78, 8, 0, 129, 96, 78, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . - 2 3 5  1  
+[77, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  SAB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . - 2 3 5  1  
+[77, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  SAB 0  DYB 0  DYB 0  SAB 9  SAB 19 1 2 4 . - 2 3 5  1  
+[78, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  DYB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  SAB 0  DYB 0  DYB 0  SAB 9  SAB 19 - 2 4 . - 2 3 5  1  
+[78, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  SAB 0  DYB 0  DYB 0  SAB 9  SAB 19 - 2 4 . - 2 3 5  1  
+[78, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 2  SAB 2  DYB 0  SAB 16 WATR  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - 2 4 . - 2 3 5  1  
+[78, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 2  SAB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - 2 4 . - 2 3 5  1  
+[78, 129, 60, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  DYB 2  SAB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - - 4 . - 2 3 5  1  
+[78, 129, 61, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - - 4 . - 2 3 5  1  
+[78, 129, 61, 74, 78, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - - - . - 2 3 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - - - . - 2 3 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 96, 78, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 10 SAB 20 - - - . - 2 - 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 96, 79, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 WFRC  SAB 0  DYB 0  SAB 0  SAB 10 SAB 20 - - - . - 2 - 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 96, 79, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 WFRC  SAB 0  DYB 0  SAB 0  SAB 10 SAB 20 - - - . - - - 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 97, 79, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 WFRC  SAB 0  SAB 0  SAB 0  SAB 10 SAB 20 - - - . - - - 5  1  
+[78, 129, 61, 74, 79, 8, 0, 130, 97, 79, 32, 2, 0]
+TRE  WFRC  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SAB 0  SAB 0  SAB 0  SAB 10 SAB 20 - - - . - - - 5  1  
+[78, 130, 62, 74, 80, 8, 0, 132, 98, 79, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SAB 0  SAB 0  SAB 0  SAB 10 SAB 20 - - - . - - - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 132, 98, 80, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SAB 0  SAB 0  SAB 10 SAB 20 - - - . - - - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 98, 80, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SAB 0  SAB 0  SAB 10 SAB 20 - - - . 1 - - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 98, 80, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SAB 0  SAB 10 SAB 20 - - - . 1 - - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 99, 80, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SAB 0  SAB 10 SAB 20 - - - . 1 2 - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 99, 80, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 - - - . 1 2 - 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SAB 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 - - - . 1 2 3 5  1  
+[78, 131, 62, 74, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 - - - . 1 2 3 5  1  
+[78, 132, 62, 74, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SAB 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 - - . 1 2 3 5  1  
+[78, 132, 62, 74, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 - - . 1 2 3 5  1  
+[78, 132, 62, 75, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 2  SAB 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 - . 1 2 3 5  1  
+[78, 132, 62, 75, 80, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 - . 1 2 3 5  1  
+[78, 132, 62, 75, 81, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  ASTE  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 5  1  
+[78, 132, 62, 75, 81, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 ASTE  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 5  1  
+[78, 132, 62, 76, 81, 8, 0, 133, 99, 81, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 WATR  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 5  1  
+[79, 132, 62, 76, 81, 8, 0, 135, 100, 82, 32, 2, 0]
+TRE  WATR  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 WATR  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  SIP 2  SIP 0  SAB 16 WATR  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 2  SIP 0  SAB 16 WATR  SIP 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 2  SIP 0  SAB 16 WATR  DYB 0  SIP 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 2  SIP 0  SAB 16 WATR  DYB 0  DYB 0  SIP 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  SIP 0  SAB 2  DYB 2  SIP 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 2  SIP 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  1  
+[80, 133, 62, 76, 82, 8, 0, 135, 100, 82, 32, 2, 0]
+WTC  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  0  
+[81, 135, 62, 78, 84, 8, 0, 137, 102, 84, 32, 2, 0]
+EOG  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 10 SAB 20 1 3 4 . 1 2 3 6  0  
+[81, 135, 62, 78, 84, 8, 0, 137, 102, 84, 32, 2, 0]
+EOG  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WATR  DYB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . 1 2 3 6  0  
+[81, 135, 62, 78, 84, 8, 0, 138, 102, 84, 32, 2, 0]
+EOG  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  DYB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . 1 2 3 6  0  
+[81, 135, 62, 78, 84, 8, 0, 138, 102, 84, 32, 2, 0]
+Game 3 was a draw.
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  DYB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . 1 2 3 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 102, 84, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  DYB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . - 2 3 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 102, 84, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . - 2 3 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 102, 84, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  SAB 0  DYB 0  DYB 0  SAB 11 SAB 21 1 3 4 . - - 3 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 103, 84, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  SAB 0  SAB 0  DYB 0  SAB 11 SAB 21 1 3 4 . - - 3 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 103, 84, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  SAB 0  SAB 0  DYB 0  SAB 11 SAB 21 1 3 4 . - - - 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 2  DYB 2  DYB 0  SAB 16 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 1 3 4 . - - - 6  0  
+[82, 135, 62, 78, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WATR  DYB 0  SAB 3  DYB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 1 3 4 . - - - 6  0  
+[82, 136, 62, 78, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  DYB 0  SAB 3  DYB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 1 3 4 . - - - 6  0  
+[82, 136, 62, 78, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  DYB 0  SAB 3  DYB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 1 - 4 . - - - 6  0  
+[82, 136, 62, 79, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+Match was a draw.
+EOM  WFRC  DYB 0  SAB 3  SAB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 1 - 4 . - - - 6  0  
+[83, 136, 62, 79, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  DYB 0  SAB 3  SAB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 - - 4 . - - - 6  0  
+[83, 136, 62, 79, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  SAB 0  SAB 3  SAB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 - - 4 . - - - 6  0  
+[83, 136, 62, 79, 84, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  SAB 0  SAB 3  SAB 1  DYB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 - - - . - - - 6  0  
+[83, 136, 62, 79, 85, 8, 0, 138, 103, 85, 32, 2, 0]
+EOM  WFRC  SAB 0  SAB 3  SAB 1  SAB 0  SAB 17 WFRC  SAB 0  SAB 0  SAB 0  SAB 11 SAB 21 - - - . - - - 6  0  
+[83, 136, 62, 79, 85, 8, 0, 138, 103, 85, 32, 2, 0]
+[83, 136, 62, 79, 85, 8, 0, 138, 103, 85, 32, 2, 0]

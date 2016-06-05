@@ -1,0 +1,25 @@
+<xml version="1.0">
+    <max_trials>6</max_trials>
+    <max_games>3</max_games>
+    <nteams>2</nteams>
+    <ncoaches>2</ncoaches>
+    <ncontestants>5</ncontestants>
+    <max_contestants_playground>6</max_contestants_playground>
+
+    <log>log.txt</log>
+
+    <rmiRegistryHost>localhost</rmiRegistryHost>
+    <rmiRegistryPort>1099</rmiRegistryPort>
+
+    <genRepHostname>localhost</genRepHostname>
+    <genRepPort>22473</genRepPort>
+
+    <benchHostname>localhost</benchHostname>
+    <benchPort>22470</benchPort>
+
+    <playgroundHostname>localhost</playgroundHostname>
+    <playgroundPort>22471</playgroundPort>
+
+    <refSiteHostname>localhost</refSiteHostname>
+    <refSitePort>22472</refSitePort>
+</xml>
