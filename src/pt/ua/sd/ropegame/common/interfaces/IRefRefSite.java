@@ -37,7 +37,7 @@ public interface IRefRefSite extends IRefSite {
     Response declareMatchWinner(VectClock clientClock) throws RemoteException;
 
     /**
-     * Signal a new trial is about to start.
+     * Block the referee until the last coach informs her all contestants are ready.
      * @param clientClock Referee's current clock.
      * @return Updated clock.
      * @throws InterruptedException The thread was interrupted.

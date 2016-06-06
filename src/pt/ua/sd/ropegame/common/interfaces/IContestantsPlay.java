@@ -42,7 +42,8 @@ public interface IContestantsPlay extends IPlayground {
     Response pullTheRope(VectClock clientClock) throws InterruptedException, RemoteException;
 
     /**
-     *
+     * Called every time a contestant finishes pulling the rope.<p>
+     * The last contestant to perform this operation wakes up the referee.
      * @param clientClock Contestant's current clock.
      * @return Updated clock + match is over (boolean).
      * @throws InterruptedException The thread was interrupted.

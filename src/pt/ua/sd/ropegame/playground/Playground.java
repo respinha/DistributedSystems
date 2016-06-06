@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Memory region where 3 players of each team will try to win the Game of the Rope.
  */
-class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
+public class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
     private int currentTrial;
 
@@ -54,8 +54,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
 
     /**
-     * Constructor for Playground.
-     * @param repo general repository.
+     * {@inheritDoc}
      */
     public Playground(IPlaygroundGenRep repo, GameOfTheRopeConfigs configs) {
 
@@ -88,8 +87,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Move a contestant to the playground.
-     * @throws InterruptedException When thread is interrupted
+     * {@inheritDoc}
      */
     @Override
      public Response standInLine(VectClock clientClock, int gameMemberID, int teamID, int strength) throws RemoteException {
@@ -124,9 +122,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Move coach to the playground and wait for all the contestants to arrive.
-     * @param teamID A Coach.
-     * @throws InterruptedException If Thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response moveCoachToPlayground(VectClock clientClock, int teamID) throws InterruptedException, RemoteException {
@@ -165,11 +161,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Wait for referee to start trial.
-     *
-     * @param gameMemberID
-     * @param teamID
-     * @throws InterruptedException If Thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response getReady(VectClock clientClock, int gameMemberID, int teamID, int strength) throws InterruptedException, RemoteException {
@@ -199,8 +191,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Called by referee. Wakes up all enteties waiting for the trial to start.
-     * @return current trial.
+     * {@inheritDoc}
      */
     @Override
     public Response startTrialPlayground(VectClock clientClock) throws RemoteException {
@@ -235,8 +226,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
 
     /**
-     * Simulate that a rope is being pulled. Wait for a random interval.
-     * @throws InterruptedException The thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response pullTheRope(VectClock clientClock) throws InterruptedException, RemoteException {
@@ -255,10 +245,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Called every time a contestant finishes pulling the rope.<p>
-     * The last contestant to perform this operation wakes up the referee.
-     * @return true if game ended due to knockout.
-     * @throws InterruptedException When thread is interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response amDone(VectClock clientClock) throws InterruptedException, RemoteException {
@@ -286,9 +273,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Referee waits for all contestants to finish pulling the rope and updates general repository with rope position.
-     * @return true if game ended due to knockout.
-     * @throws InterruptedException When thread is interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response assertTrialDecision(VectClock clientClock) throws InterruptedException, RemoteException {
@@ -332,7 +317,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
     }
 
     /**
-     * Called by referee to reset rope position.
+     * {@inheritDoc}
      */
     @Override
     public Response announceNewGamePlayground(VectClock clientClock) throws RemoteException {
@@ -353,10 +338,7 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
 
     /**
-     * Called by coach in the end of a trial to change strategy based on what happened during the previous trial.
-     * @return true if game ended due to knockout.
-     * @throws InterruptedException The Thread was interrupted.
-     * @param teamID
+     * {@inheritDoc}
      */
     @Override
     public Response reviewNotes(VectClock clientClock, int teamID) throws InterruptedException, RemoteException {
@@ -396,6 +378,9 @@ class Playground implements ICoachPlay, IContestantsPlay, IRefPlay {
 
     private int ncloseRequests = 0;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void closePlaygroundConnection() throws RemoteException {
         mutex.lock();
