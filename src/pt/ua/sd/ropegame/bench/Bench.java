@@ -329,7 +329,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Transition.
+     * Seats a given contestant at the bench.
      */
     @Override
     public Response seatDown(VectClock clientClock, int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
@@ -374,6 +374,13 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     }
 
+    /**
+     * Assigns strength for a given contestant.
+     * @param teamID contestant's team.
+     * @param gameMemberID contestant's number.
+     * @param strength contestant's strength
+     * @throws RemoteException A remote exception occurred.
+     */
     private void assignStrength(int teamID, int gameMemberID, int strength) throws RemoteException {
         strengths[teamID][gameMemberID] = strength;
         if(nContestants[teamID] == configs.getNContestants())
