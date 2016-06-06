@@ -1,27 +1,29 @@
 package pt.ua.sd.ropegame.common;
 
 import pt.ua.sd.ropegame.common.interfaces.IClockChangeListener;
-import pt.ua.sd.ropegame.common.interfaces.IVectClock;
 import pt.ua.sd.ropegame.referee.Referee;
 import pt.ua.sd.ropegame.team.Coach;
 import pt.ua.sd.ropegame.team.Contestant;
-
 import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * Created by rui on 6/4/16.
+ * A vectorial clock that contains all the methods to create, update and clone a clock.
  */
 public class VectClock  implements Serializable, Comparable<VectClock> {
 
     private static final long serialVersionUID = 201606042011L;
 
     private int[] clocks;
-    public final int COACH_0_INDEX = 1;
-    public final int COACH_1_INDEX = 7;
+    private final int COACH_0_INDEX = 1;
+    private final int COACH_1_INDEX = 7;
 
     private IClockChangeListener listener;
 
+    /**
+     * Constructor for a Vectorial Clock.
+     * @param configs Game of the Rope configuration.
+     */
     public VectClock(GameOfTheRopeConfigs configs) {
         clocks = new int[configs.getNCoaches() + configs.getNContestants()*configs.getNTeams() + 1];
         for(int i = 0; i < clocks.length; i++) {
@@ -29,10 +31,18 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         }
     }
 
+    /**
+     * Assign an object as a listener to clock changing events.
+     * @param listener The event listener.
+     */
     public void assignClockListener(IClockChangeListener listener) {
         this.listener = listener;
     }
 
+    /**
+     * Increment the clock value for a given entity.
+     * @param entity The entity whose clock we're incrementing.
+     */
     public void increment(Object entity) {
 
         if(entity instanceof Referee)
@@ -53,6 +63,10 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         }
     }
 
+    /**
+     * Update a clock.
+     * @param clock The new clock to compare this instance to.
+     */
     public void update(VectClock clock) {
 
         int[] newClock = clock.copy();
@@ -63,6 +77,10 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
             listener.clockUpdated();
     }
 
+    /**
+     * Copy this clock.
+     * @return A copy of this clock.
+     */
     private int[] copy() {
         int[] newArr = new int[this.clocks.length];
         for(int i = 0; i < newArr.length; i++) newArr[i] = clocks[i];
@@ -70,6 +88,11 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         return newArr;
     }
 
+    /**
+     * Compare a clock object to another.
+     * @param o another clock object.
+     * @return Sorted clocks.
+     */
     @Override
     public int compareTo(VectClock o) {
         return sum(this) - sum(o);
@@ -89,6 +112,10 @@ public class VectClock  implements Serializable, Comparable<VectClock> {
         return Arrays.toString(clocks);
     }
 
+    /**
+     * Get clocks as an int array.
+     * @return vectorial clock as an int array.
+     */
     public int[] getClocks() {
         return clocks;
     }

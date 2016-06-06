@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 /**
  * This interface contains all the methods required by the coach to interact with a remote playground Server.
  */
-public interface ICoachPlay extends ITeamPlayground {
+public interface ICoachPlay extends IPlayground {
 
     /**
      * Called by coach in the end of a trial to change strategy based on what happened during the previous trial.

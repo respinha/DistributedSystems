@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 /**
  * An interface every playground-like object must implement to be able to allow contestant's remote connection.
  */
-public interface IContestantsPlay extends ITeamPlayground {
+public interface IContestantsPlay extends IPlayground {
 
     /**
      * Move a contestant to the playground.

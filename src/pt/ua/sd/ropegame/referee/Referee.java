@@ -4,7 +4,6 @@ package pt.ua.sd.ropegame.referee;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
-import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.interfaces.IRefRefSite;
 import pt.ua.sd.ropegame.common.enums.RefereeState;
 import pt.ua.sd.ropegame.common.interfaces.IRefBench;
@@ -125,7 +124,7 @@ public class Referee extends Thread {
                             response = playground.assertTrialDecision(clock);
                             clock.update(response.getClock());
 
-                            knockout = response.isBoolVal();
+                            knockout = response.getBoolVal();
                             ropePos = response.getIntVal();
                             boolean endOfGame = response.isBoolVal2();
 
@@ -149,7 +148,7 @@ public class Referee extends Thread {
                         response = refereeSite.declareGameWinner(clock, currentTrial, ropePos, knockout);
                         clock.update(response.getClock());
 
-                        boolean endOfMatch = response.isBoolVal();
+                        boolean endOfMatch = response.getBoolVal();
 
                         // clocks
                         if(!endOfMatch) {
@@ -178,7 +177,7 @@ public class Referee extends Thread {
                 }
 
                 response = refereeSite.refHasMoreOperations();
-                hasMoreOper = response.isBoolVal();
+                hasMoreOper = response.getBoolVal();
             } while (hasMoreOper);
 
             System.out.println("O árbitro terminou.");

@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 /**
  * This interface contains all the methods a Bench-like object must implement to allow the contestants to interact with a remote bench.
  */
-public interface IContestantsBench extends ITeamBench {
+public interface IContestantsBench extends IBench {
 
     /**
      * Checks to see if a contestant was picked by his coach.

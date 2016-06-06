@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 /**
  * This interface contains all the methods required by the coach to interact with a remote Bench Server.
  */
-public interface ICoachBench extends ITeamBench {
+public interface ICoachBench extends IBench {
 
     /**
      * Updates a coach's team players strengths.

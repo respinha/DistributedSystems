@@ -40,15 +40,15 @@ public class TeamClient {
         String playgroundEntry = "Playground";
         String refSiteEntry = "RefSite";
 
-        ITeamBench benchInterface = null;
-        ITeamPlayground playgroundInterface = null;
+        IBench benchInterface = null;
+        IPlayground playgroundInterface = null;
         ICoachRefSite refereeSiteInterface = null;
 
 
         try {
             Registry registry = LocateRegistry.getRegistry(rmiRegHostName, rmiRegPortNumb);
-            benchInterface = (ITeamBench) registry.lookup(benchEntry);
-            playgroundInterface = (ITeamPlayground) registry.lookup(playgroundEntry);
+            benchInterface = (IBench) registry.lookup(benchEntry);
+            playgroundInterface = (IPlayground) registry.lookup(playgroundEntry);
             refereeSiteInterface = (ICoachRefSite) registry.lookup(refSiteEntry);
         } catch (RemoteException e) {
             System.out.println("Exceção na localização de um registo: "+e.getMessage());

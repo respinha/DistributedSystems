@@ -4,7 +4,7 @@ import pt.ua.sd.ropegame.common.VectClock;
 import java.rmi.RemoteException;
 
 /**
- * Interface a Bench that connects to a General Repository must implement.
+ * Interface a General Repository-like object must implement to allow a bench connection to a remote genrep.
  */
 public interface IBenchGenRep extends IGeneralRepository {
 
