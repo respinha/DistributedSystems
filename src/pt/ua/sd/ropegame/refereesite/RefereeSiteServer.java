@@ -5,6 +5,7 @@ import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IRefSite;
 import pt.ua.sd.ropegame.common.interfaces.IRefSiteGenRep;
+import pt.ua.sd.ropegame.common.interfaces.IRegister;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
@@ -34,12 +35,12 @@ public class RefereeSiteServer {
         int rmiRegPortNumb = configs.getRmiPort();
         int localPortNumber = configs.getRefSitePort();
 
-        IRefSiteGenRep generalRepository = null;
+        IRefSiteGenRep refSiteGenRep = null;
         String genRepEntry = "GenRep";
 
         try {
             Registry registry = LocateRegistry.getRegistry(rmiRegHostName, rmiRegPortNumb);
-            generalRepository = (IRefSiteGenRep) registry.lookup(genRepEntry);
+            refSiteGenRep = (IRefSiteGenRep) registry.lookup(genRepEntry);
         } catch (RemoteException e) {
             System.out.println("Exceção na localização de um registo: "+e.getMessage());
             e.printStackTrace();
@@ -58,7 +59,7 @@ public class RefereeSiteServer {
 
 
         // shared regions and interfaces
-        RefereeSite refereeSite = new RefereeSite(generalRepository, configs);
+        RefereeSite refereeSite = new RefereeSite(refSiteGenRep, configs);
         IRefSite refSiteInterface = null;
 
         try {
@@ -72,6 +73,7 @@ public class RefereeSiteServer {
         System.out.println("O stub para a zona do árbitro foi gerado.");
 
         String nameEntry = "RefSite";
+        IRegister register = null;
         Registry registry = null;
 
         try {
@@ -85,13 +87,26 @@ public class RefereeSiteServer {
         System.out.println("O registo RMI foi criado.");
 
         try {
-            registry.bind(nameEntry, refSiteInterface);
+            register = (IRegister) registry.lookup(nameEntry);
+        } catch (RemoteException e) {
+            System.out.println("RegisterRemoteObject lookup exception: " + e.getMessage ());
+            e.printStackTrace ();
+            System.exit(1);
+        } catch (NotBoundException e) {
+            System.out.println("RegisterRemoteObject not bound exception: " + e.getMessage ());
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+
+        try {
+            register.bind(nameEntry, refSiteInterface);
         } catch (RemoteException e) {
             System.out.println("Exceção no registo da zona do árbitro: "+e.getMessage());
             e.printStackTrace();
             System.exit(1);
         } catch (AlreadyBoundException e) {
-            System.out.println("A zona do árbitro já está registada: " + e.getMessage());
+            System.out.println("A zona do árbitro já está registado: " + e.getMessage());
             e.printStackTrace();
             System.exit(1);
         }

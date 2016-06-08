@@ -4,8 +4,10 @@ package pt.ua.sd.ropegame.genrepository;
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IGeneralRepository;
+import pt.ua.sd.ropegame.common.interfaces.IRegister;
 
 import java.rmi.AlreadyBoundException;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -53,6 +55,7 @@ public class GeneralRepositoryServer {
         System.out.println("O stub para o repositório geral foi gerado.");
 
         String nameEntry = "GenRep";
+        IRegister register = null;
         Registry registry = null;
 
         try {
@@ -66,7 +69,20 @@ public class GeneralRepositoryServer {
         System.out.println("O registo RMI foi criado.");
 
         try {
-            registry.bind(nameEntry, generalRepositoryInterface);
+            register = (IRegister) registry.lookup(nameEntry);
+        } catch (RemoteException e) {
+            System.out.println("RegisterRemoteObject lookup exception: " + e.getMessage ());
+            e.printStackTrace ();
+            System.exit(1);
+        } catch (NotBoundException e) {
+            System.out.println("RegisterRemoteObject not bound exception: " + e.getMessage ());
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+
+        try {
+            register.bind(nameEntry, generalRepositoryInterface);
         } catch (RemoteException e) {
             System.out.println("Exceção no registo do repositório: "+e.getMessage());
             e.printStackTrace();

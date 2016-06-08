@@ -23,6 +23,9 @@ public class GameOfTheRopeConfigs {
     private int rmiPort;
     private String rmiHost;
 
+    private int registerPort;
+    private String registerHost;
+
 
     public GameOfTheRopeConfigs(DOMParser parser) {
         maxtrials = parser.getMaxTrials();
@@ -44,6 +47,8 @@ public class GameOfTheRopeConfigs {
         rmiHost = parser.getRMIHost();
         rmiPort = parser.getRMIPort();
 
+        registerPort = parser.getRegisterPort();
+        registerHost = parser.getRegisterHost();
     }
 
     /**
@@ -159,5 +164,13 @@ public class GameOfTheRopeConfigs {
 
     public String getRmiHost() {
         return rmiHost;
+    }
+
+    public int getRegisterPort() {
+        return registerPort;
+    }
+
+    public String getRegisterHost() {
+        return registerHost;
     }
 }

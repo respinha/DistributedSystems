@@ -1,11 +1,14 @@
 package pt.ua.sd.ropegame.bench;
 
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IBench;
 import pt.ua.sd.ropegame.common.interfaces.IBenchGenRep;
+import pt.ua.sd.ropegame.common.interfaces.IRegister;
 
+import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -74,6 +77,7 @@ public class BenchServer {
         System.out.println("O stub para o banco foi gerado.");
 
         String nameEntry = "Bench";
+        IRegister register = null;
         Registry registry = null;
 
         try {
@@ -87,7 +91,21 @@ public class BenchServer {
         System.out.println("O registo RMI foi criado.");
 
         try {
-            registry.bind(nameEntry, benchInterface);
+            register = (IRegister)  registry.lookup(nameEntry);
+        } catch (RemoteException e) {
+            System.out.println("RegisterRemoteObject lookup exception: " + e.getMessage ());
+            e.printStackTrace();
+            System.exit(1);
+        } catch (NotBoundException e) {
+            System.out.println("RegisterRemoteObject not bound exception: " + e.getMessage ());
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+
+
+        try {
+            register.bind(nameEntry, benchInterface);
         } catch (RemoteException e) {
             System.out.println("Exceção no registo do banco: "+e.getMessage());
             e.printStackTrace();

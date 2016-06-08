@@ -5,6 +5,7 @@ import pt.ua.sd.ropegame.common.DOMParser;
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
 import pt.ua.sd.ropegame.common.interfaces.IPlayground;
 import pt.ua.sd.ropegame.common.interfaces.IPlaygroundGenRep;
+import pt.ua.sd.ropegame.common.interfaces.IRegister;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
@@ -72,6 +73,7 @@ public class PlaygroundServer {
         System.out.println("O stub para o terreiro foi gerado.");
 
         String nameEntry = "Playground";
+        IRegister register = null;
         Registry registry = null;
 
         try {
@@ -85,7 +87,20 @@ public class PlaygroundServer {
         System.out.println("O registo RMI foi criado.");
 
         try {
-            registry.bind(nameEntry, playgroundInterface);
+            register = (IRegister) registry.lookup(nameEntry);
+        } catch (RemoteException e) {
+            System.out.println("RegisterRemoteObject lookup exception: " + e.getMessage ());
+            e.printStackTrace ();
+            System.exit(1);
+        } catch (NotBoundException e) {
+            System.out.println("RegisterRemoteObject not bound exception: " + e.getMessage ());
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+
+        try {
+            register.bind(nameEntry, playgroundInterface);
         } catch (RemoteException e) {
             System.out.println("Exceção no registo do terreiro: "+e.getMessage());
             e.printStackTrace();

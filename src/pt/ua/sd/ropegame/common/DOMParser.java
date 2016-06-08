@@ -214,4 +214,15 @@ public class DOMParser {
     }
 
 
+    public int getRegisterPort() {
+
+        NodeList nList = doc.getElementsByTagName("registerPort");
+        return Integer.parseInt(nList.item(0).getTextContent());
+    }
+
+    public String getRegisterHost() {
+
+        NodeList nList = doc.getElementsByTagName("registerHostName");
+        return nList.item(0).getTextContent();
+    }
 }
