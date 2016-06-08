@@ -2,7 +2,6 @@ package pt.ua.sd.ropegame.team;
 
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
-import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.enums.CoachState;
 import pt.ua.sd.ropegame.common.enums.CoachStrategy;
@@ -133,7 +132,7 @@ public class Coach extends TeamMember {
                             response = playground.reviewNotes(clock, this.team);
                             clock.update(response.getClock());
                             int result = response.getIntVal();
-                            knockout = response.isBoolVal();
+                            knockout = response.getBoolVal();
                             currentTrial = response.getInt2Val();
 
                             changeStrategy(result);
@@ -153,7 +152,7 @@ public class Coach extends TeamMember {
 
 
                 response = bench.coachesHaveMoreOperations();
-                hasMoreOper = response.isBoolVal();
+                hasMoreOper = response.getBoolVal();
             } while(hasMoreOper);
 
             System.out.println("O treinador da equipa "+ team + " terminou.");

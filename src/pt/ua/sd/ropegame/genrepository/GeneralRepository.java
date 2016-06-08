@@ -18,7 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * General repository: generates the log file.
  */
-class GeneralRepository implements
+public class GeneralRepository implements
         IBenchGenRep, IRefSiteGenRep, IPlaygroundGenRep, IClockChangeListener {
 
 
@@ -27,6 +27,9 @@ class GeneralRepository implements
     private int deadRegions;
     private VectClock vectClock;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clockUpdated() {
         mutex.lock();
@@ -161,6 +164,9 @@ class GeneralRepository implements
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void updateGame(VectClock clientClock, int game) {
 
@@ -178,9 +184,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Displays "Match was won by team # (#-#). / was a draw." message.
-     * @param winner team which won the match.
-     * @param results final results.
+     * {@inheritDoc}
      */
     @Override
     public void updateMatchWinner(VectClock clientClock, int winner, int[] results) {
@@ -209,7 +213,8 @@ class GeneralRepository implements
     }
 
     /**
-     * Displays "Game # was won by team # by knock out in # trials. / by points. / was a draw." message.
+     * {@inheritDoc}
+     * @param clientClock Referee's current clock.
      * @param currentGame current game.
      * @param gameWinner game winner.
      * @param ntrials current trial when game ended.
@@ -242,8 +247,10 @@ class GeneralRepository implements
         }
     }
 
-    /** Update referee state.
-     * @param state Referee's new State.
+    /**
+     * {@inheritDoc}
+     * @param clientClock Remote client's current clock.
+     * @param state Referee's new state.
      */
     @Override
     public void updateRefState(VectClock clientClock, String state) {
@@ -261,6 +268,9 @@ class GeneralRepository implements
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void closeConnection() {
         mutex.lock();
@@ -306,9 +316,7 @@ class GeneralRepository implements
 
 
     /**
-     * Update contestant state.
-     * @param state new contestant state.
-     * @param gameMemberID The contestant's ID.
+     * {@inheritDoc}
      */
     @Override
     public void updateContestantState(VectClock clientClock, String state, int gameMemberID, int teamID) {
@@ -325,9 +333,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update all contestants strengths.
-     * @param teamID
-     * @param strength
+     * {@inheritDoc}
      */
     @Override
     public void updateStrengths(VectClock clientClock, int teamID, int[] strength) {
@@ -361,6 +367,10 @@ class GeneralRepository implements
 
     }
 
+    /**
+     * {@inheritDoc}
+     * @param clientClock
+     */
     @Override
     public void updateClock(VectClock clientClock) {
        mutex.lock();
@@ -371,10 +381,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update a single contestant state.
-     * @param teamID
-     * @param gameMemberID
-     * @param state
+     * {@inheritDoc}
      */
     private void updateStates(int teamID, int gameMemberID, String state) {
         if(teamID == 0) {
@@ -421,8 +428,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update Coach State
-     * @param state new coach state.
+     * {@inheritDoc}
      */
     @Override
     public void updateCoachState(VectClock clientClock, String state, int teamID) {
@@ -446,9 +452,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Remove a contestant from a playground position.
-     * @param team Contestant's team
-     * @param pos Contestant's posistion in playground,
+     * {@inheritDoc}
      */
     @Override
     public void removeContestantFromPosition(VectClock clientClock, int team, int pos) {
@@ -484,10 +488,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update a contestant's position in playground.
-     * @param id
-     * @param teamID
-     * @param pos
+     * {@inheritDoc}
      */
     @Override
     public void updateContestantPosition(VectClock clientClock, int id, int teamID, int pos) {
@@ -536,8 +537,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update current trial number.
-     * @param trial current trial number.
+     * {@inheritDoc}
      */
 
     @Override
@@ -555,8 +555,7 @@ class GeneralRepository implements
     }
 
     /**
-     * Update current rope position.
-     * @param ropePos current rope position.
+     * {@inheritDoc}
      */
     @Override
     public void updateRopePosition(VectClock clientClock, int ropePos) {
@@ -574,7 +573,6 @@ class GeneralRepository implements
     /**
      * Generate final log file.
      */
-
     private void generateLogFile() {
 
         try {

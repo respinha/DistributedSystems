@@ -3,7 +3,7 @@ package pt.ua.sd.ropegame.common.interfaces;
 import java.rmi.Remote;
 
 /**
- * Created by davidsilva on 03/06/16.
+ * An interface every remote Playground object must implement.
  */
 public interface IPlayground extends Remote {
 }

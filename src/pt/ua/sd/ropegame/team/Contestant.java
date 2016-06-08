@@ -2,7 +2,6 @@ package pt.ua.sd.ropegame.team;
 
 
 import pt.ua.sd.ropegame.common.GameOfTheRopeConfigs;
-import pt.ua.sd.ropegame.common.VectClock;
 import pt.ua.sd.ropegame.common.communication.Response;
 import pt.ua.sd.ropegame.common.interfaces.IContestantsPlay;
 import pt.ua.sd.ropegame.common.enums.ContestantState;
@@ -81,7 +80,7 @@ public class Contestant extends TeamMember {
                             clock.update(response.getClock());
 
                             strength = response.getIntVal();
-                            hasMoreOper = response.isBoolVal();
+                            hasMoreOper = response.getBoolVal();
                             if (!hasMoreOper)
                                 break;
 
@@ -119,7 +118,7 @@ public class Contestant extends TeamMember {
                             response = playground.amDone(clock);
                             clock.update(response.getClock());
 
-                            boolean matchOver = response.isBoolVal();
+                            boolean matchOver = response.getBoolVal();
 
                             // seat down after the trial ended
 
@@ -138,7 +137,7 @@ public class Contestant extends TeamMember {
 
 
                 response = bench.contestantsHaveMoreOperations();
-                hasMoreOper = response.isBoolVal();
+                hasMoreOper = response.getBoolVal();
             } while (hasMoreOper);
 
             System.out.println("O jogador " + number + " da equipa " + team + " terminou.");

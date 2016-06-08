@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Memory region which stores information on both teams.
  */
-class Bench implements ICoachBench, IContestantsBench, IRefBench {
+public class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     private static final Random RANDOMGEN = new Random();
 
@@ -105,7 +105,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Called by referee to signal a new trial call.
+     * {@inheritDoc}
      */
     @Override
     public Response callTrial(VectClock clientClock) throws RemoteException {
@@ -127,11 +127,8 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * The coach is blocked in state WAITING_FOR_REFEREE_COMMAND.
-
-     * @throws InterruptedException The wait was interrupted.
+     * {@inheritDoc}
      */
-
     @Override
     public Response waitForCoachCall(VectClock clientClock) throws InterruptedException, RemoteException {
         mutex.lock();
@@ -152,7 +149,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * @return True if Coaches have more operations, False otherwise.
+     * {@inheritDoc}
      */
     @Override
     public Response coachesHaveMoreOperations() throws RemoteException{
@@ -166,10 +163,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Updates a coach's team players strengths.
-     * @param teamID The coach's team ID.
-     * @param trial Current trial.
-     * @param knockout True if knockout, false otherwise.
+     * {@inheritDoc}
      */
     @Override
     public Response reviewNotes(VectClock clientClock, int teamID, int trial, boolean knockout) throws RemoteException {
@@ -235,10 +229,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Picks team contestants based on coach's current strategy.
-     * @param teamID The Coach's
-     * @param strategy
-     * @throws InterruptedException The thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response callContestants(VectClock clientClock, int teamID, String strategy) throws RemoteException {
@@ -297,9 +288,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Checks to see if a contestant was picked by his coach.
-     * @return current trial number
-     * @throws InterruptedException The thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response waitForContestantCall(VectClock clientClock, int gameMemberID, int teamID) throws InterruptedException, RemoteException {
@@ -329,7 +318,7 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     /**
-     * Transition.
+     * {@inheritDoc}
      */
     @Override
     public Response seatDown(VectClock clientClock, int gameMemberID, int teamID, int strength, int position, boolean matchOver) throws RemoteException {
@@ -374,6 +363,13 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     }
 
+    /**
+     * Assigns strength for a given contestant.
+     * @param teamID contestant's team.
+     * @param gameMemberID contestant's number.
+     * @param strength contestant's strength
+     * @throws RemoteException A remote exception occurred.
+     */
     private void assignStrength(int teamID, int gameMemberID, int strength) throws RemoteException {
         strengths[teamID][gameMemberID] = strength;
         if(nContestants[teamID] == configs.getNContestants())
@@ -381,6 +377,9 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Response contestantsHaveMoreOperations() throws RemoteException
     {
@@ -393,6 +392,10 @@ class Bench implements ICoachBench, IContestantsBench, IRefBench {
     }
 
     private int nrequestsToDie = 0;
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void closeBenchConnection() throws RemoteException {
         mutex.lock();

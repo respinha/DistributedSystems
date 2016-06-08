@@ -62,7 +62,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     * Method used make the first refereee state update.
+     * {@inheritDoc}
      */
     @Override
     public Response startTheMatch(VectClock clientClock) throws RemoteException {
@@ -80,6 +80,9 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Response refHasMoreOperations() throws RemoteException {
 
@@ -91,6 +94,9 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void closeRefSite() throws RemoteException {
         mutex.lock();
@@ -103,7 +109,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     * Transition.
+     * {@inheritDoc}
      */
     @Override
     public Response announceNewGameRefSite(VectClock clientClock) throws RemoteException {
@@ -126,8 +132,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     * Block the referee until the last coach informs her all contestants are ready.
-     * @throws InterruptedException Thread was interrupted.
+     * {@inheritDoc}
      */
     @Override
     public Response startTrialRefSite(VectClock clientClock) throws InterruptedException, RemoteException{
@@ -148,8 +153,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     * Called by the coach of the last team to arrive at the playground to inform the referee the trial can start.
-     * @param coachTeamID
+     * {@inheritDoc}
      */
     @Override
     public Response informReferee(VectClock clientClock, int coachTeamID) throws RemoteException {
@@ -175,10 +179,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
 
 
     /**
-     * Update general repository with last game stats.
-     * @param ntrials number of trials to win.
-     * @param ropePos
-     * @param knockout true if the victory was achieved by knockout.
+     * {@inheritDoc}
      */
     @Override
     public Response declareGameWinner(VectClock clientClock, int ntrials, int ropePos, boolean knockout) throws RemoteException {
@@ -223,7 +224,7 @@ class RefereeSite implements IRefRefSite, ICoachRefSite {
     }
 
     /**
-     * Update repository with match stats.
+     * {@inheritDoc}
      */
     @Override
     public Response declareMatchWinner(VectClock clientClock) throws RemoteException {

@@ -1,11 +1,10 @@
 package pt.ua.sd.ropegame.common.communication;
 
 import pt.ua.sd.ropegame.common.VectClock;
-
 import java.io.Serializable;
 
 /**
- * Created by davidsilva on 03/06/16.
+ * A class used to send a response to a remote function call.
  */
 public class Response implements Serializable {
 
@@ -87,7 +86,7 @@ public class Response implements Serializable {
         return clock;
     }
 
-    public boolean isBoolVal() {
+    public boolean getBoolVal() {
         return boolVal;
     }
 

@@ -16,6 +16,10 @@ import java.rmi.registry.Registry;
  */
 public class RefereeClient {
 
+    /**
+     * Starts RefereeClient
+     * @param args
+     */
     public static void main(String... args) {
         if(args.length != 1)
             throw new IllegalArgumentException("Utilização: java -jar refereesite <config.xml>");
