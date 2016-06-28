@@ -17,4 +17,4 @@ This project is the third of three projects from the Distributed Systems course,
 
 ### Owners ###
 
-* The entire solution was developped by me and David Silva (dmpasilva).
+The entire solution was developped by me and David Silva ([dmpasilva](https://bitbucket.org/dmpasilva)).
