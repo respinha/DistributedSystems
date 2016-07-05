@@ -8,7 +8,7 @@ This project is the third of three projects from the Distributed Systems course,
 * Concurrency
 * Explicit monitors
 * Sockets
-* Parallelsms
+* Parallelism
 * RMI
 
 ### Running ###
