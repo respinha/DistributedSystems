@@ -170,6 +170,8 @@ public class Bench implements ICoachBench, IContestantsBench, IRefBench {
         mutex.lock();
 
         try {
+			// updating vector clock
+		
             vectClock.update(clientClock);
             nCoaches++; // increment the number of coaches reviewing notes
 
