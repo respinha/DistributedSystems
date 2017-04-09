@@ -18,4 +18,4 @@ This project is the third of three projects from the Distributed Systems course,
 
 ### Owners ###
 
-The entire solution was developped by Rui Espinha Ribeiro ([Espinha](https://github.com/responha)) and David Silva ([dmpasilva](https://bitbucket.org/dmpasilva)).
+The entire solution was developped by Rui Espinha Ribeiro ([Espinha](https://github.com/responha)) and David Silva ([dmpasilva](https://github.com/dmpasilva)).
